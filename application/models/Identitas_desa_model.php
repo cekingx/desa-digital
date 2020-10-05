@@ -35,6 +35,8 @@ class Identitas_desa_model extends CI_Model
             'sejarah'       => $post['sejarah'],
             'visi'          => $post['visi'],
             'misi'          => $post['misi'],
+            'latitude'      => $post['latitude'],
+            'longitude'     => $post['longitude'],
             'logo'          => $logo
         );
 

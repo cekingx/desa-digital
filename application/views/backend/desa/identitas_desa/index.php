@@ -42,6 +42,10 @@
                             <td>Misi</td>
                             <td><?= $identitas_desa->MISI ?></td>
                         </tr>
+                        <tr>
+                            <td>Koordinat</td>
+                            <td>(<?= $identitas_desa->LATITUDE ?>, <?= $identitas_desa->LONGITUDE ?>)</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

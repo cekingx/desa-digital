@@ -86,6 +86,36 @@
                         </span>
                     </div>
                     <!-- end::misi -->
+                    <!-- begin::latitude -->
+                    <div class="form-group">
+                        <label for="latitude">Latitude</label> 
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="latitude" 
+                            name="latitude" 
+                            value="<?= $identitas_desa->LATITUDE ?>"
+                        >
+                        <span style="display: none;" class="text-danger" id="need-latitude">
+                            Latitude masih kosong
+                        </span>
+                    </div>
+                    <!-- end::latitude -->
+                    <!-- begin::longitude -->
+                    <div class="form-group">
+                        <label for="longitude">Longitude</label> 
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="longitude" 
+                            name="longitude" 
+                            value="<?= $identitas_desa->LONGITUDE ?>"
+                        >
+                        <span style="display: none;" class="text-danger" id="need-longitude">
+                            Longitude masih kosong
+                        </span>
+                    </div>
+                    <!-- end::longitude -->
                     <!-- begin::logo -->
                     <div class="form-group">
                         <label for="logo">Logo Desa</label> 
