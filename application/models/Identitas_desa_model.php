@@ -7,7 +7,7 @@ class Identitas_desa_model extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $wilayah_id = $this->session->userdata('id');
+        $wilayah_id = $this->session->userdata('wilayah_id');
         $this->desa = $this->db->select('*')
                             ->from('ref_wilayah') 
                             ->where('id', $wilayah_id)
