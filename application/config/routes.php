@@ -59,6 +59,7 @@ $route['post_login'] = 'Auth/login';
 $route['debug'] = 'Debug/index';
 
 // begin::DESA
+// begin::identitas-desa
 $route['desa']                                  = 'Desa/Dashboard/index';
 $route['desa/identitas-desa']                   = 'Desa/Identitas_desa/index';
 $route['desa/identitas-desa/edit']              = 'Desa/Identitas_desa/edit';
@@ -69,6 +70,13 @@ $route['desa/identitas-desa/kades/update']      = 'Desa/Identitas_desa/kades_upd
 $route['desa/identitas-desa/sekdes']            = 'Desa/Identitas_desa/sekdes_index';
 $route['desa/identitas-desa/sekdes/edit']       = 'Desa/Identitas_desa/sekdes_edit';
 $route['desa/identitas-desa/sekdes/update']     = 'Desa/Identitas_desa/sekdes_update';
+// end::identitas-desa
+
+// begin::pengajuan
+$route['desa/pengajuan'] = 'Desa/Pengajuan/index';
+$route['desa/pengajuan/data-masyarakat'] = 'Desa/Pengajuan/get_data_masyarakat';
+$route['desa/pengajuan/set-nik-to-session'] = 'Desa/Pengajuan/set_nik_to_session';
+// end::pengajuan
 // end::DESA
 
 // begin::CAPIL
