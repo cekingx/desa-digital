@@ -102,8 +102,16 @@
 				dataType: 'json',
 				success: function(data) {
 					console.log(data)
-					if(data){
-						window.location = "<?php echo base_url('/');?>";
+					if(data.status){
+						if(data.user_role_id == 1) {
+							window.location = "<?php echo base_url('/');?>";
+						} else if(data.user_role_id == 2) {
+							window.location = "<?php echo base_url('/');?>";
+						} else if(data.user_role_id == 3) {
+							window.location = "<?php echo base_url('/desa');?>";
+						} else {
+							window.location = "<?php echo base_url('/');?>";
+						}
 					}else{
 						bootbox.alert({
 							message: "Wrong username or password",

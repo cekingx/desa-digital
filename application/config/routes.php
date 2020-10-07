@@ -74,8 +74,11 @@ $route['desa/identitas-desa/sekdes/update']     = 'Desa/Identitas_desa/sekdes_up
 
 // begin::pengajuan
 $route['desa/pengajuan'] = 'Desa/Pengajuan/index';
+$route['desa/pengajuan/pilih-layanan'] = 'Desa/Pengajuan/pilih_layanan';
 $route['desa/pengajuan/data-masyarakat'] = 'Desa/Pengajuan/get_data_masyarakat';
 $route['desa/pengajuan/set-nik-to-session'] = 'Desa/Pengajuan/set_nik_to_session';
+$route['desa/pengajuan/penerbitan-kk-baru'] = 'Desa/Pengajuan/penerbitan_kk_baru';
+$route['desa/pengajuan/wizard'] = 'Desa/Pengajuan/wizard';
 // end::pengajuan
 // end::DESA
 

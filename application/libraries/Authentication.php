@@ -12,7 +12,7 @@ class Authentication
 
 	public function is_loggedin()
 	{
-		return (bool) $this->ci->session->userdata('user_id');
+        return (bool) $this->ci->session->userdata('user_id');
 	}
 
 	public function login($username, $password)
@@ -33,10 +33,9 @@ class Authentication
 						$this->ci->db->where('user_id', $user->row()->user_id);
 						$this->ci->db->update('ref_user', $data_login);
 						$this->ci->session->set_userdata(array(
-							'user_id'           => $user->row()->user_id,
-							'user_nama'     	=> $user->row()->user_nama,
-							'user_username'     => $user->row()->user_username,
-							'user_prev_id'     	=> $user->row()->user_prev_id,
+							'user_id'               => $user->row()->user_id,
+							'wilayah_id'     	    => $user->row()->user_wilayah_id,
+							'user_role_id'          => $user->row()->user_user_role_id,
 						));
 						return TRUE;
 					} else {
@@ -48,15 +47,16 @@ class Authentication
 			}
 		} else {
 			return FALSE;
-		}
+        }
 	}
 
 	public function logout()
 	{
 		$this->ci->session->unset_userdata('user_id');
-		$this->ci->session->unset_userdata('user_nama');
 		$this->ci->session->unset_userdata('user_username');
-		$this->ci->session->unset_userdata('user_prev_id');
+		$this->ci->session->unset_userdata('user_role_id');
+		$this->ci->session->unset_userdata('wilayah_id');
+		$this->ci->session->unset_userdata('nik_pemohon');
 		return TRUE;
 	}
 }

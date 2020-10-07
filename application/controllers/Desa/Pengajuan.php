@@ -26,6 +26,38 @@ class Pengajuan extends CI_Controller
         $this->load->view('layouts/master_desa', $data);
     }
 
+    public function pilih_layanan()
+    {
+        if(empty($this->session->userdata('nik_pemohon'))) {
+            return redirect('desa/pengajuan');
+        }
+
+        $data['content'] = 'backend/desa/pengajuan/pilih-layanan';
+        $data['identitas_desa'] = $this->Identitas_desa_model->get_by_id($this->session->userdata('wilayah_id'));
+        $data['title'] = $data['identitas_desa']->NAMA_KEL;
+        if(!empty($data['identitas_desa']->LOGO)) {
+            $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
+        } else {
+            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
+        }
+
+        $this->load->view('layouts/master_desa', $data);
+    }
+
+    public function wizard()
+    {
+        $data['content'] = 'backend/desa/pengajuan/wizard';
+        $data['identitas_desa'] = $this->Identitas_desa_model->get_by_id($this->session->userdata('wilayah_id'));
+        $data['title'] = $data['identitas_desa']->NAMA_KEL;
+        if(!empty($data['identitas_desa']->LOGO)) {
+            $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
+        } else {
+            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
+        }
+
+        $this->load->view('layouts/master_desa', $data);
+    }
+
     public function get_data_masyarakat()
     {
         $post = $this->input->post();

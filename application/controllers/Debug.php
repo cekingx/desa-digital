@@ -22,7 +22,7 @@ class Debug extends CI_Controller
 
     public function cmd()
     {
-        $data = $this->data_masyarakat_model->get_by_nik('5104036403820002');
+        $data = $this->authentication->is_loggedin();
 
         var_dump($data);
     }

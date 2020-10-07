@@ -9,21 +9,25 @@
                 </div> 
             </div>
             <div class="card-body">
-                <?= form_open_multipart('#', 'id="upload"') ?>
-                    <!-- begin::nik -->
-                    <div class="form-group">
-                        <label for="nik">NIK Pemohon</label>
-                        <input 
-                            type="text" 
-                            class="form-control"
-                            id="nik"
-                            name="nik">
+                <div class="row justify-content-center">
+                    <div class="col-xl-12 col-xxl-7">
+                        <?= form_open_multipart('#', 'id="upload"') ?>
+                            <!-- begin::nik -->
+                            <div class="form-group">
+                                <label for="nik">NIK Pemohon</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control"
+                                    id="nik"
+                                    name="nik">
+                            </div>
+                            <!-- end::nik -->
+                            <!-- begin::button -->
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <!-- end::button -->
+                        <?= form_close(); ?>
                     </div>
-                    <!-- end::nik -->
-                    <!-- begin::button -->
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <!-- end::button -->
-                <?= form_close(); ?>
+                </div>
             </div>
         </div>
     </div>
@@ -60,7 +64,8 @@
                 })
             },
             error: function(error) {
-                console.log(error);
+                // console.log(error);
+                bootbox.alert('Data yang anda input tidak ditemukan');
             }
         });
     });
@@ -76,10 +81,12 @@
             processData: false,
             contentType: false,
             success: function(data) {
-                console.log(data);
+                // console.log(data);
+                window.location = '<?= base_url('desa/pengajuan/pilih-layanan') ?>';
             },
             error: function(error) {
-                console.log(error)
+                // console.log(error)
+                bootbox.alert('Terjadi error pada server');
             }
         });
     }
