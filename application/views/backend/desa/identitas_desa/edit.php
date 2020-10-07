@@ -50,7 +50,7 @@
                     <div class="form-group">
                         <label for="sejarah">Sejarah</label> 
                         <textarea class="form-control" name="sejarah" id="sejarah" cols="30"
-                            rows="10"><?= $identitas_desa->SEJARAH ?></textarea>
+                            rows="15"><?= $identitas_desa->SEJARAH ?></textarea>
                         <span style="display: none;" class="text-danger" id="need-sejarah">
                             Sejarah masih kosong
                         </span>
@@ -59,13 +59,8 @@
                     <!-- begin::visi -->
                     <div class="form-group">
                         <label for="visi">Visi</label> 
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            id="visi" 
-                            name="visi" 
-                            value="<?= $identitas_desa->VISI ?>"
-                        >
+                        <textarea class="form-control" name="visi" id="visi" cols="30"
+                            rows="7"><?= $identitas_desa->VISI ?></textarea>
                         <span style="display: none;" class="text-danger" id="need-visi">
                             Visi masih kosong
                         </span>
@@ -74,13 +69,8 @@
                     <!-- begin::misi -->
                     <div class="form-group">
                         <label for="misi">Misi</label> 
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            id="misi" 
-                            name="misi" 
-                            value="<?= $identitas_desa->MISI ?>"
-                        >
+                        <textarea class="form-control" name="misi" id="misi" cols="30"
+                            rows="7"><?= $identitas_desa->MISI ?></textarea>
                         <span style="display: none;" class="text-danger" id="need-misi">
                             Misi masih kosong
                         </span>
@@ -127,9 +117,35 @@
                         >
                     </div>
                     <!-- end::logo -->
+                    <!-- begin::location -->
+                    <button type="button" id="lokasi" class="btn btn-secondary">Tambah Lokasi</button>
+                    <span style="display: none;" class="text-danger" id="geolocation-not-supported">
+                        Geolocation tidak didukung
+                    </span>
+                    <!-- end::location -->
                     <button type="submit" class="btn btn-success">Submit</button>
                 <?= form_close();  ?>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $('#lokasi').click(function() {
+        getLocation();
+    });
+
+    function getLocation(){
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            $('#geolocation-not-supported').fadeIn();
+        }
+    }
+
+    function showPosition(position) {
+        $('#latitude').val(position.coords.latitude);
+        $('#longitude').val(position.coords.longitude);
+        console.log(position.coords);
+    }
+</script>
