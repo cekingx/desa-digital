@@ -69,6 +69,12 @@ $route['desa/identitas-desa/kades/update']      = 'Desa/Identitas_desa/kades_upd
 $route['desa/identitas-desa/sekdes']            = 'Desa/Identitas_desa/sekdes_index';
 $route['desa/identitas-desa/sekdes/edit']       = 'Desa/Identitas_desa/sekdes_edit';
 $route['desa/identitas-desa/sekdes/update']     = 'Desa/Identitas_desa/sekdes_update';
+
+$route['desa/banjar']                           = 'Desa/Banjar/index';
+$route['desa/banjar/edit']                      = 'Desa/Banjar/edit';
+$route['desa/banjar/update']                    = 'Desa/Banjar/update';
+$route['desa/banjar/store']                     = 'Desa/Banjar/store';
+$route['desa/banjar/data']                      = 'Desa/Banjar/banjar_data';
 // end::DESA
 
 // begin::CAPIL

@@ -9,7 +9,7 @@
 			<?php if(!empty($logo)): ?>
 				<img alt="Logo" height="50" src="<?= $logo ?>" />
 			<?php else: ?>
-				<img alt="Logo" width="100" src="<?php echo base_url('assets/img/logo-top.png')?>" />
+				<img alt="Logo" width="100" src="<?php echo base_url('storage/desa/logo/default-logo.png')?>" />
 			<?php endif; ?>
 		</a>
 		<!--end::Logo-->
@@ -102,6 +102,14 @@
 										<span></span>
 									</i>
 									<span class="menu-text">Sekdes</span>
+								</a>
+							</li>
+							<li class="menu-item <?php if ($this->uri->segment(1) == "desa" && $this->uri->segment(2) == "banjar" && $this->uri->segment(3) == "") : ?>menu-item-active<?php endif ?>" aria-haspopup="true">
+								<a href="<?php echo base_url('desa/banjar') ?>" class="menu-link">
+									<i class="menu-bullet menu-bullet-dot">
+										<span></span>
+									</i>
+									<span class="menu-text">Banjar</span>
 								</a>
 							</li>
 						</ul>

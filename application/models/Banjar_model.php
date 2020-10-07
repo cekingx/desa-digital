@@ -14,11 +14,16 @@ class Banjar_model extends CI_Model
         parent::__construct();
     }
 
+    public function getAll() 
+    {
+        return $this->db->get($this->table)->result_array();
+    }
+
     public function get_by_id($banjar_id)
     {
         return $this->db->select('*')
                         ->from($this->table)
-                        ->where($this->banjar_id, $banjar_id)
+                        ->where('banjar_id', $banjar_id)
                         ->get()
                         ->row();
     }
@@ -49,6 +54,7 @@ class Banjar_model extends CI_Model
     {
         $post = $this->input->post();
         $this->banjar_id = $banjar_id;
+        $this->banjar_wilayah_id = $post['banjar_wilayah_id'];
         $this->banjar_nama = $post['banjar_nama'];
         $this->db->set('banjar_updated_at', 'NOW()', FALSE);
 
@@ -58,11 +64,6 @@ class Banjar_model extends CI_Model
 
     public function delete($banjar_id)
     {
-        $this->banjar_id = $banjar_id;
-        $this->banjar_is_deleted = 1;
-        $this->db->set('banjar_updated_at', 'NOW()', FALSE);
-
-        return $this->db->where('banjar_id', $this->banjar_id)
-                        ->update($this->table, $this);
+        return $this->db->delete($this->table, ['banjar_id' => $banjar_id]);
     }
 }
