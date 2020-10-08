@@ -104,9 +104,9 @@
 					console.log(data)
 					if(data.status){
 						if(data.user_role_id == 1) {
-							window.location = "<?php echo base_url('/');?>";
+							window.location = "<?php echo base_url('/super');?>";
 						} else if(data.user_role_id == 2) {
-							window.location = "<?php echo base_url('/');?>";
+							window.location = "<?php echo base_url('/capil');?>";
 						} else if(data.user_role_id == 3) {
 							window.location = "<?php echo base_url('/desa');?>";
 						} else {

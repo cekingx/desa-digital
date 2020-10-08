@@ -58,6 +58,21 @@ $route['logout'] = 'Auth/logout';
 $route['post_login'] = 'Auth/login';
 $route['debug'] = 'Debug/index';
 
+// begin::SUPER
+// begin::admin-desa
+$route['super'] = 'Super/Dashboard/index';
+$route['super/admin-desa'] = 'Super/Admin_desa/index';
+$route['super/admin-desa/create'] = 'Super/Admin_desa/create';
+$route['super/admin-desa/store'] = 'Super/Admin_desa/store';
+$route['super/admin-desa/get-admin-desa'] = 'Super/Admin_desa/get_admin_desa';
+// end::admin-desa
+// begin::admin-capil
+$route['super/admin-capil'] = 'Super/Admin_capil/index';
+$route['super/admin-capil/create'] = 'Super/Admin_capil/create';
+$route['super/admin-capil/store'] = 'Super/Admin_capil/store';
+// end::admin-capil
+// end::SUPER
+
 // begin::DESA
 // begin::identitas-desa
 $route['desa']                                  = 'Desa/Dashboard/index';

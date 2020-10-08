@@ -11,9 +11,8 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Dashboard';
+        $data['title'] = 'Dashboard Desa';
         $data['content'] = 'backend/desa/dashboard';
-        $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
 
         $this->load->view('layouts/master_desa', $data);
     }

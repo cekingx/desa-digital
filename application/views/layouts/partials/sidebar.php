@@ -9,7 +9,7 @@
 			<?php if(!empty($logo)): ?>
 				<img alt="Logo" width="100" src="<?= $logo ?>" />
 			<?php else: ?>
-				<img alt="Logo" width="100" src="<?php echo base_url('assets/img/logo-top.png')?>" />
+				<img alt="Logo" width="100" src="<?php echo base_url('storage/desa/logo/default-logo.png')?>" />
 			<?php endif; ?>
 		</a>
 		<!--end::Logo-->
