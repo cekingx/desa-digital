@@ -112,6 +112,22 @@
 									<span class="menu-text">Banjar</span>
 								</a>
 							</li>
+							<li class="menu-item <?php if ($this->uri->segment(1) == "desa" && $this->uri->segment(2) == "pengumuman" && $this->uri->segment(3) == "") : ?>menu-item-active<?php endif ?>" aria-haspopup="true">
+								<a href="<?php echo base_url('desa/pengumuman') ?>" class="menu-link">
+									<i class="menu-bullet menu-bullet-dot">
+										<span></span>
+									</i>
+									<span class="menu-text">Pengumuman</span>
+								</a>
+							</li>
+							<li class="menu-item <?php if ($this->uri->segment(1) == "desa" && $this->uri->segment(2) == "galeri" && $this->uri->segment(3) == "") : ?>menu-item-active<?php endif ?>" aria-haspopup="true">
+								<a href="<?php echo base_url('desa/galeri') ?>" class="menu-link">
+									<i class="menu-bullet menu-bullet-dot">
+										<span></span>
+									</i>
+									<span class="menu-text">Galeri </span>
+								</a>
+							</li>
 						</ul>
 					</div>
 				</li>
