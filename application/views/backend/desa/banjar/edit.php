@@ -20,6 +20,9 @@
                     <label>Nama Banjar</label>
                     <input type="text" class="form-control" placeholder="Nama Banjar" name="banjar_nama"
                         id="banjar_nama" value="<?= $banjar->banjar_nama ?>"/>
+                    <span style="display: none;" class="text-danger" id="need-nama">
+                        Nama Banjar masih kosong
+                    </span>
                 </div>
                 <!-- end::banjar -->
             </div>
@@ -35,7 +38,23 @@
 
 <script>
     $('.preloader').fadeOut();
+
+    $('#banjar_nama').keyup( function() {
+        if($('#banjar_nama').val() == '') {
+            $('#banjar_nama').addClass('is-invalid');
+            $('#need-nama').fadeIn(3);
+        } else {
+            $('#banjar_nama').removeClass('is-invalid');
+            $('#need-nama').fadeOut(3);
+        }
+    });
+
     $('#btn-save').click( function() {
+        if($('#banjar_nama').val() == '') {
+            $('#banjar_nama').addClass('is-invalid');
+            $('#need-nama').fadeIn(3);
+        } else {
+            $('.preloader').fadeIn();
             $.ajax({
                 type: 'POST',
                 url: '<?= base_url('desa/banjar/update') ?>',
@@ -47,12 +66,14 @@
                 dataType: 'json',
                 success: function(data) {
                     // console.log(data);
+                    $('.preloader').fadeOut();
                     window.location = '<?= base_url('/desa/banjar') ?>';
                 },
                 error: function(xhr, desc, err) {
                     console.log(xhr.responseText);
                 }
             });
+        }
     });
 
     $('#btn-cancel').click(function() {
