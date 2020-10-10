@@ -63,7 +63,7 @@ $('#admin-desa-form').submit(function(e) {
     e.preventDefault();
 
     $.ajax({
-        url: "<?= base_url('debug') ?>",
+        url: "<?= base_url('super/admin-desa/store') ?>",
         data: new FormData(this),
         type: 'POST',
         contentType: false,

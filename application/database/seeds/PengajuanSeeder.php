@@ -13,7 +13,7 @@ class PengajuanSeeder extends Seeder
             'pengajuan_wilayah_id'              => 66,
             'pengajuan_nik'                     => '5104031307990004',
             'pengajuan_status_pengajuan_id'     => 1,
-            'pengajuan_jenis_layanan'           => 'penerbitan-kk-baru'
+            'pengajuan_jenis_layanan'           => 1
         );
 
         $data_form = array(

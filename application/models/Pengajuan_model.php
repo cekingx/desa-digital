@@ -44,7 +44,7 @@ class Pengajuan_model extends CI_Model
 
     /**
      * 
-     * @param   array     $pengajuan      berisi wilayah_id dan nik
+     * @param   array     $pengajuan      berisi wilayah_id, nik dan id_layanan
      * @param   array     $form           berisi id jenis form yang digunakan
      * @param   array     $lampiran       berisi nama lampiran yang digunakan 
      */
@@ -52,8 +52,8 @@ class Pengajuan_model extends CI_Model
     {
         $data_pengajuan['pengajuan_wilayah_id']             = $pengajuan['wilayah_id'];
         $data_pengajuan['pengajuan_nik']                    = $pengajuan['nik'];
+        $data_pengajuan['pengajuan_jenis_layanan']          = $pengajuan['jenis_layanan'];
         $data_pengajuan['pengajuan_status_pengajuan_id']    = 1;
-        $data_pengajuan['pengajuan_jenis_layanan']          = $pengajuan['jenis_layanan']; 
 
         $this->db->insert('ta_pengajuan', $data_pengajuan);
         $pengajuan_id = $this->db->insert_id();
@@ -73,5 +73,10 @@ class Pengajuan_model extends CI_Model
             );
             $this->db->insert('ta_detail_pengajuan_lampiran', $data_lampiran);
         }
+
+        $this->session->set_userdata(array(
+            'pengajuan_id' => $pengajuan_id
+        ));
+        return TRUE;
     }
 }

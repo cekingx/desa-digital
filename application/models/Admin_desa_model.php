@@ -47,4 +47,15 @@ class Admin_desa_model extends CI_Model
 
         return $admin_desa;
     }
+
+    public function save($data)
+    {
+        $user['user_username'] = $data['user_username'];
+        $user['user_wilayah_id'] = $data['user_wilayah_id'];
+        $user['user_password'] = password_hash('defaultpass', PASSWORD_DEFAULT);
+        $user['user_foto'] = 'default.jpg';
+        $user['user_user_role_id'] = 3;
+
+        $this->db->insert('ref_user', $user);
+    }
 }

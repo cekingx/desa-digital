@@ -92,9 +92,16 @@ $route['desa/pengajuan'] = 'Desa/Pengajuan/index';
 $route['desa/pengajuan/pilih-layanan'] = 'Desa/Pengajuan/pilih_layanan';
 $route['desa/pengajuan/data-masyarakat'] = 'Desa/Pengajuan/get_data_masyarakat';
 $route['desa/pengajuan/set-nik-to-session'] = 'Desa/Pengajuan/set_nik_to_session';
-$route['desa/pengajuan/penerbitan-kk-baru'] = 'Desa/Pengajuan/penerbitan_kk_baru';
+$route['desa/pengajuan/set-pengajuan'] = 'Desa/Pengajuan/set_pengajuan';
 $route['desa/pengajuan/wizard'] = 'Desa/Pengajuan/wizard';
 // end::pengajuan
+
+// begin::penerbitan-kk
+$route['desa/pengajuan/penerbitan-kk-baru'] = 'Desa/Penerbitan_kk/penerbitan_kk_baru';
+$route['desa/pengajuan/detail-f101'] = 'Desa/Penerbitan_kk/input_detail_f101';
+$route['desa/pengajuan/detail-f101-v2'] = 'Desa/Penerbitan_kk/input_detail_f101_v2';
+$route['desa/pengajuan/test-validation'] = 'Desa/Penerbitan_kk/test_validation';
+// end::penerbitan-kk
 // end::DESA
 
 // begin::CAPIL

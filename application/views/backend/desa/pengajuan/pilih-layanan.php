@@ -192,19 +192,25 @@ $svgIcon = [
 
 $data = array(
     array(
+        'id' => 1,
         'link' => base_url('desa/pengajuan/penerbitan-kk-baru'),
         'content' => 'Penerbitan KK Baru',
-        'icon' => 'person'
+        'icon' => 'person',
+        'layanan' => 'penerbitan-kk-baru'
     ),
     array(
+        'id' => 2,
         'link' => '#',
         'content' => 'Penerbitan KTP Baru',
-        'icon' => 'person'
+        'icon' => 'person',
+        'layanan' => 'penerbitan-ktp-baru'
     ),
     array(
+        'id' => 3,
         'link' => '#',
         'content' => 'Penerbitan AKTA KELAHIRAN Baru', 
-        'icon' => 'person'
+        'icon' => 'person',
+        'layanan' => 'penerbitan-akta-kelahiran-baru'
     ),
 )
 
@@ -214,21 +220,34 @@ $data = array(
     <div class="d-flex flex-column-fluid">
         <div class="container">
             <div class="row">
-                <?php foreach($data as $data): ?>
-                <!-- begin::galeri -->
                 <div class="col-xl-3">
-                    <a href="<?= $data['link'] ?>" class="card card-custom card-stretch gutter-b">
-                        <!--begin::Body-->
+                    <button id="penerbitan-kk-baru" class="card card-custom card-stretch gutter-b">
                         <div class="card-body">
-                            <?= $svgIcon[$data['icon']] ?>
-                            <span class="font-weight-bold text-muted font-size-sm"><?= $data['content'] ?></span>
+                            <?= $svgIcon['person'] ?>
+                            <span class="font-weight-bold text-muted font-size-sm">Penerbitan KK Baru</span>
                         </div>
-                        <!--end::Body-->
-                    </a>
+                    </button>
                 </div>
-                <!-- end::galeri -->
-                <?php endforeach; ?>
             </div>
         </div>
     </div>
 </div>
+
+
+<script>
+    $('#penerbitan-kk-baru').click(function() {
+        $.ajax({
+            url: "<?= base_url('desa/pengajuan/set-pengajuan') ?>",
+            data : {
+                jenis_layanan: 1
+            },
+            type: 'POST',
+            success: function(data) {
+                console.log(data);
+            },
+            error: function(error) {
+                console.log(error.responseText);
+            }
+        })
+    })
+</script>

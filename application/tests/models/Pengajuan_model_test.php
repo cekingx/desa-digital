@@ -33,7 +33,7 @@ class Pengajuan_model_test extends TestCase
         $data_pengajuan = array(
             'wilayah_id'    => 66,
             'nik'           => '5104031307990004',
-            'jenis_layanan' => 'penerbitan-kk-baru'
+            'jenis_layanan' => 1
         );
 
         $data_form      = array(1,2);
@@ -51,7 +51,7 @@ class Pengajuan_model_test extends TestCase
         $data_pengajuan = array(
             'wilayah_id'    => 66,
             'nik'           => '5104031307990004',
-            'jenis_layanan' => 'penerbitan-kk-baru'
+            'jenis_layanan' => 1
         );
 
         $data_form      = array();

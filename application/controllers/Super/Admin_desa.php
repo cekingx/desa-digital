@@ -33,7 +33,14 @@ class Admin_desa extends CI_Controller
 
     public function store()
     {
-
+        $post = $this->input->post();
+        $data['user_username'] = $post['user_username'];
+        $data['user_wilayah_id'] = $post['user_wilayah_id'];
+        $this->Admin_desa_model->save($data);
+        
+        echo json_encode(array(
+            'msg' => 'Success'
+        ));
     }
 
     public function reset_password()
