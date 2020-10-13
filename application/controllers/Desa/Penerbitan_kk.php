@@ -74,8 +74,25 @@ class Penerbitan_kk extends CI_Controller
             $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
         }
 
-        $data['pekerjaan'] = $this->Data_masyarakat_model->get_all_pekerjaan();
-        $data['pendidikan'] = $this->Data_masyarakat_model->get_all_pendidikan();
+        $data['agama']              = $this->Data_masyarakat_model->get_all_agama();
+        $data['cacat']              = $this->Data_masyarakat_model->get_all_cacat();
+        $data['goldar']             = $this->Data_masyarakat_model->get_all_goldar();
+        $data['hubkel']             = $this->Data_masyarakat_model->get_all_hubkel();
+        $data['kawin']              = $this->Data_masyarakat_model->get_all_kawin();
+        $data['kelainan']           = $this->Data_masyarakat_model->get_all_kelainan();
+        $data['kawin']              = $this->Data_masyarakat_model->get_all_kawin();
+        $data['pekerjaan']          = $this->Data_masyarakat_model->get_all_pekerjaan();
+        $data['pendidikan']         = $this->Data_masyarakat_model->get_all_pendidikan();
+
+        $data['agama_json']         = json_encode($this->Data_masyarakat_model->get_all_agama());
+        $data['cacat_json']         = json_encode($this->Data_masyarakat_model->get_all_cacat());
+        $data['goldar_json']        = json_encode($this->Data_masyarakat_model->get_all_goldar());
+        $data['hubkel_json']        = json_encode($this->Data_masyarakat_model->get_all_hubkel());
+        $data['kawin_json']         = json_encode($this->Data_masyarakat_model->get_all_kawin());
+        $data['kelainan_json']      = json_encode($this->Data_masyarakat_model->get_all_kelainan());
+        $data['kelamin_json']         = json_encode($this->Data_masyarakat_model->get_all_kelamin());
+        $data['pekerjaan_json']     = json_encode($this->Data_masyarakat_model->get_all_pekerjaan());
+        $data['pendidikan_json']    = json_encode($this->Data_masyarakat_model->get_all_pendidikan());
 
         $this->load->view('layouts/master_desa', $data);
     }

@@ -1102,28 +1102,28 @@ function review() {
     $('#data-nomor_paspor').text(dataDetail.nomor_paspor);
     
     $('#data-tanggal_berakhir_paspor').text(dataDetail.tanggal_berakhir_paspor);
-    $('#data-kelamin').text(dataDetail.kelamin);
+    $('#data-kelamin').text(get_kelamin(dataDetail.kelamin));
     $('#data-tempat_lahir').text(dataDetail.tempat_lahir);
     $('#data-tanggal_lahir').text(dataDetail.tanggal_lahir);
     $('#data-umur').text(dataDetail.umur);
 
-    $('#data-kepemilikan_akta_lahir').text(dataDetail.kepemilikan_akta_lahir);
+    $('#data-kepemilikan_akta_lahir').text(get_ada_tidak_ada(dataDetail.kepemilikan_akta_lahir));
     $('#data-nomor_akta_kelahiran').text(dataDetail.nomor_akta_kelahiran);
-    $('#data-golongan_darah').text(dataDetail.golongan_darah);
-    $('#data-agama').text(dataDetail.agama);
-    $('#data-status_kawin').text(dataDetail.status_kawin);
+    $('#data-golongan_darah').text(get_goldar(dataDetail.golongan_darah));
+    $('#data-agama').text(get_agama(dataDetail.agama));
+    $('#data-status_kawin').text(get_kawin(dataDetail.status_kawin));
 
     $('#data-tanggal_perkawinan').text(dataDetail.tanggal_perkawinan);
-    $('#data-kepemilikan_akta_perkawinan').text(dataDetail.kepemilikan_akta_perkawinan);
+    $('#data-kepemilikan_akta_perkawinan').text(get_ada_tidak_ada(dataDetail.kepemilikan_akta_perkawinan));
     $('#data-nomor_akta_perkawinan').text(dataDetail.nomor_akta_perkawinan);
-    $('#data-kepemilikan_akta_cerai').text(dataDetail.kepemilikan_akta_cerai);
+    $('#data-kepemilikan_akta_cerai').text(get_ada_tidak_ada(dataDetail.kepemilikan_akta_cerai));
     $('#data-nomor_akta_perceraian').text(dataDetail.nomor_akta_perceraian);
 
-    $('#data-hubungan_keluarga').text(dataDetail.hubungan_keluarga);
-    $('#data-kepemilikan_kelainan').text(dataDetail.kepemilikan_kelainan);
-    $('#data-penyandang_cacat').text(dataDetail.penyandang_cacat);
-    $('#data-pendidikan').text(dataDetail.pendidikan);
-    $('#data-pekerjaan').text(dataDetail.pekerjaan);
+    $('#data-hubungan_keluarga').text(get_hubkel(dataDetail.hubungan_keluarga));
+    $('#data-kepemilikan_kelainan').text(get_kelainan(dataDetail.kepemilikan_kelainan));
+    $('#data-penyandang_cacat').text(get_cacat(dataDetail.penyandang_cacat));
+    $('#data-pendidikan').text(get_pendidikan(dataDetail.pendidikan));
+    $('#data-pekerjaan').text(get_pekerjaan(dataDetail.pekerjaan));
 
     $('#data-nik_ibu').text(dataDetail.nik_ibu);
     $('#data-nama_lengkap_ibu').text(dataDetail.nama_lengkap_ibu);
@@ -1131,5 +1131,89 @@ function review() {
     $('#data-nama_lengkap_ayah').text(dataDetail.nama_lengkap_ayah);
     console.log(dataDetail);
 }
+
+function get_ada_tidak_ada(id)
+{
+    if(id == 1) {
+        return 'Tidak Ada';
+    } else if(id == 2) {
+        return 'Ada';
+    } else {
+        return;
+    }
+}
+
+function get_agama(id)
+{
+    agama_json = <?= $agama_json; ?>;
+    agama = agama_json[id-1].agama;
+    console.log(agama);
+    return agama;
+}
+
+function get_cacat(id)
+{
+    cacat_json = <?= $cacat_json; ?>;
+    cacat = cacat_json[id].cacat;
+    console.log(cacat);
+    return cacat;
+}
+
+function get_goldar(id)
+{
+    goldar_json = <?= $goldar_json; ?>;
+    goldar = goldar_json[id-1].goldar;
+    console.log(goldar);
+    return goldar;
+}
+
+function get_hubkel(id)
+{
+    hubkel_json = <?= $hubkel_json; ?>;
+    hubkel = hubkel_json[id-1].hkkel;
+    console.log(hubkel);
+    return hubkel;
+}
+
+function get_kawin(id)
+{
+    kawin_json = <?= $kawin_json; ?>;
+    kawin = kawin_json[id-1].kawin;
+    console.log(kawin);
+    return kawin;
+}
+
+function get_kelainan(id)
+{
+    kelainan_json = <?= $kelainan_json; ?>;
+    kelainan = kelainan_json[id-1].kelainan;
+    console.log(kelainan);
+    return kelainan;
+}
+
+function get_kelamin(id)
+{
+    kelamin_json = <?= $kelamin_json; ?>;
+    kelamin = kelamin_json[id-1].kelamin;
+    console.log(kelamin);
+    return kelamin;
+}
+
+function get_pendidikan(id)
+{
+    pendidikan_json = <?= $pendidikan_json; ?>;
+    pendidikan = pendidikan_json[id-1].pendidikan;
+    console.log(pendidikan);
+    return pendidikan;
+}
+
+function get_pekerjaan(id)
+{
+    pekerjaan_json = <?= $pekerjaan_json; ?>;
+    pekerjaan = pekerjaan_json[id-1].pekerjaan;
+    console.log(pekerjaan);
+    return pekerjaan;
+}
+
 
 </script>

@@ -178,9 +178,26 @@
     })
 
     $('#nik_detail_f101').on('click', '.btn-delete-detail', function() {
-        order = $(this).data('order');
-        detail_f101.splice(order, 1);
-        renderDetainF101();
+        bootbox.confirm({
+            title: "Hapus Data",
+            message: 'Yakin hapus data?',
+            buttons: {
+                cancel: {
+                    label: 'Batal'
+                },
+                confirm: {
+                    label: 'Yakin',
+                    className: 'btn-danger'
+                }
+            },
+            callback: function(result) {
+                if(result) {
+                    order = $(this).data('order');
+                    detail_f101.splice(order, 1);
+                    renderDetainF101();
+                }
+            }
+        })
     })
 
     function setDetail(data) {
@@ -207,7 +224,7 @@
                         <!--end::Text-->
 
                         <div class="btn btn-secondary btn-delete-detail" data-order="${ index }">
-                            <i class="flaticon-delete p-0"></i>
+                            <i class="flaticon-delete p-0 text-danger"></i>
                         </div>
                     </div>
         `
