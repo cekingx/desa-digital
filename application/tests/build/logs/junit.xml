@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Pengajuan_model_test" file="/opt/lampp/htdocs/desa-digital/application/tests/models/Pengajuan_model_test.php" tests="3" assertions="7" errors="0" failures="0" skipped="0" time="9.970223">
-    <testcase name="test_WhenGetAllPengajuanThenGetOnePengajuan" class="Pengajuan_model_test" classname="Pengajuan_model_test" file="/opt/lampp/htdocs/desa-digital/application/tests/models/Pengajuan_model_test.php" line="25" assertions="1" time="0.588872"/>
-    <testcase name="test_WhenSetPengajuanThenGetTwoPengajuan" class="Pengajuan_model_test" classname="Pengajuan_model_test" file="/opt/lampp/htdocs/desa-digital/application/tests/models/Pengajuan_model_test.php" line="31" assertions="3" time="2.337967"/>
-    <testcase name="test_WhenSetPengajuanWithoutFormThenGetThreePengajuan" class="Pengajuan_model_test" classname="Pengajuan_model_test" file="/opt/lampp/htdocs/desa-digital/application/tests/models/Pengajuan_model_test.php" line="49" assertions="3" time="7.043384"/>
+  <testsuite name="Penerbitan_kk_model_test" file="/opt/lampp/htdocs/desa-digital/application/tests/models/Penerbitan_kk_model_test.php" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="0.686854">
+    <testcase name="test_WhenSetPengajuanPenerbitanThenGetTwoPengajuan" class="Penerbitan_kk_model_test" classname="Penerbitan_kk_model_test" file="/opt/lampp/htdocs/desa-digital/application/tests/models/Penerbitan_kk_model_test.php" line="25" assertions="2" time="0.686854"/>
   </testsuite>
 </testsuites>

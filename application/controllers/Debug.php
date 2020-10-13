@@ -14,10 +14,14 @@ class Debug extends CI_Controller
 
     public function index()
     {
-        echo json_encode(array(
+        $detail_f101 = json_decode($_POST['detail_f101']);
+        $detail_f101_0 = (array) $detail_f101[0];
+
+        print_r(array(
             'post' => $_POST,
             'session' => $_SESSION,
-            'files' => $_FILES
+            'files' => $_FILES,
+            'detail_f101_0' => $detail_f101_0
         ));
     }
 

@@ -18,4 +18,21 @@ class Data_masyarakat_model extends CI_Model
                                 ->get()
                                 ->row();
     }
+
+    public function get_all_pekerjaan()
+    {
+        return $this->db_masyarakat->select('*')
+                                ->from('ref_pekerjaan')
+                                ->get()
+                                ->result();
+    }
+
+    public function get_all_pendidikan()
+    {
+        return $this->db_masyarakat->select('*')
+                                ->from('ref_pendidikan')
+                                ->where('pendidikan IS NOT NULL')
+                                ->get()
+                                ->result();
+    }
 }

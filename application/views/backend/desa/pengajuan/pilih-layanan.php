@@ -221,6 +221,7 @@ $data = array(
         <div class="container">
             <div class="row">
                 <div class="col-xl-3">
+                    <a href="<?= base_url('desa/pengajuan/penerbitan-kk-baru') ?>" class="card card-custom"></a>
                     <button id="penerbitan-kk-baru" class="card card-custom card-stretch gutter-b">
                         <div class="card-body">
                             <?= $svgIcon['person'] ?>
@@ -233,21 +234,3 @@ $data = array(
     </div>
 </div>
 
-
-<script>
-    $('#penerbitan-kk-baru').click(function() {
-        $.ajax({
-            url: "<?= base_url('desa/pengajuan/set-pengajuan') ?>",
-            data : {
-                jenis_layanan: 1
-            },
-            type: 'POST',
-            success: function(data) {
-                console.log(data);
-            },
-            error: function(error) {
-                console.log(error.responseText);
-            }
-        })
-    })
-</script>

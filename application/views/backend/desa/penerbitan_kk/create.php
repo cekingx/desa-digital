@@ -11,40 +11,76 @@
                 </div>
             </div>
             <div class="card-body">
-                <form class="form" id="f101">
-                    <!-- begin::nama-kepala-keluarga -->
-                    <div class="form-group">
-                        <label for="f101_nama_kepala_keluarga">Nama Kepala Keluarga</label>
-                        <input 
-                            id="f101_nama_kepala_keluarga"
-                            name="f101_nama_kepala_keluarga"
-                            type="text" 
-                            class="form-control">
+                <div class="row justify-content-center">
+                    <div class="col-xxl-7">
+                        <form class="form" id="f101">
+                            <!-- begin::nama-kepala-keluarga -->
+                            <div class="form-group">
+                                <label for="nama_kepala_keluarga">Nama Kepala Keluarga</label>
+                                <input 
+                                    id="nama_kepala_keluarga"
+                                    name="nama_kepala_keluarga"
+                                    type="text" 
+                                    class="form-control">
+                            </div>
+                            <!-- end::nama-kepala-keluarga -->
+                            <!-- begin::alamat -->
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
+                                <input 
+                                    id="alamat"
+                                    name="alamat"
+                                    type="text" 
+                                    class="form-control">
+                            </div>
+                            <!-- end::alamat -->
+                            <div class="form-group row">
+                                <!-- begin::rt -->
+                                <div class="col-6">
+                                    <label>RT</label>
+                                    <input 
+                                        id="rt"
+                                        name="rt"
+                                        type="text" 
+                                        class="form-control">
+                                </div>
+                                <!-- end::rt -->
+                                <!-- begin::rw -->
+                                <div class="col-6">
+                                    <label>RW</label>
+                                    <input 
+                                        id="rw"
+                                        name="rw"
+                                        type="text" 
+                                        class="form-control">
+                                </div>
+                                <!-- end::rw -->
+                            </div>
+                            <!-- begin::jumlah-anggota-keluarga -->
+                            <div class="form-group">
+                                <label for="jumlah_anggota_keluarga">Jumlah Anggota Keluarga</label>
+                                <input 
+                                    id="jumlah_anggota_keluarga"
+                                    name="jumlah_anggota_keluarga"
+                                    type="text" 
+                                    class="form-control">
+                            </div>
+                            <!-- end::jumlah-anggota-keluarga -->
+                            <!-- begin::telepon -->
+                            <div class="form-group">
+                                <label for="telepon">No Telepon</label>
+                                <input 
+                                    id="telepon"
+                                    name="telepon"
+                                    type="text" 
+                                    class="form-control">
+                            </div>
+                            <!-- end::telepon -->
+                            <button class="btn btn-secondary" id="opener">Tambah Data</button>
+                            <button type="submit" class="btn btn-primary" id="btn-submit" >Submit</button>
+                        </form>
                     </div>
-                    <!-- end::nama-kepala-keluarga -->
-                    <!-- begin::alamat -->
-                    <div class="form-group">
-                        <label for="f101_alamat">Alamat</label>
-                        <input 
-                            id="f101_alamat"
-                            name="f101_alamat"
-                            type="text" 
-                            class="form-control">
-                    </div>
-                    <!-- end::alamat -->
-                    <!-- begin::no-telp -->
-                    <div class="form-group">
-                        <label for="f101_no_telp">No Telp</label>
-                        <input 
-                            id="f101_no_telp"
-                            name="f101_no_telp"
-                            type="text" 
-                            class="form-control">
-                    </div>
-                    <!-- end::no-telp -->
-                    <button class="btn btn-secondary" id="opener">Opener</button>
-                    <button type="submit" class="btn btn-primary" id="btn-submit" >Submit</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -58,21 +94,35 @@
         f101,
         {
             fields: {
-                f101_nama_kepala_keluarga: {
+                nama_kepala_keluarga: {
                     validators: {
                         notEmpty: {
                             message: 'Nama Kepala Keluarga is required'
                         }
                     }
                 },
-                f101_alamat: {
+                alamat: {
                     validators: {
                         notEmpty: {
                             message: 'Alamat is required'
                         }
                     }
                 },
-                f101_no_telp: {
+                rt: {
+                    validators: {
+                        notEmpty: {
+                            message: 'RT is required'
+                        }
+                    }
+                },
+                rw: {
+                    validators: {
+                        notEmpty: {
+                            message: 'RW is required'
+                        }
+                    }
+                },
+                telepon: {
                     validators: {
                         notEmpty: {
                             message: 'No Telp is required'
@@ -94,6 +144,24 @@
             fv.validate().then(function(status) {
                 console.log(status);
                 console.log(detail_f101);
+                if(status === 'Valid') {
+                    formData = new FormData(f101);
+                    formData.append('detail_f101', JSON.stringify(detail_f101));
+                    $.ajax({
+                        // url: '<?= base_url('debug') ?>',
+                        url: '<?= base_url('desa/pengajuan/penerbitan-kk-baru/store') ?>',
+                        type: 'POST',
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function(data) {
+                            console.log(data)
+                        },
+                        error: function(error) {
+                            console.log(error.responseText)
+                        }
+                    })
+                }
             })
         })
     })
@@ -101,7 +169,7 @@
     $('#opener').click(function(e) {
         e.preventDefault();
 
-        window.open('<?= base_url('desa/pengajuan/detail-f101') ?>', '_blank');
+        window.open('<?= base_url('desa/pengajuan/detail-f101-v2') ?>', '_blank');
     })
 
     function setDetail(data) {
