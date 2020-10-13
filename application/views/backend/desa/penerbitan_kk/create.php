@@ -76,6 +76,11 @@
                                     class="form-control">
                             </div>
                             <!-- end::telepon -->
+                            <!-- begin::nik-detail-f101 -->
+                            <div class="mb-2" id="nik_detail_f101">
+                            </div>
+                            <!-- end::nik-detail-f101 -->
+
                             <button class="btn btn-secondary" id="opener">Tambah Data</button>
                             <button type="submit" class="btn btn-primary" id="btn-submit" >Submit</button>
                         </form>
@@ -174,5 +179,44 @@
 
     function setDetail(data) {
         detail_f101.push(data);
+        renderDetainF101();
     }
+
+    function appendNikDetailF101(item, index)
+    {
+        let data = `<div class="d-flex align-items-center mb-10">
+                        <!--begin::Symbol-->
+                        <div class="symbol symbol-40 symbol-light-success mr-5">
+                            <span class="symbol-label">
+                                <img src="<?= base_url('assets/media/svg/avatars/009-boy-4.svg') ?>" class="h-75 align-self-end" alt="" />
+                            </span>
+                        </div>
+                        <!--end::Symbol-->
+
+                        <!--begin::Text-->
+                        <div class="d-flex flex-column flex-grow-1 font-weight-bold">
+                            <a href="#" class="text-dark text-hover-primary mb-1 font-size-lg">${ item.nama_lengkap }</a>
+                            <span class="text-muted">${ item.nomor_penduduk }</span>
+                        </div>
+                        <!--end::Text-->
+
+                        <div class="btn btn-secondary btn-delete-detail" data-order="${ index }">
+                            <i class="flaticon-delete p-0"></i>
+                        </div>
+                    </div>
+        `
+        $('#nik_detail_f101').append(data)
+    }
+
+    function renderDetainF101()
+    {
+        $('#nik_detail_f101').empty();
+        detail_f101.forEach(appendNikDetailF101);
+    }
+
+    $('#nik_detail_f101').on('click', '.btn-delete-detail', function() {
+        order = $(this).data('order');
+        detail_f101.splice(order, 1);
+        renderDetainF101();
+    })
 </script>
