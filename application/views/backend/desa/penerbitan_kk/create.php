@@ -174,7 +174,13 @@
     $('#opener').click(function(e) {
         e.preventDefault();
 
-        window.open('<?= base_url('desa/pengajuan/detail-f101-v2') ?>', '_blank');
+        window.open('<?= base_url('desa/pengajuan/detail-f101') ?>', '_blank');
+    })
+
+    $('#nik_detail_f101').on('click', '.btn-delete-detail', function() {
+        order = $(this).data('order');
+        detail_f101.splice(order, 1);
+        renderDetainF101();
     })
 
     function setDetail(data) {
@@ -214,9 +220,4 @@
         detail_f101.forEach(appendNikDetailF101);
     }
 
-    $('#nik_detail_f101').on('click', '.btn-delete-detail', function() {
-        order = $(this).data('order');
-        detail_f101.splice(order, 1);
-        renderDetainF101();
-    })
 </script>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Penerbitan_kk_model_test" file="/opt/lampp/htdocs/desa-digital/application/tests/models/Penerbitan_kk_model_test.php" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="0.686854">
-    <testcase name="test_WhenSetPengajuanPenerbitanThenGetTwoPengajuan" class="Penerbitan_kk_model_test" classname="Penerbitan_kk_model_test" file="/opt/lampp/htdocs/desa-digital/application/tests/models/Penerbitan_kk_model_test.php" line="25" assertions="2" time="0.686854"/>
+  <testsuite name="Penerbitan_kk_model_test" file="/opt/lampp/htdocs/desa-digital/application/tests/models/Penerbitan_kk_model_test.php" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="1.506615">
+    <testcase name="test_WhenSetPengajuanPenerbitanThenGetTwoPengajuan" class="Penerbitan_kk_model_test" classname="Penerbitan_kk_model_test" file="/opt/lampp/htdocs/desa-digital/application/tests/models/Penerbitan_kk_model_test.php" line="25" assertions="2" time="1.506615"/>
   </testsuite>
 </testsuites>

@@ -62,23 +62,10 @@ class Penerbitan_kk extends CI_Controller
         $this->load->view('layouts/master_desa', $data);
     }
 
+
     public function input_detail_f101()
     {
         $data['content'] = 'backend/desa/penerbitan_kk/input_detail';
-        $data['identitas_desa'] = $this->Identitas_desa_model->get_by_id($this->session->userdata('wilayah_id'));
-        $data['title'] = $data['identitas_desa']->NAMA_KEL;
-        if(!empty($data['identitas_desa']->LOGO)) {
-            $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
-        } else {
-            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
-        }
-
-        $this->load->view('layouts/master_desa', $data);
-    }
-
-    public function input_detail_f101_v2()
-    {
-        $data['content'] = 'backend/desa/penerbitan_kk/input_detailv2';
         $data['identitas_desa'] = $this->Identitas_desa_model->get_by_id($this->session->userdata('wilayah_id'));
         $data['title'] = $data['identitas_desa']->NAMA_KEL;
         if(!empty($data['identitas_desa']->LOGO)) {

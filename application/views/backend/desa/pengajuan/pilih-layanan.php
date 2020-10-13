@@ -221,13 +221,12 @@ $data = array(
         <div class="container">
             <div class="row">
                 <div class="col-xl-3">
-                    <a href="<?= base_url('desa/pengajuan/penerbitan-kk-baru') ?>" class="card card-custom"></a>
-                    <button id="penerbitan-kk-baru" class="card card-custom card-stretch gutter-b">
+                    <a href="<?= base_url('desa/pengajuan/penerbitan-kk-baru') ?>" class="card card-custom card-stretch gutter-b">
                         <div class="card-body">
                             <?= $svgIcon['person'] ?>
                             <span class="font-weight-bold text-muted font-size-sm">Penerbitan KK Baru</span>
                         </div>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
