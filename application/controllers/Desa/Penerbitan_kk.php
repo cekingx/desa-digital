@@ -12,16 +12,30 @@ class Penerbitan_kk extends CI_Controller
         $this->load->model('Penerbitan_kk_model');
     }
 
-    public function penerbitan_kk_baru()
+    private function set_partial_data($content)
     {
-        $data['content'] = 'backend/desa/penerbitan_kk/create';
+        $data['content']        = $content;
         $data['identitas_desa'] = $this->Identitas_desa_model->get_by_id($this->session->userdata('wilayah_id'));
-        $data['title'] = $data['identitas_desa']->NAMA_KEL;
+        $data['title']          = $data['identitas_desa']->NAMA_KEL;
         if(!empty($data['identitas_desa']->LOGO)) {
             $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
         } else {
             $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
         }
+
+        return $data;
+    }
+
+    public function index()
+    {
+        $data = $this->set_partial_data('backend/desa/penerbitan_kk/index');
+
+        $this->load->view('layouts/master_desa', $data);
+    }
+
+    public function penerbitan_kk_baru()
+    {
+        $data = $this->set_partial_data('backend/desa/penerbitan_kk/create');
 
         $this->load->view('layouts/master_desa', $data);
     }
@@ -48,31 +62,9 @@ class Penerbitan_kk extends CI_Controller
         $this->Penerbitan_kk_model->set_pengajuan_penerbitan_kk($pengajuan, $data_f101, $data_detail_f101);
     }
 
-    public function test_validation()
-    {
-        $data['content'] = 'backend/desa/penerbitan_kk/test_validation';
-        $data['identitas_desa'] = $this->Identitas_desa_model->get_by_id($this->session->userdata('wilayah_id'));
-        $data['title'] = $data['identitas_desa']->NAMA_KEL;
-        if(!empty($data['identitas_desa']->LOGO)) {
-            $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
-        } else {
-            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
-        }
-
-        $this->load->view('layouts/master_desa', $data);
-    }
-
-
     public function input_detail_f101()
     {
-        $data['content'] = 'backend/desa/penerbitan_kk/input_detail';
-        $data['identitas_desa'] = $this->Identitas_desa_model->get_by_id($this->session->userdata('wilayah_id'));
-        $data['title'] = $data['identitas_desa']->NAMA_KEL;
-        if(!empty($data['identitas_desa']->LOGO)) {
-            $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
-        } else {
-            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
-        }
+        $data = $this->set_partial_data('backend/desa/penerbitan_kk/input_detail');
 
         $data['agama']              = $this->Data_masyarakat_model->get_all_agama();
         $data['cacat']              = $this->Data_masyarakat_model->get_all_cacat();
@@ -90,7 +82,7 @@ class Penerbitan_kk extends CI_Controller
         $data['hubkel_json']        = json_encode($this->Data_masyarakat_model->get_all_hubkel());
         $data['kawin_json']         = json_encode($this->Data_masyarakat_model->get_all_kawin());
         $data['kelainan_json']      = json_encode($this->Data_masyarakat_model->get_all_kelainan());
-        $data['kelamin_json']         = json_encode($this->Data_masyarakat_model->get_all_kelamin());
+        $data['kelamin_json']       = json_encode($this->Data_masyarakat_model->get_all_kelamin());
         $data['pekerjaan_json']     = json_encode($this->Data_masyarakat_model->get_all_pekerjaan());
         $data['pendidikan_json']    = json_encode($this->Data_masyarakat_model->get_all_pendidikan());
 

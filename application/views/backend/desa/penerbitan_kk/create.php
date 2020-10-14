@@ -174,7 +174,7 @@
     $('#opener').click(function(e) {
         e.preventDefault();
 
-        window.open('<?= base_url('desa/pengajuan/detail-f101') ?>', '_blank');
+        window.open('<?= base_url('desa/pengajuan/penerbitan-kk-baru/detail-f101') ?>', '_blank');
     })
 
     $('#nik_detail_f101').on('click', '.btn-delete-detail', function() {

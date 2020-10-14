@@ -16,9 +16,9 @@ class Debug extends CI_Controller
     {
 
         print_r(array(
-            'post' => $_POST,
-            'session' => $_SESSION,
-            'files' => $_FILES,
+            'post'      => $_POST,
+            'session'   => $_SESSION,
+            'files'     => $_FILES,
         ));
     }
 

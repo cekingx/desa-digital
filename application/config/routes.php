@@ -89,18 +89,19 @@ $route['desa/identitas-desa/sekdes/update']     = 'Desa/Identitas_desa/sekdes_up
 
 // begin::pengajuan
 $route['desa/pengajuan']                        = 'Desa/Pengajuan/index';
+$route['desa/pengajuan/data-pengajuan']         = 'Desa/Pengajuan/get_pengajuan';
+$route['desa/pengajuan/show/(:any)']            = 'Desa/Pengajuan/show/$1';
+$route['desa/pengajuan/buat-pengajuan']         = 'Desa/Pengajuan/buat_pengajuan';
 $route['desa/pengajuan/pilih-layanan']          = 'Desa/Pengajuan/pilih_layanan';
 $route['desa/pengajuan/data-masyarakat']        = 'Desa/Pengajuan/get_data_masyarakat';
 $route['desa/pengajuan/set-nik-to-session']     = 'Desa/Pengajuan/set_nik_to_session';
-$route['desa/pengajuan/set-pengajuan']          = 'Desa/Pengajuan/set_pengajuan';
-$route['desa/pengajuan/wizard']                 = 'Desa/Pengajuan/wizard';
 // end::pengajuan
 
 // begin::penerbitan-kk
-$route['desa/pengajuan/penerbitan-kk-baru']         = 'Desa/Penerbitan_kk/penerbitan_kk_baru';
-$route['desa/pengajuan/penerbitan-kk-baru/store']   = 'Desa/Penerbitan_kk/store_penerbitan_kk_baru';
-$route['desa/pengajuan/detail-f101']                = 'Desa/Penerbitan_kk/input_detail_f101';
-$route['desa/pengajuan/test-validation']            = 'Desa/Penerbitan_kk/test_validation';
+$route['desa/pengajuan/penerbitan-kk-baru']                 = 'Desa/Penerbitan_kk/index';
+$route['desa/pengajuan/penerbitan-kk-baru/create']          = 'Desa/Penerbitan_kk/penerbitan_kk_baru';
+$route['desa/pengajuan/penerbitan-kk-baru/store']           = 'Desa/Penerbitan_kk/store_penerbitan_kk_baru';
+$route['desa/pengajuan/penerbitan-kk-baru/detail-f101']     = 'Desa/Penerbitan_kk/input_detail_f101';
 // end::penerbitan-kk
 // end::DESA
 

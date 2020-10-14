@@ -12,16 +12,41 @@ class Pengajuan extends CI_Controller
         $this->load->model('Identitas_desa_model');
     }
 
-    public function index()
+    private function set_partial_data($content)
     {
-        $data['content'] = 'backend/desa/pengajuan/index';
+        $data['content']        = $content;
         $data['identitas_desa'] = $this->Identitas_desa_model->get_by_id($this->session->userdata('wilayah_id'));
-        $data['title'] = $data['identitas_desa']->NAMA_KEL;
+        $data['title']          = $data['identitas_desa']->NAMA_KEL;
         if(!empty($data['identitas_desa']->LOGO)) {
             $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
         } else {
             $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
         }
+
+        return $data;
+    }
+
+    public function index()
+    {
+        $data = $this->set_partial_data('backend/desa/pengajuan/index');
+
+        $this->load->view('layouts/master_desa', $data);
+    }
+
+    public function show($pengajuan_id)
+    {
+        $data = $this->set_partial_data('backend/desa/pengajuan/show');
+        $data['pengajuan'] = $this->Pengajuan_model->get_pengajuan_by_id($pengajuan_id);
+
+        $this->load->view('layouts/master_desa', $data);
+        // echo '<pre>';
+        // print_r($data['pengajuan']);
+        // echo '</pre>';
+    }
+
+    public function buat_pengajuan()
+    {
+        $data = $this->set_partial_data('backend/desa/buat_pengajauan');
 
         $this->load->view('layouts/master_desa', $data);
     }
@@ -32,14 +57,7 @@ class Pengajuan extends CI_Controller
             return redirect('desa/pengajuan');
         }
 
-        $data['content'] = 'backend/desa/pengajuan/pilih-layanan';
-        $data['identitas_desa'] = $this->Identitas_desa_model->get_by_id($this->session->userdata('wilayah_id'));
-        $data['title'] = $data['identitas_desa']->NAMA_KEL;
-        if(!empty($data['identitas_desa']->LOGO)) {
-            $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
-        } else {
-            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
-        }
+        $data = $this->set_partial_data('backend/desa/pengajuan/pilih-layanan');
 
         $this->load->view('layouts/master_desa', $data);
     }
@@ -63,6 +81,16 @@ class Pengajuan extends CI_Controller
         echo json_encode($data);
     }
 
+    public function get_pengajuan()
+    {
+        $data = $this->Pengajuan_model->get_all();
+
+        $this->output->set_content_type('application/json');
+        echo json_encode(array(
+            'data' => $data
+        ));
+    }
+
     public function set_nik_to_session()
     {
         $post = $this->input->post();
@@ -75,19 +103,5 @@ class Pengajuan extends CI_Controller
         echo json_encode(array(
             'msg' => 'Success'
         ));
-    }
-
-    public function wizard()
-    {
-        $data['content'] = 'backend/desa/pengajuan/wizard';
-        $data['identitas_desa'] = $this->Identitas_desa_model->get_by_id($this->session->userdata('wilayah_id'));
-        $data['title'] = $data['identitas_desa']->NAMA_KEL;
-        if(!empty($data['identitas_desa']->LOGO)) {
-            $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
-        } else {
-            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
-        }
-
-        $this->load->view('layouts/master_desa', $data);
     }
 }

@@ -13,6 +13,36 @@ class Pengajuan_model extends CI_Model
                         ->result();
     }
 
+    public function get_pengajuan_by_id($id_pengajuan)
+    {
+        $data_pengajuan = $this->db->select('*')
+                                ->from('ta_pengajuan')
+                                ->where('pengajuan_id', $id_pengajuan)
+                                ->get()
+                                ->row();
+
+        $data_form_pengajuan = $this->db->select('*')
+                                        ->from('ta_detail_pengajuan_form')
+                                        ->join('ref_jenis_form', 'ta_detail_pengajuan_form.detail_pengajuan_form_jenis_form_id = ref_jenis_form.jenis_form_id')
+                                        ->where('detail_pengajuan_form_pengajuan_id', $id_pengajuan)
+                                        ->get()
+                                        ->result();
+
+        $data_lampiran_pengajuan = $this->db->select('*')
+                                            ->from('ta_detail_pengajuan_lampiran')
+                                            ->where('detail_pengajuan_lampiran_pengajuan_id', $id_pengajuan)
+                                            ->get()
+                                            ->result();
+
+        $data = array(
+            'pengajuan' => $data_pengajuan,
+            'form_pengajuan' => $data_form_pengajuan,
+            'lampiran_pengajuan' => $data_lampiran_pengajuan
+        );
+
+        return $data;
+    }
+
     public function get_pengajuan_by_nik($nik_pemohon)
     {
         return $this->db->select('*')
