@@ -20,11 +20,11 @@
                             </tr>
                             <tr>
                                 <td>Jenis Layanan</td>
-                                <td><?= $pengajuan['pengajuan']->pengajuan_jenis_layanan; ?></td>
+                                <td id="jenis_layanan"></td>
                             </tr>
                             <tr>
                                 <td>Status Pengajuan</td>
-                                <td><?= $pengajuan['pengajuan']->pengajuan_status_pengajuan_id; ?></td>
+                                <td id="status_pengajuan"></td>
                             </tr>
                             <tr>
                                 <td>Komentar</td>
@@ -42,7 +42,8 @@
                         <h5 class="mb-5">Form yang Digunakan</h5>
                         <?php if(!empty($pengajuan['form_pengajuan'])): ?>
                             <?php foreach($pengajuan['form_pengajuan'] as $form): ?>
-                                <div class="d-flex align-items-center mb-5">
+                                <a class="d-flex align-items-center mb-5" 
+                                href="<?= base_url($form['url'] . $form['form_id']) ?>">
                                     <!--begin::Symbol-->
                                     <div class="symbol symbol-40 symbol-light-primary mr-5">
                                         <span class="symbol-label">
@@ -64,10 +65,10 @@
                                     <!--end::Symbol-->
                                     <!--begin::Text-->
                                     <div class="d-flex flex-column font-weight-bold">
-                                        <a href="#" class="text-dark-75 text-hover-primary mb-1 font-size-lg"><?= $form->jenis_form_nama ?></a>
+                                        <div class="text-dark-75 text-hover-primary mb-1 font-size-lg"><?= $form['nama_form'] ?></div>
                                     </div>
                                     <!--end::Text-->
-                                </div>
+                                </a>
                             <?php endforeach; ?>
                         <?php else: ?>
                             <span class="label font-weight-bold label-lg  label-light-success label-inline">Tidak Ada</span>
@@ -105,7 +106,7 @@
                                 </div>
                             <?php endforeach; ?>
                         <?php else: ?>
-                            <span class="label font-weight-bold label-lg  label-light-success label-inline">Tidak Ada</span>
+                            <span class="label font-weight-bold label-lg label-light-success label-inline">Tidak Ada</span>
                         <?php endif; ?>
                         <!-- end::lampiran -->
                     </div>
@@ -114,3 +115,37 @@
         </div>
     </div>
 </div>
+
+<script>
+    const status_pengajuan = <?= $status_pengajuan; ?>;
+    const jenis_layanan = <?= $jenis_layanan; ?>;
+
+    $(document).ready(function() {
+        render_status_pengajuan(<?= $pengajuan['pengajuan']->pengajuan_status_pengajuan_id; ?>)
+        render_jenis_layanan(<?= $pengajuan['pengajuan']->pengajuan_jenis_layanan; ?>)
+    })
+    
+    function render_status_pengajuan(id_status_pengajuan)
+    {
+        let text = 'undefined';
+        status_pengajuan.forEach(function(item){
+            if(item.status_pengajuan_id == id_status_pengajuan) {
+                text = item.status_pengajuan_deskripsi;
+            }
+        })
+        data = `<span class="label font-weight-bold label-lg label-light-primary label-inline">${ text }</span>`;
+        $('#status_pengajuan').append(data);
+    }
+
+    function render_jenis_layanan(id_jenis_layanan)
+    {
+        let text = 'undefined';
+        jenis_layanan.forEach(function(item){
+            if(item.layanan_id == id_jenis_layanan) {
+                text = item.layanan_nama;
+            }
+        })
+        data = `<span class="label font-weight-bold label-lg label-light-primary label-inline">${ text }</span>`;
+        $('#jenis_layanan').append(data);
+    }
+</script>

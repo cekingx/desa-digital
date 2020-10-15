@@ -10,6 +10,7 @@ class Pengajuan extends CI_Controller
         $this->load->model('Pengajuan_model');
         $this->load->model('Data_masyarakat_model');
         $this->load->model('Identitas_desa_model');
+        $this->load->model('Ref_model');
     }
 
     private function set_partial_data($content)
@@ -36,17 +37,16 @@ class Pengajuan extends CI_Controller
     public function show($pengajuan_id)
     {
         $data = $this->set_partial_data('backend/desa/pengajuan/show');
-        $data['pengajuan'] = $this->Pengajuan_model->get_pengajuan_by_id($pengajuan_id);
+        $data['pengajuan']          = $this->Pengajuan_model->get_pengajuan_by_id($pengajuan_id);
+        $data['jenis_layanan']      = json_encode($this->Ref_model->get_jenis_layanan());
+        $data['status_pengajuan']   = json_encode($this->Ref_model->get_status_pengajuan());
 
         $this->load->view('layouts/master_desa', $data);
-        // echo '<pre>';
-        // print_r($data['pengajuan']);
-        // echo '</pre>';
     }
 
     public function buat_pengajuan()
     {
-        $data = $this->set_partial_data('backend/desa/buat_pengajauan');
+        $data = $this->set_partial_data('backend/desa/pengajuan/buat-pengajuan');
 
         $this->load->view('layouts/master_desa', $data);
     }

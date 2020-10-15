@@ -34,10 +34,27 @@ class Pengajuan_model extends CI_Model
                                             ->get()
                                             ->result();
 
+        $form_pengajuan = array();
+        foreach($data_form_pengajuan as $form) {
+            $nama_tabel = $form->jenis_form_nama_tabel;
+            $field_id = str_replace('ta_f', 'f', $nama_tabel) . '_id';
+            $data = $this->db->select($field_id)
+                            ->from($nama_tabel)
+                            ->where($field_id, $id_pengajuan)
+                            ->get()
+                            ->row();
+
+            array_push($form_pengajuan, array(
+                'nama_form' => $form->jenis_form_nama,
+                'form_id'   => $data->$field_id,
+                'url'       => $form->jenis_form_url
+            ));
+        } 
+
         $data = array(
-            'pengajuan' => $data_pengajuan,
-            'form_pengajuan' => $data_form_pengajuan,
-            'lampiran_pengajuan' => $data_lampiran_pengajuan
+            'pengajuan'             => $data_pengajuan,
+            'form_pengajuan'        => $form_pengajuan,
+            'lampiran_pengajuan'    => $data_lampiran_pengajuan
         );
 
         return $data;

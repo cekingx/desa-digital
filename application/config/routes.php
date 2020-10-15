@@ -66,6 +66,7 @@ $route['super/admin-desa/create'] = 'Super/Admin_desa/create';
 $route['super/admin-desa/store'] = 'Super/Admin_desa/store';
 $route['super/admin-desa/get-admin-desa'] = 'Super/Admin_desa/get_admin_desa';
 // end::admin-desa
+
 // begin::admin-capil
 $route['super/admin-capil'] = 'Super/Admin_capil/index';
 $route['super/admin-capil/create'] = 'Super/Admin_capil/create';
@@ -103,6 +104,12 @@ $route['desa/pengajuan/penerbitan-kk-baru/create']          = 'Desa/Penerbitan_k
 $route['desa/pengajuan/penerbitan-kk-baru/store']           = 'Desa/Penerbitan_kk/store_penerbitan_kk_baru';
 $route['desa/pengajuan/penerbitan-kk-baru/detail-f101']     = 'Desa/Penerbitan_kk/input_detail_f101';
 // end::penerbitan-kk
+
+// begin::f101
+$route['desa/pengajuan/f101']                   = 'Desa/f101/index';
+$route['desa/pengajuan/data-f101']              = 'Desa/f101/get_f101';
+$route['desa/pengajuan/f101/(:any)']            = 'Desa/f101/show/$1';
+// end::f101
 // end::DESA
 
 // begin::CAPIL

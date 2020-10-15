@@ -139,12 +139,12 @@
 									<span class="menu-text">Pengajuan</span>
 								</a>
 							</li>
-							<li class="menu-item <?php if ($this->uri->segment(1) == "desa" && $this->uri->segment(2) == "pengajuan" && $this->uri->segment(3) == "penerbitan-kk-baru") : ?>menu-item-active<?php endif ?>" aria-haspopup="true">
-								<a href="<?php echo base_url('desa/pengajuan/penerbitan-kk-baru') ?>" class="menu-link">
+							<li class="menu-item <?php if ($this->uri->segment(1) == "desa" && $this->uri->segment(2) == "pengajuan" && $this->uri->segment(3) == "f101") : ?>menu-item-active<?php endif ?>" aria-haspopup="true">
+								<a href="<?php echo base_url('desa/pengajuan/f101') ?>" class="menu-link">
 									<i class="menu-bullet menu-bullet-dot">
 										<span></span>
 									</i>
-									<span class="menu-text">Penerbitan KK</span>
+									<span class="menu-text">F-1.01</span>
 								</a>
 							</li>
 						</ul>
