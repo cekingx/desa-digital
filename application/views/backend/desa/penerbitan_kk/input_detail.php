@@ -137,9 +137,9 @@
                                         <div class="form-group">
                                             <label for="gelar">Gelar</label>
                                             <select name="gelar" id="gelar" class="form-control">
-                                                <option value="1">1</option> 
-                                                <option value="2">2</option> 
-                                                <option value="3">3</option> 
+                                                <?php foreach($gelar as $gelar): ?>
+                                                    <option value="<?= $gelar->id ?>"><?= $gelar->gelar ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <!-- end::gelar -->
@@ -231,19 +231,9 @@
                                             <div class="col-6">
                                                 <label for="golongan_darah">Golongan Darah</label>
                                                 <select name="golongan_darah" id="golongan_darah" class="form-control">
-                                                    <option value="1">A</option> 
-                                                    <option value="2">B</option> 
-                                                    <option value="3">AB</option> 
-                                                    <option value="4">O</option> 
-                                                    <option value="5">A Positif</option> 
-                                                    <option value="6">A Negatif</option> 
-                                                    <option value="7">B Positif</option> 
-                                                    <option value="8">B Negatif</option> 
-                                                    <option value="9">AB Positif</option> 
-                                                    <option value="10">AB Negatif</option> 
-                                                    <option value="11">O Positif</option> 
-                                                    <option value="12">O Negatif</option> 
-                                                    <option value="13">Tidak Tahu</option> 
+                                                    <?php foreach($goldar as $goldar): ?>
+                                                        <option value="<?= $goldar->id ?>"><?= $goldar->goldar ?></option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
                                             <!-- end::golongan-darah -->
@@ -253,14 +243,9 @@
                                         <div class="form-group">
                                             <label for="agama">Agama</label>
                                             <select name="agama" id="agama" class="form-control">
-                                                <option value="1">Islam</option>
-                                                <option value="2">Kristen</option>
-                                                <option value="3">Katholik</option>
-                                                <option value="4">Hindu</option>
-                                                <option value="5">Budha</option>
-                                                <option value="6">Kong Hucu</option>
-                                                <option value="7">Kepercayaan Kepada Tuhan Yang Maha Esa</option>
-                                                <option value="8">Lainnya</option>
+                                                <?php foreach($agama as $agama): ?>
+                                                    <option value="<?= $agama->id ?>"><?= $agama->agama ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <!-- end::agama -->
@@ -287,13 +272,9 @@
                                         <div class="form-group">
                                             <label for="penyandang_cacat">Penyandang Cacat</label>
                                             <select class="form-control" name="penyandang_cacat" id="penyandang_cacat">
-                                                <option value="0">Tidak Ada</option>
-                                                <option value="1">Cacat Fisik</option>
-                                                <option value="2">Cacat Netra atau Buta</option>
-                                                <option value="3">Cacat Rungu atau Wicara</option>
-                                                <option value="4">Cacat Mental atau Jiwa</option>
-                                                <option value="5">Cacat Fisik dan Mental</option>
-                                                <option value="6">Cacat Lainnya</option>
+                                                <?php foreach($cacat as $cacat): ?>
+                                                    <option value="<?= $cacat->id ?>"><?= $cacat->cacat ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <!-- end::penyandang-cacat -->
@@ -365,10 +346,9 @@
                                             <div class="col-6">
                                                 <label for="status_kawin">Status Kawin</label>
                                                 <select class="form-control" name="status_kawin" id="status_kawin">
-                                                    <option value="1">Belum Kawin</option>
-                                                    <option value="2">Kawin</option>
-                                                    <option value="3">Cerai Hidup</option>
-                                                    <option value="4">Cerai Mati</option>
+                                                    <?php foreach($kawin as $kawin): ?>
+                                                        <option value="<?= $kawin->id ?>"><?= $kawin->kawin ?></option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
                                             <!-- end::status-kawin -->
@@ -456,17 +436,9 @@
                                         <div class="form-group">
                                             <label for="hubungan_keluarga">Hubungan Keluarga</label>
                                             <select class="form-control" name="hubungan_keluarga" id="hubungan_keluarga">
-                                                <option value="1">Kepala Keluarga</option>
-                                                <option value="2">Suami</option>
-                                                <option value="3">Istri</option>
-                                                <option value="4">Anak</option>
-                                                <option value="5">Menantu</option>
-                                                <option value="6">Cucu</option>
-                                                <option value="7">Orang Tua</option>
-                                                <option value="8">Mertua</option>
-                                                <option value="9">Famili Lain</option>
-                                                <option value="10">Pembantu</option>
-                                                <option value="11">Lainnya</option>
+                                                <?php foreach($hubkel as $hubkel): ?>
+                                                    <option value="<?= $hubkel->id ?>"><?= $hubkel->hkkel ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <!-- end::hubungan-keluarga -->
@@ -1096,7 +1068,7 @@ function setDataDetail() {
 
 function review() {
     $('#data-nama_lengkap').text(dataDetail.nama_lengkap);
-    $('#data-gelar').text(dataDetail.gelar);
+    $('#data-gelar').text(get_gelar(dataDetail.gelar));
     $('#data-nomor_penduduk').text(dataDetail.nomor_penduduk);
     $('#data-alamat_sebelumnya').text(dataDetail.alamat_sebelumnya);
     $('#data-nomor_paspor').text(dataDetail.nomor_paspor);
@@ -1141,6 +1113,13 @@ function get_ada_tidak_ada(id)
     } else {
         return;
     }
+}
+
+function get_gelar(id)
+{
+    gelar_json = <?= $gelar_json; ?>;
+    gelar = gelar_json[id-1].gelar;
+    return gelar;
 }
 
 function get_agama(id)

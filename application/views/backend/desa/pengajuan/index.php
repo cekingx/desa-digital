@@ -146,7 +146,9 @@ var KTDatatableRemoteAjaxDemo = function() {
                 field: 'pengajuan_created_at',
                 title: 'Tanggal Pengajuan',
                 type: 'date',
-                format: 'DD-MM-YYYY',
+                template: function(row) {
+                    return get_long_date(row.pengajuan_created_at);
+                }
             }, {
                 field: 'pengajuan_status_pengajuan_id',
                 title: 'Status',

@@ -1,3 +1,5 @@
+<title><?= $title ?></title>
+
 <div class="d-flex flex-column-fluid">
     <div class="container">
         <!--begin::Profile Personal Information-->
@@ -67,12 +69,6 @@
                     <form class="form">
                         <!--begin::Body-->
                         <div class="card-body">
-                            <div class="row">
-                                <label class="col-xl-3"></label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <h5 class="font-weight-bold mb-6">1</h5>
-                                </div>
-                            </div>
                             <!-- begin::nama-lengkap -->
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label text-right">Nama Lengkap</label>
@@ -193,12 +189,7 @@
                                 </div>
                             </div>
                             <!-- end::penyandang-cacat -->
-                            <div class="row">
-                                <label class="col-xl-3"></label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <h5 class="font-weight-bold mt-10 mb-6">2</h5>
-                                </div>
-                            </div>
+                            <hr class="mt-20 mb-10">
                             <!-- begin::nomor-paspor -->
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label text-right">Nomor Paspor</label>
@@ -299,12 +290,7 @@
                                 </div>
                             </div>
                             <!-- end::nomor-akta-cerai -->
-                            <div class="row">
-                                <label class="col-xl-3"></label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <h5 class="font-weight-bold mt-10 mb-6">3</h5>
-                                </div>
-                            </div>
+                            <hr class="mt-20 mb-10">
                             <!-- begin::hubungan-keluarga -->
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label text-right">Hubungan Keluarga</label>
@@ -388,7 +374,20 @@
 </div>
 
 <script>
-const data_f101 = <?= $f101; ?>;
+const data_f101         = <?= $f101; ?>;
+const gelar             = <?= $gelar ?>;
+const kelamin           = <?= $kelamin ?>;
+const kelainan          = <?= $kelainan ?>;
+const goldar            = <?= $goldar ?>;
+const agama             = <?= $agama ?>;
+const cacat             = <?= $cacat ?>;
+const status_kawin      = <?= $status_kawin ?>;
+const hubkel            = <?= $hubkel ?>;
+const pendidikan        = <?= $pendidikan ?>;
+const pekerjaan         = <?= $pekerjaan ?>;
+const akta_cerai        = <?= $akta_cerai ?>;
+const akta_perkawinan   = <?= $akta_perkawinan ?>;
+const akta_lahir        = <?= $akta_lahir ?>;
 
 $(document).ready(function() {
     set_initial();
@@ -408,7 +407,163 @@ $('#nik_detail_f101').on('click', '.navi', function(e) {
     data = get_detail_f101(index);
     // $('#detail_f101_nama').val(data.detail_f101_nama_lengkap);
     renderDetailf101(data);
-})
+});
+
+function get_gelar(id)
+{
+    data = 'error';
+    gelar.forEach(function(item) {
+        if(item.id == id) {
+            data = item.gelar;
+        }
+    });
+
+    return data;
+}
+
+function get_kelamin(id)
+{
+    data = 'error';
+    kelamin.forEach(function(item) {
+        if(item.id == id) {
+            data = item.kelamin;
+        }
+    });
+
+    return data;
+}
+
+function get_kelainan(id)
+{
+    data = 'error';
+    kelainan.forEach(function(item) {
+        if(item.id == id) {
+            data = item.kelainan;
+        }
+    });
+
+    return data;
+}
+
+function get_goldar(id)
+{
+    data = 'error';
+    goldar.forEach(function(item) {
+        if(item.id == id) {
+            data = item.goldar;
+        }
+    });
+
+    return data;
+}
+
+function get_agama(id)
+{
+    data = 'error';
+    agama.forEach(function(item) {
+        if(item.id == id) {
+            data = item.agama;
+        }
+    });
+
+    return data;
+}
+
+function get_cacat(id)
+{
+    data = 'error';
+    cacat.forEach(function(item) {
+        if(item.id == id) {
+            data = item.cacat;
+        }
+    });
+
+    return data;
+}
+
+function get_status_kawin(id)
+{
+    data = 'error';
+    status_kawin.forEach(function(item) {
+        if(item.id == id) {
+            data = item.kawin;
+        }
+    });
+
+    return data;
+}
+
+function get_hubkel(id)
+{
+    data = 'error';
+    hubkel.forEach(function(item) {
+        if(item.id == id) {
+            data = item.hkkel;
+        }
+    });
+
+    return data;
+}
+
+function get_pendidikan(id)
+{
+    data = 'error';
+    pendidikan.forEach(function(item) {
+        if(item.id == id) {
+            data = item.pendidikan;
+        }
+    });
+
+    return data;
+}
+
+function get_pekerjaan(id)
+{
+    data = 'error';
+    pekerjaan.forEach(function(item) {
+        if(item.id == id) {
+            data = item.pekerjaan;
+        }
+    });
+
+    return data;
+}
+
+function get_akta_cerai(id)
+{
+    data = 'error';
+    akta_cerai.forEach(function(item) {
+        if(item.id == id) {
+            data = item.akta_cerai;
+        }
+    });
+
+    return data;
+}
+
+function get_akta_perkawinan(id)
+{
+    data = 'error';
+    akta_perkawinan.forEach(function(item) {
+        if(item.id == id) {
+            data = item.akta_perkawinan;
+        }
+    });
+
+    return data;
+}
+
+function get_akta_lahir(id)
+{
+    data = 'error';
+    akta_lahir.forEach(function(item) {
+        if(item.id == id) {
+            data = item.akta_lahir;
+        }
+    });
+
+    return data;
+}
 
 function set_initial()
 {
@@ -424,6 +579,7 @@ function set_initial()
     renderDetailf101(data_detail)
 
 }
+
 function appendNikToSidebar(item, index)
 {
     let active = index == 0 ? 'active' : '';
@@ -467,34 +623,34 @@ function renderDetailf101(data_detail)
 {
     // begin::data-detail-f101
     $('#data-nama_lengkap').val(data_detail.detail_f101_nama_lengkap);
-    $('#data-gelar').val(data_detail.detail_f101_gelar_id);
+    $('#data-gelar').val(get_gelar(data_detail.detail_f101_gelar_id));
     $('#data-nomor_penduduk').val(data_detail.detail_f101_nomor_penduduk);
     $('#data-alamat_sebelumnya').val(data_detail.detail_f101_alamat_sebelumnya);
     $('#data-nomor_paspor').val(data_detail.detail_f101_nomor_paspor);
     
-    $('#data-tanggal_berakhir_paspor').val(data_detail.detail_f101_tanggal_berakhir_paspor);
-    $('#data-kelamin').val(data_detail.detail_f101_kelamin_id);
+    $('#data-tanggal_berakhir_paspor').val(get_long_date(data_detail.detail_f101_tanggal_berakhir_paspor));
+    $('#data-kelamin').val(get_kelamin(data_detail.detail_f101_kelamin_id));
     $('#data-tempat_lahir').val(data_detail.detail_f101_tempat_lahir);
-    $('#data-tanggal_lahir').val(data_detail.detail_f101_tanggal_lahir);
+    $('#data-tanggal_lahir').val(get_long_date(data_detail.detail_f101_tanggal_lahir));
     $('#data-umur').val(data_detail.detail_f101_umur);
 
-    $('#data-kepemilikan_akta_lahir').val(data_detail.detail_f101_akta_lahir_id);
+    $('#data-kepemilikan_akta_lahir').val(get_akta_lahir(data_detail.detail_f101_akta_lahir_id));
     $('#data-nomor_akta_kelahiran').val(data_detail.detail_f101_nomor_akta_kelahiran);
-    $('#data-golongan_darah').val(data_detail.detail_f101_goldar_id);
-    $('#data-agama').val(data_detail.detail_f101_agama_id);
-    $('#data-status_kawin').val(data_detail.detail_f101_kawin_id);
+    $('#data-golongan_darah').val(get_goldar(data_detail.detail_f101_goldar_id));
+    $('#data-agama').val(get_agama(data_detail.detail_f101_agama_id));
+    $('#data-status_kawin').val(get_status_kawin(data_detail.detail_f101_kawin_id));
 
-    $('#data-tanggal_perkawinan').val(data_detail.detail_f101_tanggal_perkawinan);
-    $('#data-kepemilikan_akta_perkawinan').val(data_detail.detail_f101_akta_perkawinan_id);
+    $('#data-tanggal_perkawinan').val(get_long_date(data_detail.detail_f101_tanggal_perkawinan));
+    $('#data-kepemilikan_akta_perkawinan').val(get_akta_perkawinan(data_detail.detail_f101_akta_perkawinan_id));
     $('#data-nomor_akta_perkawinan').val(data_detail.detail_f101_nomor_akta_perkawinan);
-    $('#data-kepemilikan_akta_cerai').val(data_detail.detail_f101_akta_cerai_id);
+    $('#data-kepemilikan_akta_cerai').val(get_akta_cerai(data_detail.detail_f101_akta_cerai_id));
     $('#data-nomor_akta_perceraian').val(data_detail.detail_f101_nomor_akta_perceraian);
 
-    $('#data-hubungan_keluarga').val(data_detail.detail_f101_hubkel_id);
-    $('#data-kepemilikan_kelainan').val(data_detail.detail_f101_kelainan_id);
-    $('#data-penyandang_cacat').val(data_detail.detail_f101_cacat_id);
-    $('#data-pendidikan').val(data_detail.detail_f101_pendidikan);
-    $('#data-pekerjaan').val(data_detail.detail_f101_pekerjaan);
+    $('#data-hubungan_keluarga').val(get_hubkel(data_detail.detail_f101_hubkel_id));
+    $('#data-kepemilikan_kelainan').val(get_kelainan(data_detail.detail_f101_kelainan_id));
+    $('#data-penyandang_cacat').val(get_cacat(data_detail.detail_f101_cacat_id));
+    $('#data-pendidikan').val(get_pendidikan(data_detail.detail_f101_pendidikan));
+    $('#data-pekerjaan').val(get_pekerjaan(data_detail.detail_f101_pekerjaan));
 
     $('#data-nik_ibu').val(data_detail.detail_f101_nik_ibu);
     $('#data-nama_lengkap_ibu').val(data_detail.detail_f101_nama_lengkap_ibu);
@@ -503,5 +659,4 @@ function renderDetailf101(data_detail)
     // end::data-detail-f101
 
 }
-
 </script>

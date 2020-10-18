@@ -66,25 +66,27 @@ class Penerbitan_kk extends CI_Controller
     {
         $data = $this->set_partial_data('backend/desa/penerbitan_kk/input_detail');
 
+        $data['gelar']              = $this->Data_masyarakat_model->get_all_gelar();
         $data['agama']              = $this->Data_masyarakat_model->get_all_agama();
         $data['cacat']              = $this->Data_masyarakat_model->get_all_cacat();
         $data['goldar']             = $this->Data_masyarakat_model->get_all_goldar();
         $data['hubkel']             = $this->Data_masyarakat_model->get_all_hubkel();
         $data['kawin']              = $this->Data_masyarakat_model->get_all_kawin();
         $data['kelainan']           = $this->Data_masyarakat_model->get_all_kelainan();
-        $data['kawin']              = $this->Data_masyarakat_model->get_all_kawin();
+        $data['kelamin']            = $this->Data_masyarakat_model->get_all_kelamin();
         $data['pekerjaan']          = $this->Data_masyarakat_model->get_all_pekerjaan();
         $data['pendidikan']         = $this->Data_masyarakat_model->get_all_pendidikan();
 
-        $data['agama_json']         = json_encode($this->Data_masyarakat_model->get_all_agama());
-        $data['cacat_json']         = json_encode($this->Data_masyarakat_model->get_all_cacat());
-        $data['goldar_json']        = json_encode($this->Data_masyarakat_model->get_all_goldar());
-        $data['hubkel_json']        = json_encode($this->Data_masyarakat_model->get_all_hubkel());
-        $data['kawin_json']         = json_encode($this->Data_masyarakat_model->get_all_kawin());
-        $data['kelainan_json']      = json_encode($this->Data_masyarakat_model->get_all_kelainan());
-        $data['kelamin_json']       = json_encode($this->Data_masyarakat_model->get_all_kelamin());
-        $data['pekerjaan_json']     = json_encode($this->Data_masyarakat_model->get_all_pekerjaan());
-        $data['pendidikan_json']    = json_encode($this->Data_masyarakat_model->get_all_pendidikan());
+        $data['gelar_json']         = json_encode($data['gelar']);
+        $data['agama_json']         = json_encode($data['agama']);
+        $data['cacat_json']         = json_encode($data['cacat']);
+        $data['goldar_json']        = json_encode($data['goldar']);
+        $data['hubkel_json']        = json_encode($data['hubkel']);
+        $data['kawin_json']         = json_encode($data['kawin']);
+        $data['kelainan_json']      = json_encode($data['kelainan']);
+        $data['kelamin_json']       = json_encode($data['kelamin']);
+        $data['pekerjaan_json']     = json_encode($data['pekerjaan']);
+        $data['pendidikan_json']    = json_encode($data['pendidikan']);
 
         $this->load->view('layouts/master_desa', $data);
     }

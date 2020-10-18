@@ -72,3 +72,8 @@
 <script src="<?php echo base_url('assets/js/bootbox.min.js') ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 <!--end::Page Scripts-->
+<!-- begin::dayjs -->
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script src="https://unpkg.com/dayjs@1.8.21/locale/id.js"></script>
+<script src="<?= base_url('assets/js/utils.js') ?>"></script>
+<!-- end::dayjs -->

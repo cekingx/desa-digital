@@ -19,6 +19,38 @@ class Data_masyarakat_model extends CI_Model
                                 ->row();
     }
 
+    public function get_all_kepemilikan_akta_cerai()
+    {
+        return $this->db_masyarakat->select('*')
+                                ->from('ref_akta_cerai')
+                                ->get()
+                                ->result();
+    }
+
+    public function get_all_kepemilikan_akta_perkawinan()
+    {
+        return $this->db_masyarakat->select('*')
+                                ->from('ref_akta_perkawinan')
+                                ->get()
+                                ->result();
+    }
+
+    public function get_all_kepemilikan_akta_lahir()
+    {
+        return $this->db_masyarakat->select('*')
+                                ->from('ref_akta_lahir')
+                                ->get()
+                                ->result();
+    }
+
+    public function get_all_gelar()
+    {
+        return $this->db_masyarakat->select('*')
+                                ->from('ref_gelar')
+                                ->get()
+                                ->result();
+    }
+
     public function get_all_agama()
     {
         return $this->db_masyarakat->select('*')

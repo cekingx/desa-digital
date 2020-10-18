@@ -37,6 +37,7 @@ class Pengajuan_model extends CI_Model
         $form_pengajuan = array();
         foreach($data_form_pengajuan as $form) {
             $nama_tabel = $form->jenis_form_nama_tabel;
+            // mengubah dari ta_f* ke f*_id
             $field_id = str_replace('ta_f', 'f', $nama_tabel) . '_id';
             $data = $this->db->select($field_id)
                             ->from($nama_tabel)
@@ -90,6 +91,7 @@ class Pengajuan_model extends CI_Model
     }
 
     /**
+     * @deprecated
      * 
      * @param   array     $pengajuan      berisi wilayah_id, nik dan id_layanan
      * @param   array     $form           berisi id jenis form yang digunakan

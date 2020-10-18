@@ -85,7 +85,9 @@ var KTDatatableRemoteAjaxDemo = function() {
                 field: 'f101_created_at',
                 title: 'Tanggal Pengajuan',
                 type: 'date',
-                format: 'DD-MM-YYYY',
+                template: function(row) {
+                    return get_long_date(row.f101_created_at);
+                }
             }, {
                 field: 'Actions',
                 title: 'Actions',
