@@ -9,7 +9,7 @@
 			<?php if(!empty($logo)): ?>
 				<img alt="Logo" width="100" src="<?= $logo ?>" />
 			<?php else: ?>
-				<img alt="Logo" width="100" src="<?php echo base_url('assets/img/logo-top.png')?>" />
+				<img alt="Logo" width="100" src="<?php echo base_url('storage/desa/logo/default-logo.png')?>" />
 			<?php endif; ?>
 		</a>
 		<!--end::Logo-->
@@ -36,8 +36,8 @@
 		<div id="kt_aside_menu" class="aside-menu my-4" data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="500">
 			<!--begin::Menu Nav-->
 			<ul class="menu-nav">
-				<li class="menu-item <?php if ($this->uri->segment(1) == "desa") : ?> menu-item-active <?php endif ?>" aria-haspopup="true">
-					<a href="<?php echo base_url('desa') ?>" class="menu-link">
+				<li class="menu-item <?php if ($this->uri->segment(1) == "capil" && $this->uri->segment(2) == '') : ?> menu-item-active <?php endif ?>" aria-haspopup="true">
+					<a href="<?php echo base_url('capil') ?>" class="menu-link">
 						<span class="svg-icon menu-icon">
 							<!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -56,7 +56,7 @@
 					<h4 class="menu-text">MENU</h4>
 					<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 				</li>
-				<li class="menu-item menu-item-submenu <?php if ($this->uri->segment(1) == "master") : ?> menu-item-open menu-item-here <?php endif ?>" aria-haspopup="true" data-menu-toggle="hover">
+				<li class="menu-item menu-item-submenu <?php if ($this->uri->segment(1) == "capil" && $this->uri->segment(2) == "pengajuan") : ?> menu-item-open menu-item-here <?php endif ?>" aria-haspopup="true" data-menu-toggle="hover">
 					<a href="javascript:;" class="menu-link menu-toggle">
 						<span class="svg-icon menu-icon">
 							<!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
@@ -69,7 +69,7 @@
 							</svg>
 							<!--end::Svg Icon-->
 						</span>
-						<span class="menu-text">Identitas Desa</span>
+						<span class="menu-text">Pengajuan</span>
 						<i class="menu-arrow"></i>
 					</a>
 					<div class="menu-submenu">
@@ -77,15 +77,15 @@
 						<ul class="menu-subnav">
 							<li class="menu-item menu-item-parent" aria-haspopup="true">
 								<span class="menu-link">
-									<span class="menu-text">Identitas Desa</span>
+									<span class="menu-text">Pengajuan</span>
 								</span>
 							</li>
-							<li class="menu-item <?php if ($this->uri->segment(1) == "desa" && $this->uri->segment(2) == "identitas-desa") : ?>menu-item-active<?php endif ?>" aria-haspopup="true">
-								<a href="<?php echo base_url('desa/identitas-desa') ?>" class="menu-link">
+							<li class="menu-item <?php if ($this->uri->segment(1) == "capil" && $this->uri->segment(2) == "pengajuan" && $this->uri->segment(3) == 'penerbitan-kk-baru') : ?>menu-item-active<?php endif ?>" aria-haspopup="true">
+								<a href="<?php echo base_url('capil/pengajuan/penerbitan-kk-baru') ?>" class="menu-link">
 									<i class="menu-bullet menu-bullet-dot">
 										<span></span>
 									</i>
-									<span class="menu-text">Master Data</span>
+									<span class="menu-text">Penerbitan KK Baru</span>
 								</a>
 							</li>
 						</ul>
