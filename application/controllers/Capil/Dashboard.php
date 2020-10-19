@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Dashboard';
+        $data['title'] = 'Dashboard Capil';
         $data['content'] = 'backend/capil/dashboard';
         
         $this->load->view('layouts/master_capil', $data);

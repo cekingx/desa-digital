@@ -58,7 +58,24 @@ $route['logout'] = 'Auth/logout';
 $route['post_login'] = 'Auth/login';
 $route['debug'] = 'Debug/index';
 
+// begin::SUPER
+// begin::admin-desa
+$route['super'] = 'Super/Dashboard/index';
+$route['super/admin-desa'] = 'Super/Admin_desa/index';
+$route['super/admin-desa/create'] = 'Super/Admin_desa/create';
+$route['super/admin-desa/store'] = 'Super/Admin_desa/store';
+$route['super/admin-desa/get-admin-desa'] = 'Super/Admin_desa/get_admin_desa';
+// end::admin-desa
+
+// begin::admin-capil
+$route['super/admin-capil'] = 'Super/Admin_capil/index';
+$route['super/admin-capil/create'] = 'Super/Admin_capil/create';
+$route['super/admin-capil/store'] = 'Super/Admin_capil/store';
+// end::admin-capil
+// end::SUPER
+
 // begin::DESA
+// begin::identitas-desa
 $route['desa']                                  = 'Desa/Dashboard/index';
 $route['desa/identitas-desa']                   = 'Desa/Identitas_desa/index';
 $route['desa/identitas-desa/edit']              = 'Desa/Identitas_desa/edit';
@@ -69,6 +86,7 @@ $route['desa/identitas-desa/kades/update']      = 'Desa/Identitas_desa/kades_upd
 $route['desa/identitas-desa/sekdes']            = 'Desa/Identitas_desa/sekdes_index';
 $route['desa/identitas-desa/sekdes/edit']       = 'Desa/Identitas_desa/sekdes_edit';
 $route['desa/identitas-desa/sekdes/update']     = 'Desa/Identitas_desa/sekdes_update';
+<<<<<<< HEAD
 //banjar
 $route['desa/banjar']                           = 'Desa/Banjar/index';
 $route['desa/banjar/create']                    = 'Desa/Banjar/create';
@@ -88,6 +106,32 @@ $route['desa/galeri']                           = 'Desa/Galeri/index';
 $route['desa/galeri/create']                    = 'Desa/Galeri/create';
 $route['desa/galeri/store']                     = 'Desa/Galeri/store';
 $route['desa/galeri/data']                      = 'Desa/Galeri/galeri_data';
+=======
+// end::identitas-desa
+
+// begin::pengajuan
+$route['desa/pengajuan']                        = 'Desa/Pengajuan/index';
+$route['desa/pengajuan/data-pengajuan']         = 'Desa/Pengajuan/get_pengajuan';
+$route['desa/pengajuan/show/(:any)']            = 'Desa/Pengajuan/show/$1';
+$route['desa/pengajuan/buat-pengajuan']         = 'Desa/Pengajuan/buat_pengajuan';
+$route['desa/pengajuan/pilih-layanan']          = 'Desa/Pengajuan/pilih_layanan';
+$route['desa/pengajuan/data-masyarakat']        = 'Desa/Pengajuan/get_data_masyarakat';
+$route['desa/pengajuan/set-nik-to-session']     = 'Desa/Pengajuan/set_nik_to_session';
+// end::pengajuan
+
+// begin::penerbitan-kk
+$route['desa/pengajuan/penerbitan-kk-baru']                 = 'Desa/Penerbitan_kk/index';
+$route['desa/pengajuan/penerbitan-kk-baru/create']          = 'Desa/Penerbitan_kk/penerbitan_kk_baru';
+$route['desa/pengajuan/penerbitan-kk-baru/store']           = 'Desa/Penerbitan_kk/store_penerbitan_kk_baru';
+$route['desa/pengajuan/penerbitan-kk-baru/detail-f101']     = 'Desa/Penerbitan_kk/input_detail_f101';
+// end::penerbitan-kk
+
+// begin::f101
+$route['desa/pengajuan/f101']                   = 'Desa/f101/index';
+$route['desa/pengajuan/data-f101']              = 'Desa/f101/get_f101';
+$route['desa/pengajuan/f101/(:any)']            = 'Desa/f101/show/$1';
+// end::f101
+>>>>>>> desa-crud-pengajuan
 // end::DESA
 
 // begin::CAPIL

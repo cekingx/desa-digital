@@ -45,7 +45,7 @@
 		<div class="d-flex flex-column flex-root">
 			<!--begin::Page-->
 			<div class="d-flex flex-row flex-column-fluid page">
-                <?php $this->load->view('layouts/partials/sidebar.php') ?>
+                <?php $this->load->view('layouts/partials/sidebar_capil.php') ?>
 				<!--begin::Wrapper-->
 				<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
 					<!--begin::Header-->
