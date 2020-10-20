@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @deprecated
  * @group model
  */
 class Pengajuan_model_test extends TestCase

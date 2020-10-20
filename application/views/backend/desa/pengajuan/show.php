@@ -43,7 +43,8 @@
                         <?php if(!empty($pengajuan['form_pengajuan'])): ?>
                             <?php foreach($pengajuan['form_pengajuan'] as $form): ?>
                                 <a class="d-flex align-items-center mb-5" 
-                                href="<?= base_url($form['url'] . $form['form_id']) ?>">
+                                target="_blank"
+                                href="<?= base_url('desa/' . $form['url'] . $form['form_id']) ?>">
                                     <!--begin::Symbol-->
                                     <div class="symbol symbol-40 symbol-light-primary mr-5">
                                         <span class="symbol-label">

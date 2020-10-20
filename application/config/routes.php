@@ -136,4 +136,16 @@ $route['desa/pengajuan/f101/(:any)']            = 'Desa/f101/show/$1';
 
 // begin::CAPIL
 $route['capil'] = 'Capil/Dashboard/index';
+$route['capil/get_all_wilayah'] = 'Capil/Wilayah/get_all_wilayah';
+
+// begin::penerbitan-kk
+$route['capil/pengajuan/penerbitan-kk-baru'] = 'Capil/Penerbitan_kk/index';
+$route['capil/pengajuan/penerbitan-kk-baru/data-pengajuan'] = 'Capil/Penerbitan_kk/get_data_pengajuan';
+$route['capil/pengajuan/penerbitan-kk-baru/set-status-pengajuan'] = 'Capil/Penerbitan_kk/set_status_pengajuan';
+$route['capil/pengajuan/penerbitan-kk-baru/show/(:any)'] = 'Capil/Penerbitan_kk/show/$1';
+// end::penerbitan-kk
+
+// begin::f101
+$route['capil/pengajuan/f101/(:any)'] = 'Capil/f101/show/$1';
+// end::f101
 // end::CAPIL

@@ -30,26 +30,26 @@ class Penerbitan_kk_model_test extends TestCase
         );
 
         $data_f101 = array(
-            'nama_kepala_keluarga'      => 'Dirga',
+            'nama_kepala_keluarga'      => 'I Dewa Gede Putra',
             'alamat'                    => 'Sidan',
             'rt'                        => 2,
             'rw'                        => 2,
             'jumlah_anggota_keluarga'   => 2,
-            'telepon'                   => '091203'
+            'telepon'                   => '081339523474'
         );
 
         $data_detail_f101 = array(
             array(
-                'nama_lengkap'                  => 'dirga',
+                'nama_lengkap'                  => 'I Dewa Gede Putra',
                 'gelar'                         => 1,
-                'nomor_penduduk'                => '120819',
+                'nomor_penduduk'                => '5104031307990001',
                 'alamat_sebelumnya'             => 'Sidan',
                 'nomor_paspor'                  => '2309',
                 'tanggal_berakhir_paspor'       => '2020-12-21',
                 'kelamin'                       => 1,
                 'tempat_lahir'                  => 'Gianyar',
-                'tanggal_lahir'                 => '2020-12-12',
-                'umur'                          => 20,
+                'tanggal_lahir'                 => '1969-07-13',
+                'umur'                          => 40,
                 'kepemilikan_akta_lahir'        => 1,
                 'nomor_akta_kelahiran'          => '01y4',
                 'golongan_darah'                => 1,
@@ -66,20 +66,20 @@ class Penerbitan_kk_model_test extends TestCase
                 'pendidikan'                    => 1,
                 'pekerjaan'                     => 1,
                 'nik_ibu'                       => '098712847',
-                'nama_lengkap_ibu'              => 'hglej',
+                'nama_lengkap_ibu'              => 'Desak',
                 'nik_ayah'                      => '0127340',
-                'nama_lengkap_ayah'             => 'lkasd'
+                'nama_lengkap_ayah'             => 'Dewa Putu'
             ),
             array(
-                'nama_lengkap'                  => 'yasa',
+                'nama_lengkap'                  => 'Ni Wayan Kertiasih',
                 'gelar'                         => 1,
-                'nomor_penduduk'                => '120819',
-                'alamat_sebelumnya'             => 'Sidan',
+                'nomor_penduduk'                => '5104031307990002',
+                'alamat_sebelumnya'             => 'Klungkung',
                 'nomor_paspor'                  => '2309',
                 'tanggal_berakhir_paspor'       => '2020-12-21',
                 'kelamin'                       => 1,
-                'tempat_lahir'                  => 'Gianyar',
-                'tanggal_lahir'                 => '2020-12-12',
+                'tempat_lahir'                  => 'Klungkung',
+                'tanggal_lahir'                 => '1975-04-14',
                 'umur'                          => 20,
                 'kepemilikan_akta_lahir'        => 1,
                 'nomor_akta_kelahiran'          => '01y4',
@@ -97,14 +97,45 @@ class Penerbitan_kk_model_test extends TestCase
                 'pendidikan'                    => 1,
                 'pekerjaan'                     => 1,
                 'nik_ibu'                       => '098712847',
-                'nama_lengkap_ibu'              => 'hglej',
+                'nama_lengkap_ibu'              => 'Ni Nyoman',
                 'nik_ayah'                      => '0127340',
-                'nama_lengkap_ayah'             => 'lkasd'
+                'nama_lengkap_ayah'             => 'I Wayan'
+            ),
+            array(
+                'nama_lengkap'                  => 'I Dewa Gede Dirga Yasa',
+                'gelar'                         => 1,
+                'nomor_penduduk'                => '5104031307990004',
+                'alamat_sebelumnya'             => 'Sidan',
+                'nomor_paspor'                  => '2309',
+                'tanggal_berakhir_paspor'       => '2020-12-21',
+                'kelamin'                       => 1,
+                'tempat_lahir'                  => 'Gianyar',
+                'tanggal_lahir'                 => '1999-07-13',
+                'umur'                          => 20,
+                'kepemilikan_akta_lahir'        => 1,
+                'nomor_akta_kelahiran'          => '01y4',
+                'golongan_darah'                => 1,
+                'agama'                         => 1,
+                'status_kawin'                  => 1,
+                'kepemilikan_akta_perkawinan'   => 1,
+                'nomor_akta_perkawinan'         => '70973',
+                'tanggal_perkawinan'            => '2020-12-12',
+                'kepemilikan_akta_cerai'        => 1,
+                'nomor_akta_perceraian'         => '7097',
+                'hubungan_keluarga'             => 1,
+                'kepemilikan_kelainan'          => 1,
+                'penyandang_cacat'              => 1,
+                'pendidikan'                    => 1,
+                'pekerjaan'                     => 1,
+                'nik_ibu'                       => '098712847',
+                'nama_lengkap_ibu'              => 'Ni Wayan Kertiasih',
+                'nik_ayah'                      => '0127340',
+                'nama_lengkap_ayah'             => 'I Dewa Gede Putra'
             )
         );
 
         $this->obj->set_pengajuan_penerbitan_kk($data_pengajuan, $data_f101, $data_detail_f101);
         $this->assertCount(2, $this->CI->db->get('ta_pengajuan')->result());
-        $this->assertCount(3, $this->CI->db->get('ta_detail_f101')->result());
+        $this->assertCount(4, $this->CI->db->get('ta_detail_f101')->result());
     }
 }
