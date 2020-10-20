@@ -61,6 +61,7 @@
 </div>
 
 <script>
+$('.preloader').fadeOut();
 var KTDatatableRemoteAjaxDemo = function() {
     // Private functions
 
@@ -136,7 +137,7 @@ var KTDatatableRemoteAjaxDemo = function() {
                 // callback function support for column rendering
                 template: function(row) {
                     return '<span class="label font-weight-bold label-lg label-light-info label-inline">' + row.pengajuan_status_pengajuan + '</span>';
-                },
+                }
             }, {
                 field: 'pengajuan_wilayah',
                 title: 'Wilayah',

@@ -9,7 +9,37 @@ class Pengajuan_model extends CI_Model
 
     public function get_all()
     {
-        return $this->db->get('ta_pengajuan')
+        return $this->db->select('
+                                    ta_pengajuan.*, 
+                                    ref_layanan.layanan_nama as layanan,
+                                    ref_status_pengajuan.status_pengajuan_deskripsi as pengajuan_status_pengajuan
+                                ')
+                        ->from('ta_pengajuan')
+                        ->join('ref_layanan', 'ta_pengajuan.pengajuan_jenis_layanan = ref_layanan.layanan_id')
+                        ->join('ref_status_pengajuan', 'ta_pengajuan.pengajuan_status_pengajuan_id = ref_status_pengajuan.status_pengajuan_id')
+                        ->get()
+                        ->result();
+    }
+
+    public function get_all_layanan()
+    {
+        return $this->db->select('
+                                    layanan_id, 
+                                    layanan_nama as layanan
+                                ')
+                        ->from('ref_layanan')
+                        ->get()
+                        ->result();
+    }
+
+    public function get_all_status_pengajuan()
+    {
+        return $this->db->select('
+                                    status_pengajuan_id,
+                                    status_pengajuan_deskripsi as status_pengajuan
+                                ')
+                        ->from('ref_status_pengajuan')
+                        ->get()
                         ->result();
     }
 

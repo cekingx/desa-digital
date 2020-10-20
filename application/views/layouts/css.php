@@ -12,8 +12,8 @@
 <link href="<?php echo base_url('assets/plugins/global/plugins.bundle.css') ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url('assets/plugins/custom/prismjs/prismjs.bundle.css') ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url('assets/css/style.bundle.css') ?>" rel="stylesheet" type="text/css" />
-<!-- <link href="<?php echo base_url('assets/css/preloaders.css') ?>" rel="stylesheet" type="text/css" /> -->
-<!-- <link href="<?php echo base_url('assets/css/custom.css') ?>" rel="stylesheet" type="text/css" /> -->
+<link href="<?php echo base_url('assets/css/preloaders.css') ?>" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url('assets/css/custom.css') ?>" rel="stylesheet" type="text/css" />
 
 <link href="<?php echo base_url('assets/css/themes/layout/header/base/light.css') ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url('assets/css/themes/layout/header/menu/light.css') ?>" rel="stylesheet" type="text/css" />

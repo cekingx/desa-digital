@@ -157,6 +157,7 @@
 </div>
 
 <script>
+    $('.preloader').fadeOut();
     const status_pengajuan = <?= $status_pengajuan_json; ?>;
     const jenis_layanan = <?= $jenis_layanan_json; ?>;
 
@@ -170,18 +171,26 @@
         $('#exampleModal').modal('hide');
 
         form = new FormData(this);
+        $('.preloader').fadeIn();
         $.ajax({
             url: '<?= base_url('capil/pengajuan/penerbitan-kk-baru/set-status-pengajuan') ?>',
-            // url: '<?= base_url('debug') ?>',
             data: form,
             type: 'POST',
             contentType: false,
             processData: false,
             success: function(data) {
+                $('.preloader').fadeOut();
                 console.log(data);
+                bootbox.alert('Data berhasil di ubah', function() {
+                    location.reload();
+                });
             },
             error: function(error) {
+                $('.preloader').fadeOut();
                 console.log(error.responseText);
+                bootbox.alert(error.responseText, function() {
+                    location.reload();
+                });
             }
         });
     })

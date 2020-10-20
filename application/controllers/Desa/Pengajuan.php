@@ -30,6 +30,8 @@ class Pengajuan extends CI_Controller
     public function index()
     {
         $data = $this->set_partial_data('backend/desa/pengajuan/index');
+        $data['layanan']    = $this->Pengajuan_model->get_all_layanan();
+        $data['status_pengajuan'] = $this->Pengajuan_model->get_all_status_pengajuan();
 
         $this->load->view('layouts/master_desa', $data);
     }

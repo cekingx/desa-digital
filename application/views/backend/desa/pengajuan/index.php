@@ -48,19 +48,27 @@
                                     <label class="mr-3 mb-0 d-none d-md-block">Status Pengajuan:</label>
                                     <select class="form-control" id="kt_datatable_search_status">
                                         <option value="">Semua</option>
+                                        <?php foreach($status_pengajuan as $status_pengajuan): ?>
+                                            <option><?= $status_pengajuan->status_pengajuan ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <!-- <label class="mr-3 mb-0 d-none d-md-block">Status Pengajuan:</label>
+                                    <select class="form-control" id="kt_datatable_search_status">
+                                        <option value="">Semua</option>
                                         <option value="1">TAHAP 1</option>
                                         <option value="2">TAHAP 2</option>
                                         <option value="3">TAHAP 3</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
                             <div class="col-md-4 my-2 my-md-0">
                                 <div class="d-flex align-items-center">
                                     <label class="mr-3 mb-0 d-none d-md-block">Layanan:</label>
                                     <select class="form-control" id="kt_datatable_search_type">
-                                        <option value="">All</option>
-                                        <option value="1">Penerbitan KK Baru</option>
-                                        <option value="2">Penerbitan KTP</option>
+                                        <option value="">Semua</option>
+                                        <?php foreach($layanan as $layanan): ?>
+                                            <option><?= $layanan->layanan; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
@@ -150,55 +158,31 @@ var KTDatatableRemoteAjaxDemo = function() {
                     return get_long_date(row.pengajuan_created_at);
                 }
             }, {
-                field: 'pengajuan_status_pengajuan_id',
+                field: 'pengajuan_status_pengajuan',
                 title: 'Status',
                 // callback function support for column rendering
                 template: function(row) {
-                    var status = {
-                        1: {
-                            'title': 'TAHAP 1',
-                            'class': ' label-light-info'
-                        },
-                        2: {
-                            'title': 'TAHAP 2',
-                            'class': ' label-light-info'
-                        },
-                        3: {
-                            'title': 'TAHAP 3',
-                            'class': ' label-light-success'
-                        },
-                    };
-                    return '<span class="label font-weight-bold label-lg ' + status[row.pengajuan_status_pengajuan_id].class + ' label-inline">' + status[row.pengajuan_status_pengajuan_id].title + '</span>';
-                },
+                    return '<span class="label font-weight-bold label-lg label-light-info label-inline">' + row.pengajuan_status_pengajuan + '</span>';
+                }
             }, {
-                field: 'pengajuan_jenis_layanan',
+                field: 'layanan',
                 title: 'Jenis Layanan',
                 autoHide: false,
                 // callback function support for column rendering
                 template: function(row) {
-                    var status = {
-                        1: {
-                            'title': 'Penerbitan KK Baru',
-                            'state': 'primary'
-                        },
-                        2: {
-                            'title': 'Penerbitan KTP',
-                            'state': 'primary'
-                        },
-                    };
-                    return '<span class="label label-' + status[row.pengajuan_jenis_layanan].state + ' label-dot mr-2"></span><span class="font-weight-bold text-' + status[row.pengajuan_jenis_layanan].state + '">' +
-                        status[row.pengajuan_jenis_layanan].title + '</span>';
+                    return '<span class="label label-primary label-dot mr-2"></span><span class="font-weight-bold text-primary">' +
+                        row.layanan + '</span>';
                 },
             }],
 
         });
 
 		$('#kt_datatable_search_status').on('change', function() {
-            datatable.search($(this).val().toLowerCase(), 'pengajuan_status_pengajuan_id');
+            datatable.search($(this).val().toLowerCase(), 'pengajuan_status_pengajuan');
         });
 
         $('#kt_datatable_search_type').on('change', function() {
-            datatable.search($(this).val().toLowerCase(), 'pengajuan_jenis_layanan');
+            datatable.search($(this).val().toLowerCase(), 'layanan');
         });
 
         $('#kt_datatable_search_status, #kt_datatable_search_type').selectpicker();

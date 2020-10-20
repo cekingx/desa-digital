@@ -6,6 +6,13 @@
     <?php $this->load->view('layouts/js.php'); ?>
 </head>
 	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+
+		<div class="preloader">
+			<div class="loading">
+				<img src="<?php echo base_url('assets/img/loader.gif') ?>" width="80">
+			</div>
+		</div>
+
 		<div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
 			<!--begin::Logo-->
 			<a href="<?php echo base_url('/')?>">

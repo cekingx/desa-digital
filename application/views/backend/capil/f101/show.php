@@ -390,6 +390,7 @@ const akta_perkawinan   = <?= $akta_perkawinan ?>;
 const akta_lahir        = <?= $akta_lahir ?>;
 
 $(document).ready(function() {
+    $('.preloader').fadeOut();
     set_initial();
     console.log(data_f101);
 });
