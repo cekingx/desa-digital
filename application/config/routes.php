@@ -73,6 +73,7 @@ $route['desa/identitas-desa/sekdes/update']     = 'Desa/Identitas_desa/sekdes_up
 $route['desa/banjar']                           = 'Desa/Banjar/index';
 $route['desa/banjar/create']                    = 'Desa/Banjar/create';
 $route['desa/banjar/edit']                      = 'Desa/Banjar/edit';
+$route['desa/banjar/edit/(:any)']               = 'Desa/Banjar/edit/$1';
 $route['desa/banjar/update']                    = 'Desa/Banjar/update';
 $route['desa/banjar/store']                     = 'Desa/Banjar/store';
 $route['desa/banjar/data']                      = 'Desa/Banjar/banjar_data';
@@ -80,14 +81,20 @@ $route['desa/banjar/data']                      = 'Desa/Banjar/banjar_data';
 $route['desa/pengumuman']                       = 'Desa/Pengumuman/index';
 $route['desa/pengumuman/create']                = 'Desa/Pengumuman/create';
 $route['desa/pengumuman/edit']                  = 'Desa/Pengumuman/edit';
+$route['desa/pengumuman/edit/(:any)']           = 'Desa/Pengumuman/edit/$1';
 $route['desa/pengumuman/update']                = 'Desa/Pengumuman/update';
 $route['desa/pengumuman/store']                 = 'Desa/Pengumuman/store';
 $route['desa/pengumuman/data']                  = 'Desa/Pengumuman/pengumuman_data';
+$route['desa/pengumuman/(:any)']                = 'Desa/Pengumuman/show/$1';
 //galeri
 $route['desa/galeri']                           = 'Desa/Galeri/index';
 $route['desa/galeri/create']                    = 'Desa/Galeri/create';
+$route['desa/galeri/edit']                      = 'Desa/Galeri/edit';
+$route['desa/galeri/edit/(:any)']               = 'Desa/Galeri/edit/$1';
 $route['desa/galeri/store']                     = 'Desa/Galeri/store';
+$route['desa/galeri/update']                    = 'Desa/Galeri/update';
 $route['desa/galeri/data']                      = 'Desa/Galeri/galeri_data';
+$route['desa/galeri/(:any)']                    = 'Desa/Galeri/show/$1';
 // end::DESA
 
 // begin::CAPIL

@@ -15,7 +15,7 @@
                 <div class="form-group">
                     <label>Judul Pengumuman</label>
                     <input type="text" class="form-control" placeholder="Judul Pengumuman" name="pengumuman_judul"
-                        id="pengumuman_judul" />
+                        id="pengumuman_judul"/>
                     <span style="display: none;" class="text-danger" id="need-judul">
                         Judul Pengumuman masih kosong
                     </span>
@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <label>Isi Pengumuman</label>
                     <textarea type="text" class="form-control" placeholder="Isi Pengumuman" name="pengumuman_isi"
-                        id="pengumuman_isi"></textarea>
+                        id="pengumuman_isi" cols="30" rows="7"></textarea>
                     <span style="display: none;" class="text-danger" id="need-isi">
                         Isi Pengumuman masih kosong
                     </span>
