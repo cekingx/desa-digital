@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'Auth';
 $route['logout'] = 'Auth/logout';
 $route['post_login'] = 'Auth/login';
+$route['unauthorized'] = 'Custom_error/unauthorized';
 $route['debug'] = 'Debug/index';
 
 // begin::SUPER

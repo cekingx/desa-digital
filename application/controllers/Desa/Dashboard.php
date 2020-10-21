@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         $this->load->model('identitas_desa_model');
+        $this->load->helper('authorization_helper');
     }
 
     public function index()
