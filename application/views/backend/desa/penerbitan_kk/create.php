@@ -161,6 +161,9 @@
                         processData: false,
                         success: function(data) {
                             console.log(data)
+                            bootbox.alert('Data berhasil dibuat', function() {
+                                window.location = '<?= base_url('desa/pengajuan') ?>'
+                            })
                         },
                         error: function(error) {
                             console.log(error.responseText)

@@ -69,15 +69,17 @@ class Pengajuan_model extends CI_Model
             $nama_tabel = $form->jenis_form_nama_tabel;
             // mengubah dari ta_f* ke f*_id
             $field_id = str_replace('ta_f', 'f', $nama_tabel) . '_id';
-            $data = $this->db->select($field_id)
+            // mengubah dari ta_f* ke f*_pengajuan_id
+            $field_pengajuan_id = str_replace('ta_f', 'f', $nama_tabel) . '_pengajuan_id';
+            $used_form = $this->db->select($field_id)
                             ->from($nama_tabel)
-                            ->where($field_id, $id_pengajuan)
+                            ->where($field_pengajuan_id, $id_pengajuan)
                             ->get()
                             ->row();
 
             array_push($form_pengajuan, array(
                 'nama_form' => $form->jenis_form_nama,
-                'form_id'   => $data->$field_id,
+                'form_id'   => $used_form->$field_id,
                 'url'       => $form->jenis_form_url
             ));
         } 

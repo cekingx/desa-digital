@@ -122,7 +122,7 @@ $route['desa/pengajuan/set-nik-to-session']     = 'Desa/Pengajuan/set_nik_to_ses
 // end::pengajuan
 
 // begin::penerbitan-kk
-$route['desa/pengajuan/penerbitan-kk-baru']                 = 'Desa/Penerbitan_kk/index';
+$route['desa/pengajuan/penerbitan-kk-baru']                 = 'Desa/Penerbitan_kk/index'; //deprecated
 $route['desa/pengajuan/penerbitan-kk-baru/create']          = 'Desa/Penerbitan_kk/penerbitan_kk_baru';
 $route['desa/pengajuan/penerbitan-kk-baru/store']           = 'Desa/Penerbitan_kk/store_penerbitan_kk_baru';
 $route['desa/pengajuan/penerbitan-kk-baru/detail-f101']     = 'Desa/Penerbitan_kk/input_detail_f101';
@@ -133,6 +133,11 @@ $route['desa/pengajuan/f101']                   = 'Desa/f101/index';
 $route['desa/pengajuan/data-f101']              = 'Desa/f101/get_f101';
 $route['desa/pengajuan/f101/(:any)']            = 'Desa/f101/show/$1';
 // end::f101
+
+// begin::penerbitan-ktp
+$route['desa/pengajuan/penerbitan-ktp-baru/create'] = 'Desa/Penerbitan_ktp/penerbitan_ktp_baru';
+$route['desa/pengajuan/penerbitan-ktp-baru/store'] = 'Desa/Penerbitan_ktp/store_penerbitan_ktp_baru';
+// end::penerbitan-ktp
 // end::DESA
 
 // begin::CAPIL

@@ -44,6 +44,9 @@ class Pengajuan extends CI_Controller
         $data['status_pengajuan']   = json_encode($this->Ref_model->get_status_pengajuan());
 
         $this->load->view('layouts/master_desa', $data);
+        // echo '<pre>';
+        // print_r($data['pengajuan']);
+        // echo '</pre>';
     }
 
     public function buat_pengajuan()

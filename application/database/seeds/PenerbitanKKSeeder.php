@@ -25,11 +25,6 @@ class PenerbitanKKSeeder extends Seeder
             'detail_pengajuan_form_jenis_form_id'   => 1
         );
 
-        $data_lampiran = array(
-            'detail_pengajuan_lampiran_pengajuan_id'    => 1,
-            'detail_pengajuan_lampiran_nama'            => 'KTP'
-        );
-
         $data_f101 = array(
             'f101_pengajuan_id'                 => 1,
             'f101_nama_kepala_keluarga'         => 'Dirga',
@@ -82,7 +77,6 @@ class PenerbitanKKSeeder extends Seeder
         $this->db->trans_start();
         $this->db->insert('ta_pengajuan', $data_pengajuan);
         $this->db->insert('ta_detail_pengajuan_form', $data_form);
-        $this->db->insert('ta_detail_pengajuan_lampiran', $data_lampiran);
         $this->db->insert('ta_f101', $data_f101);
         $this->db->insert('ta_detail_f101', $data_detail_f101);
         $this->db->trans_complete();

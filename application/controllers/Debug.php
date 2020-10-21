@@ -14,12 +14,13 @@ class Debug extends CI_Controller
 
     public function index()
     {
-
+        echo '<pre>';
         print_r(array(
             'post'      => $_POST,
             'session'   => $_SESSION,
             'files'     => $_FILES,
         ));
+        echo '</pre>';
     }
 
     public function cmd()
