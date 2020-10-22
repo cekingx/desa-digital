@@ -95,6 +95,7 @@ $route['desa/galeri/store']                     = 'Desa/Galeri/store';
 $route['desa/galeri/update']                    = 'Desa/Galeri/update';
 $route['desa/galeri/data']                      = 'Desa/Galeri/galeri_data';
 $route['desa/galeri/(:any)']                    = 'Desa/Galeri/show/$1';
+$route['desa/detail/galeri/data/(:any)']        = 'Desa/Galeri/detail_galeri_data/$1';
 // end::DESA
 
 // begin::CAPIL

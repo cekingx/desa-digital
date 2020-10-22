@@ -1,5 +1,21 @@
 <title>Galeri</title>
 
+<?php if(isset($message)) {
+    echo('
+    <div class="alert alert-custom alert-outline-2x alert-outline-primary fade show mb-5" id="message" role="alert">
+        <div class="alert-icon"><i class="flaticon2-checkmark"></i></div>
+        <div class="alert-text">'
+        .$message.
+        '</div>
+        <div class="alert-close">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true"><i class="ki ki-close"></i></span>
+            </button>
+        </div>
+    </div>
+    ');
+} ?>
+
 <div class="card card-custom gutter-b">
     
     <div class="card-header">
@@ -64,12 +80,12 @@
                 columns: [
                     {
                         field: 'galeri_judul',
-                        title: 'Judul',
+                        title: 'Galeri',
                         sortable: true,
                         template: function(row) {
                             return '<a href="<?= base_url('desa/galeri/') ?>'+row.galeri_id+'">'+row.galeri_judul+'</a>';
                         }
-                    },
+                    },                   
                     {
                         field: 'galeri_created_at',
                         title: 'Tanggal'
@@ -114,7 +130,7 @@
             $(document).on("click", ".btnDelete", function() {
                 let id = $(this).data('id');
                 bootbox.confirm({
-                    title: "Hapus Pengumuman",
+                    title: "Hapus Galeri",
                     message: "Apakah anda yakin menghapus Galeri?",
                     buttons: {
                         cancel: {
@@ -130,7 +146,7 @@
                             $('.preloader').fadeIn();
                             $.ajax({
                                 type: 'GET',
-                                url: "<?= base_url('desa/galeri/delete/') ?>" + id,
+                                url: "<?php echo site_url('desa/galeri/delete/') ?>" + id,
                                 dataType: 'json',
                                 success: function(data) {
                                     $('.preloader').fadeOut();

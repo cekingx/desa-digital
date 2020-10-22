@@ -1,78 +1,77 @@
-<?php
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Galeri_model extends CI_Model
-{
-    private $table_galeri = 'ta_galeri';
+{	
+	function __construct(){
+        parent::__construct();
+    }
+
+	private $_table = "ta_galeri";	
 
     public $galeri_id;
     public $galeri_wilayah_id;
 	public $galeri_judul;
 	public $galeri_deskripsi;
-    public $galeri_is_deleted;
+	public $galeri_slug;	
+	
+	public function rules()
+	{
+		return [
+			['field' => 'judul_galeri', 
+			'label' => 'judul galeri', 
+			'rules' => 'required'],
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
+			['field' => 'deskripsi_galeri', 
+			'label' => 'deskripsi galeri', 
+			'rules' => 'required']							
+		];
+	}
 
-    public function get_all() 
-    {
-        return $this->db->get($this->table_galeri)->result_array();
-    }
+	public function getNumRows()
+	{
+		return $this->db->get($this->_table)->num_rows();
+	}
 
-    public function get_by_id($galeri_id)
-    {
-        return $this->db->select('*')
-                        ->from($this->table_galeri)
-                        ->where('galeri_id', $galeri_id)
-                        ->get()
-                        ->row();
-    }
+	public function getAll()
+	{		
+		return $this->db->get($this->_table)->result();
+	}
 
-    public function get_by_wilayah_id($wilayah_id)
-    {
-        return $this->db->select('*')
-                        ->from($this->table_galeri)
-                        ->where($this->galeri_wilayah_id, $wilayah_id)
-                        ->where($this->galeri_is_deleted, 0)
-                        ->get()
-                        ->result();
-    }
+	public function getById($id)
+	{
+		return $this->db->get_where($this->_table, ["galeri_id" => $id])->row();
+	}
 
-    public function save($wilayah_id)
-    {
-        $post = $this->input->post();
+	public function getBySlug($slug)
+	{
+		return $this->db->get_where($this->_table, ["galeri_slug" => $slug])->row();
+	}	
+
+	public function save($wilayah_id)
+	{
+		// return print_r($this->upload_image());
+		$post = $this->input->post();
         $this->galeri_wilayah_id = $wilayah_id;
-		$this->galeri_judul = $post['galeri_judul'];
-        $this->galeri_deskripsi = $post['galeri_deskripsi'];
-        $this->galeri_is_deleted = 0;
+		$this->galeri_judul = $post["judul_galeri"];		
+		$this->galeri_deskripsi = $post["deskripsi_galeri"];
+        $this->galeri_slug = url_title($this->galeri_judul, '-', TRUE);
         $this->db->set('galeri_created_at', 'NOW()', FALSE);
+		return $this->db->insert($this->_table, $this);
+	}
 
-        return $this->db->insert($this->table_galeri, $this);
-    }
+	public function update()
+	{
+		$post = $this->input->post();
+		$this->galeri_id = $post["id"];
+		$this->galeri_judul = $post["judul_galeri"];		
+		$this->galeri_deskripsi = $post["deskripsi_galeri"];
+		$this->galeri_slug = $post["slug_galeri"];		
+		$this->galeri_tanggal = $post["tanggal_galeri"];
+		return $this->db->update($this->_table, $this, array('galeri_id' => $post["id"]));
+	}
 
-    public function update($galeri_id)
-    {
-        $post = $this->input->post();
-		$this->galeri_id = $galeri_id;
-        $this->galeri_wilayah_id = $post['galeri_wilayah_id'];
-        $this->galeri_judul = $post['galeri_judul'];
-		$this->galeri_deskripsi = $post['galeri_deskripsi'];
-        $this->db->set('galeri_updated_at', 'NOW()', FALSE);
-
-        if (!empty($_FILES["detail_galeri_foto"]["name"])) {
-            $this->detail_galeri_foto = $this->uploadImage();
-        } else {
-            $this->detail_galeri_foto = $post["old_image"];
-		}
-
-        return $this->db->where('galeri_id', $this->galeri_id)
-                        ->update($this->table_galeri, $this);
-    }
-
-    public function delete($galeri_id)
-    {
-        return $this->db->delete($this->table_galeri, ['galeri_id' => $galeri_id]);
-    }
-
+	public function delete($id)
+	{		
+		return $this->db->delete($this->_table, array("galeri_id" => $id));
+	}
 }

@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="card-body">
-        <form class="form" id="pengumuman_form">
+        <form class="form" id="form_galeri" enctype="multipart/form-data" method="POST">
             <div class="card-body">
                 <!-- begin::id -->
                 <input type="hidden" name="galeri_id" id="galeri_id" value="<?= $galeri->galeri_id?>">
@@ -18,8 +18,8 @@
                 <!-- begin::link -->
                 <div class="form-group">
                     <label>Judul Galeri</label>
-                    <input type="text" class="form-control" placeholder="Judul Galeri" name="galeri_judul"
-                        id="galeri_judul" value="<?= $galeri->galeri_judul ?>"/>
+                    <input type="text" class="form-control" placeholder="Judul Galeri" name="judul_galeri"
+                        id="judul_galeri" value="<?= $galeri->galeri_judul ?>"/>
                     <span style="display: none;" class="text-danger" id="need-judul">
                         Judul Galeri masih kosong
                     </span>
@@ -28,9 +28,9 @@
                 <!-- begin::deskripsi -->
                 <div class="form-group">
                     <label>Deskripsi Galeri</label>
-                    <textarea type="text" class="form-control" placeholder="Deskripsi Galeri" name="galeri_deskripsi"
-                        id="galeri_deskripsi"><?= $galeri->galeri_deskripsi ?></textarea>
-                    <span style="display: none;" class="text-danger" id="need-isi">
+                    <textarea type="text" class="form-control" placeholder="Deskripsi Galeri" name="deskripsi_galeri"
+                        id="deskripsi_galeri"><?= $galeri->galeri_deskripsi ?></textarea>
+                    <span style="display: none;" class="text-danger" id="need-deskripsi">
                         Deskripsi Galeri masih kosong
                     </span>
                 </div>
@@ -49,45 +49,45 @@
 <script>
     $('.preloader').fadeOut();
 
-    $('#galeri_judul').keyup( function() {
-        if($('#galeri_judul').val() == '') {
-            $('#galeri_judul').addClass('is-invalid');
+    $('#judul_galeri').keyup( function() {
+        if($('#judul_galeri').val() == '') {
+            $('#judul_galeri').addClass('is-invalid');
             $('#need-judul').fadeIn(3);
         } else {
-            $('#galeri_judul').removeClass('is-invalid');
+            $('#judul_galeri').removeClass('is-invalid');
             $('#need-judul').fadeOut(3);
         }
     });
 
-    $('#galeri_deskripsi').keyup( function() {
-        if($('#galeri_deskripsi').val() == '') {
-            $('#galeri_deskripsi').addClass('is-invalid');
+    $('#deskripsi_galeri').keyup( function() {
+        if($('#deskripsi_galeri').val() == '') {
+            $('#deskripsi_galeri').addClass('is-invalid');
             $('#need-deskripsi').fadeIn(3);
         } else {
-            $('#galeri_deskripsi').removeClass('is-invalid');
+            $('#deskripsi_galeri').removeClass('is-invalid');
             $('#need-deskripsi').fadeOut(3);
         }
     });
 
     $('#btn-save').click( function() {
-        if($('#galeri_judul').val() == '') {
-            $('#galeri_judul').addClass('is-invalid');
+    var formData = new FormData($("#form_galeri")[0]);
+
+        if($('#judul_galeri').val() == '') {
+            $('#judul_galeri').addClass('is-invalid');
             $('#need-judul').fadeIn(3);
-        } else if($('#galeri_deskripsi').val() == '') {
-            $('#galeri_deskripsi').addClass('is-invalid');
+        } else if($('#deskripsi_galeri').val() == '') {
+            $('#deskripsi_galeri').addClass('is-invalid');
             $('#need-deskripsi').fadeIn(3);
         } else {
             $('.preloader').fadeIn();
             $.ajax({
                 type: 'POST',
                 url: '<?= base_url('desa/galeri/update') ?>',
-                data: {
-                    galeri_id: $('#galeri_id').val(),
-                    galeri_judul: $('#galeri_judul').val(), 
-                    galeri_deskripsi: $('#galeri_deskripsi').val(), 
-                    galeri_wilayah_id: $('#galeri_wilayah_id').val(),
-                },
-                dataType: 'json',
+                data: formData,
+                processData:false,
+                contentType:false,
+                cache:false,
+                async:false,     
                 success: function(data) {
                     // console.log(data);
                     $('.preloader').fadeOut();
