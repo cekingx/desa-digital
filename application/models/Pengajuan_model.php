@@ -17,6 +17,7 @@ class Pengajuan_model extends CI_Model
                         ->from('ta_pengajuan')
                         ->join('ref_layanan', 'ta_pengajuan.pengajuan_jenis_layanan = ref_layanan.layanan_id')
                         ->join('ref_status_pengajuan', 'ta_pengajuan.pengajuan_status_pengajuan_id = ref_status_pengajuan.status_pengajuan_id')
+                        ->where('ta_pengajuan.pengajuan_wilayah_id', $this->session->userdata('wilayah_id'))
                         ->get()
                         ->result();
     }
