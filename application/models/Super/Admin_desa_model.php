@@ -38,7 +38,12 @@ class Admin_desa_model extends CI_Model
 
     public function get_all()
     {
-        $admin_desa = $this->db->select('ref_user.user_id, ref_user.user_username, ref_wilayah.NAMA_KEL')
+        $admin_desa = $this->db->select('
+                                            ref_user.user_id, 
+                                            ref_user.user_username, 
+                                            ref_user.user_nama,
+                                            ref_wilayah.NAMA_KEL
+                                        ')
                             ->from('ref_user')
                             ->join('ref_wilayah', 'ref_user.user_wilayah_id = ref_wilayah.id')
                             ->where('user_user_role_id', 3)
@@ -53,6 +58,7 @@ class Admin_desa_model extends CI_Model
         $user['user_username'] = $data['user_username'];
         $user['user_wilayah_id'] = $data['user_wilayah_id'];
         $user['user_password'] = password_hash('defaultpass', PASSWORD_DEFAULT);
+        $user['user_nama'] = $data['user_nama'];
         $user['user_foto'] = 'default.jpg';
         $user['user_user_role_id'] = 3;
 

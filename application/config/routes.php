@@ -72,6 +72,7 @@ $route['super/admin-desa/get-admin-desa'] = 'Super/Admin_desa/get_admin_desa';
 $route['super/admin-capil'] = 'Super/Admin_capil/index';
 $route['super/admin-capil/create'] = 'Super/Admin_capil/create';
 $route['super/admin-capil/store'] = 'Super/Admin_capil/store';
+$route['super/admin-capil/get-admin-capil'] = 'Super/Admin_capil/get_admin_capil';
 // end::admin-capil
 // end::SUPER
 
@@ -154,4 +155,11 @@ $route['capil/pengajuan/penerbitan-kk-baru/show/(:any)'] = 'Capil/Penerbitan_kk/
 // begin::f101
 $route['capil/pengajuan/f101/(:any)'] = 'Capil/f101/show/$1';
 // end::f101
+
+// begin::penerbitan-ktp
+$route['capil/pengajuan/penerbitan-ktp-baru'] = 'Capil/Penerbitan_ktp/index';
+$route['capil/pengajuan/penerbitan-ktp-baru/data-pengajuan'] = 'Capil/Penerbitan_ktp/get_data_pengajuan';
+$route['capil/pengajuan/penerbitan-ktp-baru/set-status-pengajuan'] = 'Capil/Penerbitan_ktp/set_status_pengajuan';
+$route['capil/pengajuan/penerbitan-ktp-baru/show/(:any)'] = 'Capil/Penerbitan_ktp/show/$1';
+// end::penerbitan-ktp
 // end::CAPIL

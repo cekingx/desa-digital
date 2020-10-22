@@ -20,7 +20,7 @@ class Auth extends CI_Controller
         } else if($this->session->userdata('user_role_id') == 1) {
             redirect('/');
         } else if($this->session->userdata('user_role_id') == 2) {
-            redirect('/');
+            redirect('/capil');
         } else if($this->session->userdata('user_role_id') == 3) {
             redirect('/desa');
         } else {

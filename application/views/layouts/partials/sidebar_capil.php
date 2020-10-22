@@ -88,6 +88,14 @@
 									<span class="menu-text">Penerbitan KK Baru</span>
 								</a>
 							</li>
+							<li class="menu-item <?php if ($this->uri->segment(1) == "capil" && $this->uri->segment(2) == "pengajuan" && $this->uri->segment(3) == 'penerbitan-ktp-baru') : ?>menu-item-active<?php endif ?>" aria-haspopup="true">
+								<a href="<?php echo base_url('capil/pengajuan/penerbitan-ktp-baru') ?>" class="menu-link">
+									<i class="menu-bullet menu-bullet-dot">
+										<span></span>
+									</i>
+									<span class="menu-text">Penerbitan KTP Baru</span>
+								</a>
+							</li>
 						</ul>
 					</div>
 				</li>

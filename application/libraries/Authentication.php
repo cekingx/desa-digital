@@ -36,6 +36,7 @@ class Authentication
 							'user_id'               => $user->row()->user_id,
 							'wilayah_id'     	    => $user->row()->user_wilayah_id,
 							'user_role_id'          => $user->row()->user_user_role_id,
+							'user_nama'				=> $user->row()->user_nama,
 						));
 						return TRUE;
 					} else {
@@ -57,6 +58,7 @@ class Authentication
 		$this->ci->session->unset_userdata('user_role_id');
 		$this->ci->session->unset_userdata('wilayah_id');
 		$this->ci->session->unset_userdata('nik_pemohon');
+		$this->ci->session->unset_userdata('user_nama');
 		return TRUE;
 	}
 }

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card card-custom">
             <div class="card-header">
-                <div class="card-title">Admin Desa</div>
+                <div class="card-title">Admin Capil</div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
                     <a href="#" class="btn btn-primary font-weight-bolder btnNew">
@@ -21,7 +21,7 @@
                                 </g>
                             </svg>
                             <!--end::Svg Icon-->
-                        </span>Tambah Admin Desa</a>
+                        </span>Tambah Admin Capil</a>
                     <!--end::Button-->
                 </div>
             </div>
@@ -33,14 +33,14 @@
 </div>
 
 <script>
-    var KTDatatableAdminDesa = function () {
+    var KTDatatableAdminCapil = function () {
         var demo = function() {
             var datatable = $('#kt_datatable').KTDatatable({
                 data: {
                     type: 'remote',
                     source: {
                         read: {
-                            url: '<?= base_url('super/admin-desa/get-admin-desa') ?>',
+                            url: '<?= base_url('super/admin-capil/get-admin-capil') ?>',
                             map: function(raw) {
                                 var dataset = raw;
                                 if(typeof raw.data !== 'undefined') {
@@ -69,10 +69,6 @@
                     {
                         field: 'user_nama',
                         title: 'Nama'
-                    },
-                    {
-                        field: 'NAMA_KEL',
-                        title: 'Kelurahan'
                     },
                     {
                         field: 'Actions',
@@ -161,10 +157,10 @@
     }();
 
     $(document).ready(function() {
-        KTDatatableAdminDesa.init()
+        KTDatatableAdminCapil.init()
     });
 
     $('.btnNew').click(function() {
-        window.location = '<?= base_url('super/admin-desa/create') ?>'
+        window.location = '<?= base_url('super/admin-capil/create') ?>'
     })
 </script>

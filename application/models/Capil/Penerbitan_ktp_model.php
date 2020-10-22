@@ -1,12 +1,12 @@
 <?php
 
-class Penerbitan_kk_model extends CI_Model
+class Penerbitan_ktp_model extends CI_Model
 {
     public function __construct()
     {
         parent::__construct();
     }
-    
+
     public function get_all_wilayah()
     {
         return $this->db->select('
@@ -29,7 +29,7 @@ class Penerbitan_kk_model extends CI_Model
                         ->result();
     }
 
-    public function get_all_penerbitan_kk_baru()
+    public function get_all_penerbitan_ktp_baru()
     {
         return $this->db->select('
                                     ta_pengajuan.*, 
@@ -39,7 +39,7 @@ class Penerbitan_kk_model extends CI_Model
                         ->from('ta_pengajuan')
                         ->join('ref_wilayah', 'ta_pengajuan.pengajuan_wilayah_id = ref_wilayah.id')
                         ->join('ref_status_pengajuan', 'ta_pengajuan.pengajuan_status_pengajuan_id = ref_status_pengajuan.status_pengajuan_id')
-                        ->where('pengajuan_jenis_layanan', 1)
+                        ->where('pengajuan_jenis_layanan', 2)
                         ->get()
                         ->result();
     }
