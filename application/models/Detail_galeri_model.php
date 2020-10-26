@@ -2,24 +2,29 @@
 
 class detail_galeri_model extends CI_Model
 {	
-	function __construct(){
-        parent::__construct();
+	public $desa;
+	
+	function __construct()
+	{
+		parent::__construct();
+		$wilayah_id = $this->session->userdata('wilayah_id');
+		$this->desa = $this->db->select('*')
+		->from('ref_wilayah') 
+		->where('id', $wilayah_id)
+		->get()
+		->row();
     }
-
-	private $_table = "ta_detail_galeri";	
-
+	private $_table = "ta_detail_galeri";
 	public $detail_galeri_foto = "default.png";
 	public $detail_galeri_galeri_id;
-	public $detail_galeri_galeri_slug;		
+	public $detail_galeri_galeri_slug;
 
-	//ambil data seluruh media berdasarkan id galeri
 	public function getAll($id)
 	{
 		return $this->db->get_where($this->_table, ["detail_galeri_galeri_id" => $id])->result();
 		// return $this->db->get($this->_table)->result();
 	}
 
-	//ambil data media
 	public function getById($id)
 	{
 		return $this->db->get_where($this->_table, ["detail_galeri_id" => $id])->row();
@@ -32,7 +37,6 @@ class detail_galeri_model extends CI_Model
 		return $this->db->get($this->_table)->result();	
 	}
 
-	//save upload foto_galeri dan link
 	public function save($id, $slug)
 	{
     	$this->load->library('upload');
@@ -51,9 +55,9 @@ class detail_galeri_model extends CI_Model
 	            $file_name = 'foto_galeri'.'-' . date('Y-m-d-H:i:s') .'-'. $i .'.' . $file_ext;
 	            $data = array(
 	                'foto_galeri' => $file_name
-	            );	            
-	            $this->upload->initialize($this->doUpload($file_name_upload));            
-	            $this->upload->do_upload('foto_galeri');
+	            );
+	            // $this->upload->initialize($this->doUpload($file_name_upload));
+	            // $this->upload->do_upload('foto_galeri');
 	            // $dataInfo[] = $this->upload->data();
 
 	        	$data1 = array(
@@ -64,45 +68,39 @@ class detail_galeri_model extends CI_Model
 				$this->db->insert($this->_table, $data1);	
 	        } else {	        	
 	        	$post = $this->input->post();		
-				$this->detail_galeri_foto = $post["video_galeri"];
+				$this->detail_galeri_foto = $post["foto_galeri"];
 				$this->detail_galeri_galeri_id = $id;
 				$this->detail_galeri_galeri_slug = $slug;
 		    	$this->db->insert($this->_table, $this);	 	    		
 	        }
-	        
     	}	    	
-    	
 	}	
 	
-	//hapus data media
 	public function delete($id)
 	{
 		$this->_deleteFile($id);
 		return $this->db->delete($this->_table, array("detail_galeri_id" => $id));
 	}
 
-	//hapus seluruh media jika data galeri terhapus
 	public function deleteAll($id)
 	{
 		$this->_deleteFileAll($id);
 		return $this->db->delete($this->_table, array("detail_galeri_galeri_id" => $id));
 	}	
 
-	//config upload
 	private function doUpload($file_name)
 	{
-		$config['upload_path']		= './storage/desa/BLAHBATUH/galeri';
-		$config['allowed_types']	= 'gif|jpg|png';
-		$config['file_name']		= $file_name;
-		$config['overwrite']		= true;
-		$config['max_size']			= 0; //2MB
-		//$config['max_width']		= 1024;
-		//$config['max_height']		= 768;
+			$config['upload_path']	 = './storage/desa/BLAHBATUH/galeri';
+			$config['allowed_types'] = '*';
+			$config['max_size']      = '0';
+			$config['file_name']     = $file_name;
+			$config['overwrite']     = 'TRUE';
 
-		return $config;
+			$this->upload->initialize($config);
+			$upload_data = $this->upload->data();
+			return $upload_data['file_name'];
 	}
 
-	//hapus file satu satu
 	private function _deleteFile($id)
 	{
 	    $detail_galeri = $this->getById($id);
@@ -112,16 +110,14 @@ class detail_galeri_model extends CI_Model
 	    }
 	}
 
-	//hapus file keseluruhan berdasarkan id galeri
 	private function _deleteFileAll($id)
 	{
 	    $detail_galeri = $this->getAll($id);
 	    foreach($detail_galeri as $data){
 	    	if ($data->detail_galeri_foto != "default.pdf") {
 		    	$filename = explode(".", $data->detail_galeri_foto)[0];
-				array_map('unlink', glob(FCPATH."./storage/desa/BLAHBATUH/galeri/$filename.*"));
+				array_map('unlink', glob(FCPATH.'./storage/desa/BLAHBATUH/galeri/$filename.*'));
 	    	}
 	    }	    	    		   	  
 	}
-	
 }

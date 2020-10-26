@@ -98,15 +98,15 @@ class Galeri extends CI_Controller
 		} else {
 
 			$galeri->save($wilayah_id);
-			$id_galeri = $this->db->insert_id($galeri);
+			$galeri_id = $this->db->insert_id($galeri);
 			$slug_galeri = $galeri->galeri_slug;						
-			$detail_galeri->save($id_galeri, $slug_galeri);									
+			$detail_galeri->save($galeri_id, $slug_galeri);									
 			$data_galeri = [
 				'galeri' => $galeri,
 				'detail_galeri'=> $detail_galeri,
 				'slug' => $slug_galeri
 			];
-			echo json_encode($data_galeri);		
+			echo json_encode($data_galeri);
 					
 		}
 		
@@ -170,12 +170,12 @@ class Galeri extends CI_Controller
 	}
 
 	//delete media berdasarkan id galeri
-	public function delete_media($id = null, $id_galeri)
+	public function delete_media($id = null, $galeri_id, $detail_galeri_id)
 	{
 		if (!isset($id)) show_404();
 
-		$data["galeri"] = $this->galeri_model->getById($id_galeri);
-		$data["detail_galeri"] = $this->detail_galeri_model->getAll($id_galeri);		
+		$data["galeri"] = $this->galeri_model->getById($galeri_id);
+		$data["detail_galeri"] = $this->detail_galeri_model->getAll($detail_galeri_id);		
 
 		if (empty($data["detail_galeri"])) {
 

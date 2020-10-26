@@ -35,6 +35,15 @@
                     </span>
                 </div>
                 <!-- end::deskripsi -->
+                <!-- begin::foto -->
+                <!-- <div class="form-group">
+                  <label>Foto</label>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="foto_galeri" name = "foto_galeri[]" multiple="">
+                    <label class="custom-file-label" for="customFile">Choose file</label>      
+                  </div>
+                </div> -->
+                <!-- end::foto -->
             </div>
             <div class="card-footer">
                 <button type="button" class="btn btn-primary mr-2" id="btn-save">

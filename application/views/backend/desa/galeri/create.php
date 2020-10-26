@@ -21,6 +21,15 @@
                     </span>
                 </div>
                 <!-- end::banjar -->
+                <!-- begin::isi -->
+                <div class="form-group">
+                  <label for="deskripsi">Deskripsi Galeri</label>
+                  <textarea class="form-control" name="deskripsi_galeri" id="deskripsi_galeri" cols="30" rows="7" placeholder="Enter ..." required></textarea>
+                  <span style="display: none;" class="form-text text-muted" id="need-deskripsi" >
+                    Deskripsi masih kosong
+                  </span>
+                </div>
+                <!-- end::isi -->
                 <!-- begin::foto -->
                 <div class="form-group">
                   <label>Foto</label>
@@ -30,18 +39,9 @@
                   </div>
                   <span style="display: none;" class="form-text text-muted" id="need-foto" >
                   foto masih kosong
-                  </span> 
+                  </span>
                 </div>
                 <!-- end::foto -->
-                <!-- begin::isi -->
-                <div class="form-group">
-                  <label for="deskripsi">Deskripsi Galeri</label>
-                  <textarea class="form-control" name="deskripsi_galeri" id="deskripsi_galeri" rows="3" placeholder="Enter ..." required></textarea>
-                  <span style="display: none;" class="form-text text-muted" id="need-deskripsi" >
-                    Deskripsi masih kosong
-                  </span> 
-                </div> 
-                <!-- end::isi -->
             </div>
             <div class="card-footer">
                 <button type="button" class="btn btn-primary mr-2" id="btn-save">
@@ -85,6 +85,9 @@
         } else if($('#deskripsi_galeri').val() == '') {
             $('#deskripsi_galeri').addClass('is-invalid');
             $('#need-deskripsi').fadeIn(3);
+        } else if($('#foto_galeri').val() == '') {
+            $('#foto_galeri').addClass('is-invalid');
+            $('#need-foto').fadeIn(3);
         } else {
             $('.preloader').fadeIn();
             $.ajax({

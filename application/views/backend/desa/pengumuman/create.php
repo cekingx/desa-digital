@@ -1,44 +1,46 @@
 <title>Pengumuman</title>
 
-<div class="card card-custom gutter-b">
-    <div class="card-header">
-        <div class="card-title">
-            <h3 class="card-label">
-                Pengumuman
-            </h3>
+<div class="container">
+    <div class="card card-custom gutter-b">
+        <div class="card-header">
+            <div class="card-title">
+                <h3 class="card-label">
+                    Pengumuman
+                </h3>
+            </div>
         </div>
-    </div>
-    <div class="card-body">
-        <form class="form" id="pengumuman_form">
-            <div class="card-body">
-                <!-- begin::banjar -->
-                <div class="form-group">
-                    <label>Judul Pengumuman</label>
-                    <input type="text" class="form-control" placeholder="Judul Pengumuman" name="pengumuman_judul"
-                        id="pengumuman_judul"/>
-                    <span style="display: none;" class="text-danger" id="need-judul">
-                        Judul Pengumuman masih kosong
-                    </span>
+        <div class="card-body">
+            <form class="form" id="pengumuman_form">
+                <div class="card-body">
+                    <!-- begin::banjar -->
+                    <div class="form-group">
+                        <label>Judul Pengumuman</label>
+                        <input type="text" class="form-control" placeholder="Judul Pengumuman" name="pengumuman_judul"
+                            id="pengumuman_judul"/>
+                        <span style="display: none;" class="text-danger" id="need-judul">
+                            Judul Pengumuman masih kosong
+                        </span>
+                    </div>
+                    <!-- end::banjar -->
+                    <!-- begin::isi -->
+                    <div class="form-group">
+                        <label>Isi Pengumuman</label>
+                        <textarea type="text" class="form-control" placeholder="Isi Pengumuman" name="pengumuman_isi"
+                            id="pengumuman_isi" cols="30" rows="7"></textarea>
+                        <span style="display: none;" class="text-danger" id="need-isi">
+                            Isi Pengumuman masih kosong
+                        </span>
+                    </div>
+                    <!-- end::isi -->
                 </div>
-                <!-- end::banjar -->
-                <!-- begin::isi -->
-                <div class="form-group">
-                    <label>Isi Pengumuman</label>
-                    <textarea type="text" class="form-control" placeholder="Isi Pengumuman" name="pengumuman_isi"
-                        id="pengumuman_isi" cols="30" rows="7"></textarea>
-                    <span style="display: none;" class="text-danger" id="need-isi">
-                        Isi Pengumuman masih kosong
-                    </span>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary mr-2" id="btn-save">
+                        Submit
+                    </button>
+                    <button type="reset" class="btn btn-secondary" id="btn-cancel">Cancel</button>
                 </div>
-                <!-- end::isi -->
-            </div>
-            <div class="card-footer">
-                <button type="button" class="btn btn-primary mr-2" id="btn-save">
-                    Submit
-                </button>
-                <button type="reset" class="btn btn-secondary" id="btn-cancel">Cancel</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 

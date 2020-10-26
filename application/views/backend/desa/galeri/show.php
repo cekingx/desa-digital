@@ -1,45 +1,47 @@
 <title><?= $title ?></title>
 
-<div class="card card-custom">
-    <div class="card-header">
-        <div class="card-title">
-            <a href="<?= base_url('desa/galeri') ?>" class="btn btn-primary font-weight-bold">
-                <i class="flaticon2-left-arrow"></i> Kembali
-            </a>
+<div class="container">
+    <div class="card card-custom">
+        <div class="card-header">
+            <div class="card-title">
+                <a href="<?= base_url('desa/galeri') ?>" class="btn btn-primary font-weight-bold">
+                    <i class="flaticon2-left-arrow"></i> Kembali
+                </a>
+            </div>
+            <div class="card-toolbar">
+                <a target="_blank" href="<?= base_url('/galeri/foto/') . $galeri->galeri_slug ?>" class="btn btn-icon btn-light-info mr-2">
+                    <i class="flaticon2-photograph"></i>
+                </a>
+                <a href="<?= base_url('desa/galeri/edit/') . $galeri->galeri_id ?>" class="btn btn-icon btn-light-warning mr-2">
+                    <i class="flaticon2-edit"></i>
+                </a>            
+            </div>
         </div>
-        <div class="card-toolbar">
-            <a target="_blank" href="<?= base_url('/galeri/foto/') . $galeri->galeri_slug ?>" class="btn btn-icon btn-light-info mr-2">
-                <i class="flaticon2-photograph"></i>
-            </a>
-            <a href="<?= base_url('desa/galeri/edit/') . $galeri->galeri_id ?>" class="btn btn-icon btn-light-warning mr-2">
-                <i class="flaticon2-edit"></i>
-            </a>            
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td>Judul</td>
+                        <td><?= $galeri->galeri_judul ?></td>
+                    </tr>                              
+                    <tr>
+                        <td>Deskripsi</td>
+                        <td><?= $galeri->galeri_deskripsi ?></td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal</td>
+                        <td><?= $galeri->galeri_created_at ?></td>
+                    </tr>
+                </tbody>
+            </table>
+            <form id="form_galeri" method="POST" enctype="multipart/form-data" role="form">
+            <div class="form-group">
+                <div></div>
+                <input type="hidden" name="galeri_id" id="galeri_id" value="<?php echo $galeri->galeri_id ?>">
+                <input type="hidden" name="slug_galeri" id="slug_galeri" value="<?php echo $galeri->galeri_slug ?>">
+            </div>
+        </form>
         </div>
-    </div>
-    <div class="card-body">
-        <table class="table table-bordered">
-            <tbody>
-                <tr>
-                    <td>Judul</td>
-                    <td><?= $galeri->galeri_judul ?></td>
-                </tr>                              
-                <tr>
-                    <td>Deskripsi</td>
-                    <td><?= $galeri->galeri_deskripsi ?></td>
-                </tr>
-                <tr>
-                    <td>Tanggal</td>
-                    <td><?= $galeri->galeri_created_at ?></td>
-                </tr>
-            </tbody>
-        </table>
-        <form id="form_galeri" method="POST" enctype="multipart/form-data" role="form">
-          <div class="form-group">
-            <div></div>
-            <input type="hidden" name="id_galeri" id="id_galeri" value="<?php echo $galeri->galeri_id ?>">
-            <input type="hidden" name="slug_galeri" id="slug_galeri" value="<?php echo $galeri->galeri_slug ?>">
-          </div>
-      </form>
     </div>
 </div>
 
@@ -59,19 +61,20 @@
     ');
 } ?>
 
-<div class="card card-custom gutter-b">
-    
-    <div class="card-header">
-        <div class="card-title">
-            <h3 class="card-label">
-                Foto Galeri
-            </h3>
+<div class="container">
+    <div class="card card-custom gutter-b">
+        <div class="card-header">
+            <div class="card-title">
+                <h3 class="card-label">
+                    Foto Galeri
+                </h3>
+            </div>
+            <div class="card-toolbar">           
+            </div>
         </div>
-        <div class="card-toolbar">           
+        <div class="card-body">
+            <div class="datatable datatable-bordered datatable-head-custom" id="kt_datatable"></div>
         </div>
-    </div>
-    <div class="card-body">
-        <div class="datatable datatable-bordered datatable-head-custom" id="kt_datatable"></div>
     </div>
 </div>
 
@@ -125,7 +128,7 @@
                         autoHide: false,
                         template: function(row) {
                             return '\
-                                <button data-id_galeri="'+row.detail_galeri_galeri_id+'" data-id_media="'+row.detail_galeri_id+'" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete">\
+                                <button data-galeri_id="'+row.detail_galeri_galeri_id+'" data-id_media="'+row.detail_galeri_id+'" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete">\
                                     <span class="svg-icon svg-icon-md">\
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">\
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\
@@ -143,8 +146,8 @@
             });
 
             $(document).on("click", ".btnDelete", function() {
-                let id_galeri = $(this).data('id_galeri');
-                let id_media = $(this).data('id_media');
+                let galeri_id = $(this).data('galeri_id');
+                let detail_galeri_id = $(this).data('detail_galeri_id');
                 bootbox.confirm({
                     title: "Hapus Galeri",
                     message: "Apakah anda yakin menghapus Galeri?",
@@ -162,7 +165,7 @@
                             $('.preloader').fadeIn();
                             $.ajax({
                                 type: 'GET',
-                                url: "<?= base_url('galeri/delete_media/') ?>" + id_media + "/" + id_galeri,
+                                url: "<?= base_url('galeri/delete_media/') ?>" + detail_galeri_id + "/" + galeri_id,
                                 dataType: 'json',
                                 success: function(data) {
                                     $('.preloader').fadeOut();
@@ -175,13 +178,6 @@
                         }
                     }
                 });
-            });
-
-            $(document).on("click", ".btnEdit", function() {
-                let id = $(this).data('id');
-                
-                // console.log("<?= base_url('desa/banner/edit/') ?>" + id)
-                window.location.replace("<?= base_url('desa/banner/edit/') ?>" + id);
             });
         }
 
@@ -216,7 +212,7 @@ $("#validasi").on('click',function(){
   // var data = $("#testForm").serialize();
     var fileToUpload = $('input:file').val();
     var formData = new FormData($("#form_galeri")[0]);
-    var id = $('#id_galeri').val();
+    var id = $('#galeri_id').val();
     var slug = $('#slug_galeri').val();       
     if(fileToUpload == '' && $('#video_galeri').val() == ''){
       $('#foto_galeri').addClass('is-invalid');

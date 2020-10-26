@@ -55,7 +55,8 @@ class Galeri_model extends CI_Model
 		$this->galeri_judul = $post["judul_galeri"];		
 		$this->galeri_deskripsi = $post["deskripsi_galeri"];
         $this->galeri_slug = url_title($this->galeri_judul, '-', TRUE);
-        $this->db->set('galeri_created_at', 'NOW()', FALSE);
+		$this->db->set('galeri_created_at', 'NOW()', FALSE);
+        $this->db->set('galeri_updated_at', 'NOW()', FALSE);
 		return $this->db->insert($this->_table, $this);
 	}
 
@@ -65,8 +66,8 @@ class Galeri_model extends CI_Model
 		$this->galeri_id = $post["id"];
 		$this->galeri_judul = $post["judul_galeri"];		
 		$this->galeri_deskripsi = $post["deskripsi_galeri"];
-		$this->galeri_slug = $post["slug_galeri"];		
-		$this->galeri_tanggal = $post["tanggal_galeri"];
+		$this->galeri_slug = $post["slug_galeri"];
+        $this->db->set('galeri_updated_at', 'NOW()', FALSE);
 		return $this->db->update($this->_table, $this, array('galeri_id' => $post["id"]));
 	}
 

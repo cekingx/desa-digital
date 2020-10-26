@@ -45,8 +45,8 @@ class Pengumuman extends CI_Controller
     public function store()
     {
         $wilayah_id = $this->session->userdata('wilayah_id');
-
         $pengumuman = $this->pengumuman_model;
+        
         $pengumuman->save($wilayah_id);
         echo json_encode('success');
     }

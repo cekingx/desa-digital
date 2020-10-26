@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label>Isi Pengumuman</label>
                     <textarea type="text" class="form-control" placeholder="Isi Pengumuman" name="pengumuman_isi"
-                        id="pengumuman_isi"><?= $pengumuman->pengumuman_isi ?></textarea>
+                        id="pengumuman_isi" cols="30" rows="7"><?= $pengumuman->pengumuman_isi ?></textarea>
                     <span style="display: none;" class="text-danger" id="need-isi">
                         Isi Pengumuman masih kosong
                     </span>
