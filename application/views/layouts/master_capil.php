@@ -60,6 +60,50 @@
 					<!--end::Header-->
 					<!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						<!-- begin::sub-header -->
+						<div class="subheader py-2 py-lg-6  subheader-solid " id="kt_subheader">
+							<div class=" container-fluid  d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+								<!--begin::Info-->
+								<div class="d-flex align-items-center flex-wrap mr-1">
+									<!--begin::Mobile Toggle-->
+									<button class="burger-icon burger-icon-left mr-4 d-inline-block d-lg-none"
+										id="kt_subheader_mobile_toggle">
+										<span></span>
+									</button>
+									<!--end::Mobile Toggle-->
+
+									<!--begin::Page Heading-->
+									<div class="d-flex align-items-baseline flex-wrap mr-5">
+										<?php if(!empty($breadcrumbs)): ?>
+										<!--begin::Breadcrumb-->
+										<ul
+											class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+											<?php foreach($breadcrumbs as $item): ?>
+												<li class="breadcrumb-item">
+													<a href="<?= base_url($item['url']); ?>" class="text-muted"><?= $item['title'] ?></a>
+												</li>
+											<?php endforeach;?>
+										</ul>
+										<!--end::Breadcrumb-->
+										<?php endif; ?>
+									</div>
+									<!--end::Page Heading-->
+								</div>
+								<!--end::Info-->
+
+								<!--begin::Toolbar-->
+								<div class="d-flex align-items-center">
+									<!-- begin::tanggal-hari-ini -->
+									<div class="btn btn-sm btn-light font-weight-bold mr-2">
+										<span class="text-muted font-size-base font-weight-bold mr-2">Hari Ini</span>
+										<span class="text-primary font-size-base font-weight-bolder" id="tanggal-hari-ini"></span>
+									</div>
+									<!-- end::tanggal-hari-ini -->
+								</div>
+								<!--end::Toolbar-->
+							</div>
+						</div>
+						<!-- end::sub-header -->
                         <?php $this->load->view($content) ?>
 					</div>
 					<!--end::Content-->
@@ -88,5 +132,11 @@
 		</div>
 		<!--end::Scrolltop-->
 	</body>
+	<script>
+		let now = dayjs();
+		$(document).ready(function() {
+			$('#tanggal-hari-ini').text(get_long_date(now.format()));
+		});
+	</script>
 
 </html>

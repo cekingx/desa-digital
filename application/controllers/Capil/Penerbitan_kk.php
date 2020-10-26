@@ -16,6 +16,16 @@ class Penerbitan_kk extends CI_Controller
         $data['title']      = 'Penerbitan KK';
         $data['wilayah']    = $this->penerbitan_kk_model->get_all_wilayah();
         $data['status_pengajuan'] = $this->penerbitan_kk_model->get_all_status_pengajuan();
+        $data['breadcrumbs'] = array(
+            array(
+                'url' => 'capil',
+                'title' => 'Capil'
+            ),
+            array(
+                'url' => 'capil/pengajuan/penerbitan-kk-baru',
+                'title' => 'Pengajuan'
+            ),
+        );
 
         $this->load->view('layouts/master_capil', $data);
     }
@@ -29,6 +39,20 @@ class Penerbitan_kk extends CI_Controller
         $data['status_pengajuan']       = $this->Ref_model->get_status_pengajuan();
         $data['jenis_layanan_json']     = json_encode($data['jenis_layanan']);
         $data['status_pengajuan_json']  = json_encode($data['status_pengajuan']);
+        $data['breadcrumbs'] = array(
+            array(
+                'url' => 'capil',
+                'title' => 'Capil'
+            ),
+            array(
+                'url' => 'capil/pengajuan/penerbitan-kk-baru',
+                'title' => 'Pengajuan'
+            ),
+            array(
+                'url' => 'capil/pengajuan/penerbitan-kk-baru/show/' . $pengajuan_id,
+                'title' => 'Penerbitan KK'
+            )
+        );
 
         $this->load->view('layouts/master_capil', $data);
     }

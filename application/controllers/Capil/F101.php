@@ -29,6 +29,20 @@ class F101 extends CI_Controller
         $data['akta_cerai']         = json_encode($this->Data_masyarakat_model->get_all_kepemilikan_akta_cerai());
         $data['akta_perkawinan']    = json_encode($this->Data_masyarakat_model->get_all_kepemilikan_akta_perkawinan());
         $data['akta_lahir']         = json_encode($this->Data_masyarakat_model->get_all_kepemilikan_akta_lahir());
+        $data['breadcrumbs'] = array(
+            array(
+                'url' => 'capil',
+                'title' => 'Capil'
+            ),
+            array(
+                'url' => 'capil/pengajuan/penerbitan-kk-baru',
+                'title' => 'Pengajuan'
+            ),
+            array(
+                'url' => 'capil/pengajuan/f101' . $f101_id,
+                'title' => 'F-1.01'
+            )
+        );
 
         $this->load->view('layouts/master_capil', $data);
 

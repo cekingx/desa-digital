@@ -5,7 +5,7 @@
         <div class="card card-custom">
             <div class="card-header">
                 <div class="card-title">
-                    <h3 class="card-label">Show Pengajuan</h3>
+                    <h3 class="card-label"><?= $pengajuan['pengajuan']->layanan ?></h3>
                 </div>
             </div>
             <div class="card-body">

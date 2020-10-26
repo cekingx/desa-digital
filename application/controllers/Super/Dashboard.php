@@ -12,6 +12,12 @@ class Dashboard extends CI_Controller
     {
         $data['title'] = 'Dashboard Super';
         $data['content'] = 'backend/super/dashboard';
+        $data['breadcrumbs'] = array(
+            array(
+                'url' => 'super',
+                'title' => 'Super'
+            ),
+        );
 
         $this->load->view('layouts/master', $data);
     }

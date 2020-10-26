@@ -1,4 +1,4 @@
-<title><? $title ?></title>
+<title><?= $title ?></title>
 
 <div class="d-flex flex-column-fluid">
     <div class="container">

@@ -29,29 +29,64 @@ class Pengajuan extends CI_Controller
 
     public function index()
     {
-        $data = $this->set_partial_data('backend/desa/pengajuan/index');
-        $data['layanan']    = $this->Pengajuan_model->get_all_layanan();
-        $data['status_pengajuan'] = $this->Pengajuan_model->get_all_status_pengajuan();
+        $data                       = $this->set_partial_data('backend/desa/pengajuan/index');
+        $data['layanan']            = $this->Pengajuan_model->get_all_layanan();
+        $data['status_pengajuan']   = $this->Pengajuan_model->get_all_status_pengajuan();
+        $data['breadcrumbs']        = array(
+            array(
+                'url'       => 'desa',
+                'title'     => 'Desa'
+            ),
+            array(
+                'url'       => 'desa/pengajuan',
+                'title'     => 'Pengajuan'
+            ),
+        );
 
         $this->load->view('layouts/master_desa', $data);
     }
 
     public function show($pengajuan_id)
     {
-        $data = $this->set_partial_data('backend/desa/pengajuan/show');
+        $data                       = $this->set_partial_data('backend/desa/pengajuan/show');
         $data['pengajuan']          = $this->Pengajuan_model->get_pengajuan_by_id($pengajuan_id);
         $data['jenis_layanan']      = json_encode($this->Ref_model->get_jenis_layanan());
         $data['status_pengajuan']   = json_encode($this->Ref_model->get_status_pengajuan());
+        $data['breadcrumbs']        = array(
+            array(
+                'url'       => 'desa',
+                'title'     => 'Desa'
+            ),
+            array(
+                'url'       => 'desa/pengajuan',
+                'title'     => 'Pengajuan'
+            ),
+            array(
+                'url'       => 'desa/pengajuan/show/'. $pengajuan_id,
+                'title'     => $data['pengajuan']['pengajuan']->layanan
+            )
+        );
 
         $this->load->view('layouts/master_desa', $data);
-        // echo '<pre>';
-        // print_r($data['pengajuan']);
-        // echo '</pre>';
     }
 
     public function buat_pengajuan()
     {
-        $data = $this->set_partial_data('backend/desa/pengajuan/buat-pengajuan');
+        $data                   = $this->set_partial_data('backend/desa/pengajuan/buat-pengajuan');
+        $data['breadcrumbs']    = array(
+            array(
+                'url'       => 'desa',
+                'title'     => 'Desa'
+            ),
+            array(
+                'url'       => 'desa/pengajuan',
+                'title'     => 'Pengajuan'
+            ),
+            array(
+                'url'       => 'desa/pengajuan/buat-pengajuan/',
+                'title'     => 'Buat Pengajuan'
+            )
+        );
 
         $this->load->view('layouts/master_desa', $data);
     }
@@ -62,7 +97,21 @@ class Pengajuan extends CI_Controller
             return redirect('desa/pengajuan');
         }
 
-        $data = $this->set_partial_data('backend/desa/pengajuan/pilih-layanan');
+        $data                   = $this->set_partial_data('backend/desa/pengajuan/pilih-layanan');
+        $data['breadcrumbs']    = array(
+            array(
+                'url'       => 'desa',
+                'title'     => 'Desa'
+            ),
+            array(
+                'url'       => 'desa/pengajuan',
+                'title'     => 'Pengajuan'
+            ),
+            array(
+                'url'       => 'desa/pengajuan/pilih-layanan/',
+                'title'     => 'Pilih Layanan'
+            )
+        );
 
         $this->load->view('layouts/master_desa', $data);
     }

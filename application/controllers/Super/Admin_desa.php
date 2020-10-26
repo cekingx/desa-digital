@@ -13,6 +13,16 @@ class Admin_desa extends CI_Controller
     {
         $data['title'] = 'Admin Desa';
         $data['content'] = 'backend/super/admin_desa/index';
+        $data['breadcrumbs'] = array(
+            array(
+                'url' => 'super',
+                'title' => 'Super'
+            ),
+            array(
+                'url' => 'super/admin-desa',
+                'title' => 'Admin Desa'
+            ),
+        );
 
         $this->load->view('layouts/master', $data);
     }
@@ -22,6 +32,20 @@ class Admin_desa extends CI_Controller
         $data['title'] = 'Buat Admin Desa';
         $data['content'] = 'backend/super/admin_desa/create';
         $data['wilayah'] = $this->admin_desa_model->get_kelurahan();
+        $data['breadcrumbs'] = array(
+            array(
+                'url' => 'super',
+                'title' => 'Super'
+            ),
+            array(
+                'url' => 'super/admin-desa',
+                'title' => 'Admin Desa'
+            ),
+            array(
+                'url' => 'super/admin-desa/create',
+                'title' => 'Buat Admin'
+            )
+        );
 
         $this->load->view('layouts/master', $data);
     }

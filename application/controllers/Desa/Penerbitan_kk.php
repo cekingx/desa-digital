@@ -35,7 +35,21 @@ class Penerbitan_kk extends CI_Controller
 
     public function penerbitan_kk_baru()
     {
-        $data = $this->set_partial_data('backend/desa/penerbitan_kk/create');
+        $data                   = $this->set_partial_data('backend/desa/penerbitan_kk/create');
+        $data['breadcrumbs']    = array(
+            array(
+                'url'       => 'desa',
+                'title'     => 'Desa'
+            ),
+            array(
+                'url'       => 'desa/pengajuan',
+                'title'     => 'Pengajuan'
+            ),
+            array(
+                'url'       => 'desa/pengajuan/penerbitan-kk-baru/create',
+                'title'     => 'Penerbitan KK Baru'
+            )
+        );
 
         $this->load->view('layouts/master_desa', $data);
     }

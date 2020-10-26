@@ -3,12 +3,11 @@
 <div class="d-flex flex-column-fluid">
     <div class="container">
         <div class="card card-custom">
-            <div class="card-header">
-                <div class="card-title">
-                    <h3 class="card-label">
-                        f101
-                    </h3>
-                </div>
+            <div class="card-header pt-5">
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label font-weight-bolder text-dark">F-1.01</span>
+                    <span class="text-muted mt-3 font-weight-bold font-size-sm">Formulir Biodata Penduduk Warna Negara Indonesia</span>
+                </h3>
             </div>
             <div class="card-body">
                 <div class="row justify-content-center">
@@ -80,9 +79,14 @@
                             <div class="mb-2" id="nik_detail_f101">
                             </div>
                             <!-- end::nik-detail-f101 -->
-
-                            <button class="btn btn-secondary" id="opener">Tambah Data</button>
-                            <button type="submit" class="btn btn-primary" id="btn-submit" >Submit</button>
+                            <div class="row">
+                                <div class="col text-left">
+                                    <button class="btn btn-secondary" id="opener"><i class="flaticon2-add"></i> Tambah Anggota Keluarga</button>
+                                </div>
+                                <div class="col text-right">
+                                    <button style="display: none;" type="submit" class="btn btn-primary" id="btn-submit" >Kirim <i class="flaticon2-paperplane"></i></button>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -198,10 +202,20 @@
                     order = $(this).data('order');
                     detail_f101.splice(order, 1);
                     renderDetainF101();
+                    checkDetailF101();
                 }
             }
         })
     })
+
+    function checkDetailF101()
+    {
+        if(detail_f101.length > 0) {
+            $('#btn-submit').fadeIn();
+        } else {
+            $('#btn-submit').fadeOut();
+        }
+    }
 
     function setDetail(data) {
         detail_f101.push(data);

@@ -36,7 +36,7 @@
 		<div id="kt_aside_menu" class="aside-menu my-4" data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="500">
 			<!--begin::Menu Nav-->
 			<ul class="menu-nav">
-				<li class="menu-item <?php if ($this->uri->segment(1) == "desa") : ?> menu-item-active <?php endif ?>" aria-haspopup="true">
+				<li class="menu-item <?php if ($this->uri->segment(1) == "super" && empty($this->uri->segment(2))) : ?> menu-item-here <?php endif ?>" aria-haspopup="true">
 					<a href="<?php echo base_url('super') ?>" class="menu-link">
 						<span class="svg-icon menu-icon">
 							<!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
@@ -56,7 +56,7 @@
 					<h4 class="menu-text">MENU</h4>
 					<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 				</li>
-				<li class="menu-item menu-item-submenu <?php if ($this->uri->segment(1) == "Super") : ?> menu-item-open menu-item-here <?php endif ?>" aria-haspopup="true" data-menu-toggle="hover">
+				<li class="menu-item menu-item-submenu <?php if ($this->uri->segment(1) == "super" && !empty($this->uri->segment(2))) : ?> menu-item-open menu-item-here <?php endif ?>" aria-haspopup="true" data-menu-toggle="hover">
 					<a href="javascript:;" class="menu-link menu-toggle">
 						<span class="svg-icon menu-icon">
 							<!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Layout/Layout-4-blocks.svg-->

@@ -26,7 +26,21 @@ class Penerbitan_ktp extends CI_Controller
 
     public function penerbitan_ktp_baru()
     {
-        $data = $this->set_partial_data('backend/desa/penerbitan_ktp/create');
+        $data                   = $this->set_partial_data('backend/desa/penerbitan_ktp/create');
+        $data['breadcrumbs']    = array(
+            array(
+                'url'       => 'desa',
+                'title'     => 'Desa'
+            ),
+            array(
+                'url'       => 'desa/pengajuan',
+                'title'     => 'Pengajuan'
+            ),
+            array(
+                'url'       => 'desa/pengajuan/penerbitan-ktp-baru/create',
+                'title'     => 'Penerbitan KTP Baru'
+            )
+        );
 
         $this->load->view('layouts/master_desa', $data);
     }

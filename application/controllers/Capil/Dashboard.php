@@ -12,6 +12,12 @@ class Dashboard extends CI_Controller
     {
         $data['title'] = 'Dashboard Capil';
         $data['content'] = 'backend/capil/dashboard';
+        $data['breadcrumbs'] = array(
+            array(
+                'url' => 'capil',
+                'title' => 'Capil'
+            ),
+        );
         
         $this->load->view('layouts/master_capil', $data);
     }

@@ -46,8 +46,12 @@ class Pengajuan_model extends CI_Model
 
     public function get_pengajuan_by_id($id_pengajuan)
     {
-        $data_pengajuan = $this->db->select('*')
+        $data_pengajuan = $this->db->select('
+                                                ta_pengajuan.*, 
+                                                ref_layanan.layanan_nama as layanan
+                                            ')
                                 ->from('ta_pengajuan')
+                                ->join('ref_layanan', 'ta_pengajuan.pengajuan_jenis_layanan = ref_layanan.layanan_id')
                                 ->where('pengajuan_id', $id_pengajuan)
                                 ->get()
                                 ->row();

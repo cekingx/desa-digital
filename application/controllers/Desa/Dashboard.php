@@ -27,6 +27,12 @@ class Dashboard extends CI_Controller
     public function index()
     {
         $data = $this->set_partial_data('backend/desa/dashboard');
+        $data['breadcrumbs'] = array(
+            array(
+                'url' => 'desa',
+                'title' => 'Desa'
+            ),
+        );
 
         $this->load->view('layouts/master_desa', $data);
     }

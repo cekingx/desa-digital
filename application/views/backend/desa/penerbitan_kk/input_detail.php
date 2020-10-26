@@ -738,6 +738,7 @@ var KTWizard1 = function () {
         _wizard.on('submit', function(wizard) {
             console.log('Submit...');
             window.opener.setDetail(dataDetail);
+            window.opener.checkDetailF101();
             window.close();
         })
 	}

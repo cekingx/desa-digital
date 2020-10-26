@@ -33536,11 +33536,12 @@ i {
       display: none; }
     .breadcrumb.breadcrumb-dot .breadcrumb-item:after {
       display: block;
-      content: " ";
-      width: 4px;
+      content: " / ";
+      /* width: 4px;
       height: 4px;
       border-radius: 4px;
-      background: #D6D6E0;
+      background: #D6D6E0; */
+      color: #D6D6E0;
       margin-left: 0.5rem; }
     .breadcrumb.breadcrumb-dot .breadcrumb-item:last-child:after {
       display: none; }
