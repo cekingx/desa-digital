@@ -9,7 +9,7 @@ class Debug extends CI_Controller
         // $this->load->model('pengajuan_model');
         // $this->load->model('layanan_model');
         // $this->load->model('data_masyarakat_model');
-        $this->load->model('admin_desa_model');
+        // $this->load->model('admin_desa_model');
     }
 
     public function index()

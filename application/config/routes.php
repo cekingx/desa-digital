@@ -163,3 +163,7 @@ $route['capil/pengajuan/penerbitan-ktp-baru/set-status-pengajuan'] = 'Capil/Pene
 $route['capil/pengajuan/penerbitan-ktp-baru/show/(:any)'] = 'Capil/Penerbitan_ktp/show/$1';
 // end::penerbitan-ktp
 // end::CAPIL
+
+// begin::UMUM
+$route['umum'] = 'Umum/Dashboard/index';
+// end::UMUM
