@@ -100,9 +100,11 @@ $route['desa/galeri/update']                    = 'Desa/Galeri/update';
 $route['desa/galeri/data']                      = 'Desa/Galeri/galeri_data';
 $route['desa/galeri/(:any)']                    = 'Desa/Galeri/show/$1';
 $route['desa/detail/galeri/data/(:any)']        = 'Desa/Galeri/detail_galeri_data/$1';
+$route['desa/galeri/media/store/(:any)/(:any)'] = 'Desa/Galeri/store_media/$1/$2';
+$route['desa/galeri/delete_media/(:any)']       = 'Desa/Galeri/delete_media/$1';
 //end::galeri
-// end::DESA
+//end::DESA
 
-// begin::CAPIL
+//begin::CAPIL
 $route['capil'] = 'Capil/Dashboard/index';
-// end::CAPIL
+//end::CAPIL

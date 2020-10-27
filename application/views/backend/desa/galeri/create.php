@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="card-body">
-        <form class="form" id="form_galeri" enctype="multipart/form-data" method="POST">
+        <form action="" class="form" id="form_galeri" enctype="multipart/form-data" method="POST">
             <div class="card-body">
                 <!-- begin::banjar -->
                 <div class="form-group">
@@ -35,7 +35,7 @@
                   <label>Foto</label>
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" id="foto_galeri" name = "foto_galeri[]" multiple="">
-                    <label class="custom-file-label" for="customFile">Choose file</label>      
+                    <label class="custom-file-label" for="customFile">Pilih file</label>      
                   </div>
                   <span style="display: none;" class="form-text text-muted" id="need-foto" >
                   foto masih kosong
@@ -47,7 +47,7 @@
                 <button type="button" class="btn btn-primary mr-2" id="btn-save">
                     Submit
                 </button>
-                <button type="reset" class="btn btn-secondary" id="btn-cancel">Cancel</button>
+                <button type="reset" class="btn btn-secondary" id="btn-cancel">Kembali</button>
             </div>
         </form>
     </div>
@@ -78,7 +78,7 @@
 
     $('#btn-save').click( function() {
     var formData = new FormData($("#form_galeri")[0]);
-
+    console.log('clicked');
         if($('#judul_galeri').val() == '') {
             $('#judul_galeri').addClass('is-invalid');
             $('#need-judul').fadeIn(3);
@@ -90,6 +90,7 @@
             $('#need-foto').fadeIn(3);
         } else {
             $('.preloader').fadeIn();
+            console.log('ajax_request');
             $.ajax({
                 type: 'POST',
                 url: '<?= base_url('desa/galeri/store') ?>',
@@ -99,11 +100,13 @@
                 cache:false,
                 async:false,     
                 success: function(data) {
+                    console.log('success ajax');
                     // console.log(data);
                     $('.preloader').fadeOut();
-                    window.location = '<?= base_url('/desa/galeri') ?>';
+                    // window.location = '<?= base_url('/desa/galeri') ?>';
                 },
                 error: function(xhr, desc, err) {
+                    console.log('fail');
                     console.log(xhr.responseText);
                 }
             });

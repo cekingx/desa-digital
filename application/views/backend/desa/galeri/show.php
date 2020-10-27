@@ -9,9 +9,6 @@
                 </a>
             </div>
             <div class="card-toolbar">
-                <a target="_blank" href="<?= base_url('/galeri/foto/') . $galeri->galeri_slug ?>" class="btn btn-icon btn-light-info mr-2">
-                    <i class="flaticon2-photograph"></i>
-                </a>
                 <a href="<?= base_url('desa/galeri/edit/') . $galeri->galeri_id ?>" class="btn btn-icon btn-light-warning mr-2">
                     <i class="flaticon2-edit"></i>
                 </a>            
@@ -36,30 +33,21 @@
             </table>
             <form id="form_galeri" method="POST" enctype="multipart/form-data" role="form">
             <div class="form-group">
-                <div></div>
                 <input type="hidden" name="galeri_id" id="galeri_id" value="<?php echo $galeri->galeri_id ?>">
                 <input type="hidden" name="slug_galeri" id="slug_galeri" value="<?php echo $galeri->galeri_slug ?>">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="foto_galeri" name = "foto_galeri[]" multiple="">
+                    <label class="custom-file-label" for="customFile">Pilih file</label>      
+                </div>
+                <span style="display: none;" class="form-text text-muted" id="need-foto" >
+                    foto masih kosong
+                </span> 
             </div>
+            <button type="button" class="btn btn-primary mr-2" id="validasi">Tambah Foto</button>
         </form>
         </div>
     </div>
 </div>
-
-<?php if(isset($message)) {
-    echo('
-    <div class="alert alert-custom alert-outline-2x alert-outline-primary fade show mb-5" id="message" role="alert">
-        <div class="alert-icon"><i class="flaticon2-checkmark"></i></div>
-        <div class="alert-text">'
-        .$message.
-        '</div>
-        <div class="alert-close">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true"><i class="ki ki-close"></i></span>
-            </button>
-        </div>
-    </div>
-    ');
-} ?>
 
 <div class="container">
     <div class="card card-custom gutter-b">
@@ -69,7 +57,10 @@
                     Foto Galeri
                 </h3>
             </div>
-            <div class="card-toolbar">           
+            <div class="card-toolbar">
+                <a target="_blank" href="<?= base_url('/galeri/foto/') . $galeri->galeri_slug ?>" class="btn btn-icon btn-light-info mr-2">
+                    <i class="flaticon2-photograph"></i>
+                </a>
             </div>
         </div>
         <div class="card-body">
@@ -165,7 +156,7 @@
                             $('.preloader').fadeIn();
                             $.ajax({
                                 type: 'GET',
-                                url: "<?= base_url('galeri/delete_media/') ?>" + detail_galeri_id + "/" + galeri_id,
+                                url: "<?= base_url('desa/galeri/delete_media/') ?>" + detail_galeri_id + "/" + galeri_id,
                                 dataType: 'json',
                                 success: function(data) {
                                     $('.preloader').fadeOut();
@@ -192,21 +183,6 @@
         KTDatatablePengumuman.init()
     });
 
-    $('.btnNew').click(function() {
-        window.location = '<?= base_url('desa/banner/create') ?>'
-    })
-
-
-$('#link_video').keyup( function() {
-  if($('#link_video').val() == '') {
-      $('#link_video').addClass('is-invalid');
-      $('#need-link').fadeIn(3);
-  } else {
-      $('#link_video').removeClass('is-invalid');
-      $('#need-link').fadeOut(3);
-  }
-  });
-
 $("#validasi").on('click',function(){
   // e.preventDefault(); 
   // var data = $("#testForm").serialize();
@@ -214,11 +190,9 @@ $("#validasi").on('click',function(){
     var formData = new FormData($("#form_galeri")[0]);
     var id = $('#galeri_id').val();
     var slug = $('#slug_galeri').val();       
-    if(fileToUpload == '' && $('#video_galeri').val() == ''){
+    if(fileToUpload == '' && $('#foto_galeri').val() == ''){
       $('#foto_galeri').addClass('is-invalid');
       $('#need-foto').fadeIn(3);
-      $('#video_galeri').addClass('is-invalid');
-      $('#need-link').fadeIn(3);
     }else{
       $.ajax({
         url : '<?php echo site_url('desa/galeri/media/store/')?>'+id+'/'+slug,
@@ -231,7 +205,7 @@ $("#validasi").on('click',function(){
         // dataType : 'json',
         // data : data,
         success: function(data){                
-          alert("Upload Data berhasil di lakukan");
+          alert("Upload foto berhasil dilakukan");
           location.reload();
           console.log(data);                    
         }

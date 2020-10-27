@@ -87,16 +87,16 @@ class Galeri extends CI_Controller
 		$detail_galeri = $this->detail_galeri_model;		
 		$validation = $this->form_validation;
 		$validation->set_rules($galeri->rules());		 	
-
 		if ($validation->run() == false) {
 			$data = [
 				'judul' => form_error('judul'),
 				'deskripsi' => form_error('deskripsi')											
 			];
-			echo json_encode($data);		
+			echo json_encode($data);
+		
 			
 		} else {
-
+			print_r('testing');
 			$galeri->save($wilayah_id);
 			$galeri_id = $this->db->insert_id($galeri);
 			$slug_galeri = $galeri->galeri_slug;						
@@ -170,7 +170,7 @@ class Galeri extends CI_Controller
 	}
 
 	//delete media berdasarkan id galeri
-	public function delete_media($id = null, $galeri_id, $detail_galeri_id)
+	public function delete_media($galeri_id, $detail_galeri_id)
 	{
 		if (!isset($id)) show_404();
 
@@ -186,7 +186,7 @@ class Galeri extends CI_Controller
 		$this->detail_galeri_model->delete($id);
 		$this->session->set_flashdata('hapus', 'Data Berhasil di Hapus');				
 		
-		echo json_encode($data);		
+		echo json_encode($data);
 	}	
 	
 }

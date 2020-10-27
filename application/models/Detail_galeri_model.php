@@ -42,6 +42,8 @@ class detail_galeri_model extends CI_Model
     	$this->load->library('upload');
 		$files = $_FILES;
 		$cpt = count($_FILES["foto_galeri"]["name"]);
+		print_r($_FILES);
+		print_r($id);
 		for ($i=0; $i < $cpt; $i++){
 			if (!empty($_FILES["foto_galeri"]["name"][$i])) {
 				$_FILES['foto_galeri']['name']= $files['foto_galeri']['name'][$i];
@@ -56,9 +58,10 @@ class detail_galeri_model extends CI_Model
 	            $data = array(
 	                'foto_galeri' => $file_name
 	            );
-	            // $this->upload->initialize($this->doUpload($file_name_upload));
+				// $this->upload->initialize();
+				$this->doUpload($file_name_upload,"foto_galeri");
 	            // $this->upload->do_upload('foto_galeri');
-	            // $dataInfo[] = $this->upload->data();
+	            $dataInfo[] = $this->upload->data();
 
 	        	$data1 = array(
 					'detail_galeri_foto'=>$file_name,
@@ -88,7 +91,7 @@ class detail_galeri_model extends CI_Model
 		return $this->db->delete($this->_table, array("detail_galeri_galeri_id" => $id));
 	}	
 
-	private function doUpload($file_name)
+	private function doUpload($file_name,$key)
 	{
 			$config['upload_path']	 = './storage/desa/BLAHBATUH/galeri';
 			$config['allowed_types'] = '*';
@@ -96,7 +99,22 @@ class detail_galeri_model extends CI_Model
 			$config['file_name']     = $file_name;
 			$config['overwrite']     = 'TRUE';
 
+			// $this->load->library('upload', $config);
+ 
+			// if ( ! $this->upload->do_upload('foto_galeri[]')){
+			// 	$error = array('error' => $this->upload->display_errors());
+			// 	$this->load->view('layouts/master_desa', $error);
+			// }else{
+			// 	$data = array('upload_data' => $this->upload->data());
+			// 	$this->load->view('layouts/master_desa', $data);
+			// }
+			
+			// $this->upload->initialize($config);
+			// $upload_data = $this->upload->data('foto_galeri[]');
+			// return $upload_data['file_name'];
+
 			$this->upload->initialize($config);
+			$this->upload->do_upload($key);
 			$upload_data = $this->upload->data();
 			return $upload_data['file_name'];
 	}
