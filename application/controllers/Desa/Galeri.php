@@ -76,6 +76,9 @@ class Galeri extends CI_Controller
 		
 		$data['content'] = 'backend/desa/galeri/create';		
 		$this->load->view('layouts/master_desa', $data);
+		echo json_encode(array(
+            'msg' => 'Success'
+        ));
 	}	
 
 	//store galeri include gambar dan link video

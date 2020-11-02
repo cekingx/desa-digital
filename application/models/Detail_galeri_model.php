@@ -2,18 +2,19 @@
 
 class detail_galeri_model extends CI_Model
 {	
-	public $desa;
+    public $desa;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $wilayah_id = $this->session->userdata('wilayah_id');
+        $this->desa = $this->db->select('*')
+                            ->from('ref_wilayah') 
+                            ->where('id', $wilayah_id)
+                            ->get()
+                            ->row();
+	}
 	
-	function __construct()
-	{
-		parent::__construct();
-		$wilayah_id = $this->session->userdata('wilayah_id');
-		$this->desa = $this->db->select('*')
-		->from('ref_wilayah') 
-		->where('id', $wilayah_id)
-		->get()
-		->row();
-    }
 	private $_table = "ta_detail_galeri";
 	public $detail_galeri_foto = "default.png";
 	public $detail_galeri_galeri_id;
@@ -91,13 +92,12 @@ class detail_galeri_model extends CI_Model
 		return $this->db->delete($this->_table, array("detail_galeri_galeri_id" => $id));
 	}	
 
-	private function doUpload($file_name,$key)
+	private function doUpload($nama_desa, $file_name)
 	{
-			$config['upload_path']	 = './storage/desa/BLAHBATUH/galeri';
-			$config['allowed_types'] = '*';
-			$config['max_size']      = '0';
+       		$config['upload_path']	 = './storage/desa/' . $nama_desa . '/galeri';
+			$config['allowed_types'] = 'gif|jpg|png';
 			$config['file_name']     = $file_name;
-			$config['overwrite']     = 'TRUE';
+			$config['overwrite']     = TRUE;
 
 			// $this->load->library('upload', $config);
  
@@ -112,11 +112,13 @@ class detail_galeri_model extends CI_Model
 			// $this->upload->initialize($config);
 			// $upload_data = $this->upload->data('foto_galeri[]');
 			// return $upload_data['file_name'];
-
+			$this->load->library('upload', $config);
+			if($this->upload->do_upload('foto_kades')) {
+				return $this->upload->data('file_name');
+			}
 			$this->upload->initialize($config);
-			$this->upload->do_upload($key);
 			$upload_data = $this->upload->data();
-			return $upload_data['file_name'];
+			// return $upload_data['file_name'];
 	}
 
 	private function _deleteFile($id)

@@ -47,7 +47,7 @@
             </div>
             <div class="card-footer">
                 <button type="button" class="btn btn-primary mr-2" id="btn-save">
-                    Submit
+                    Simpan
                 </button>
                 <button type="reset" class="btn btn-secondary" id="btn-cancel">Cancel</button>
             </div>

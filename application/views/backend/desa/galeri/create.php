@@ -45,7 +45,7 @@
             </div>
             <div class="card-footer">
                 <button type="button" class="btn btn-primary mr-2" id="btn-save">
-                    Submit
+                    Simpan
                 </button>
                 <button type="reset" class="btn btn-secondary" id="btn-cancel">Kembali</button>
             </div>
@@ -101,9 +101,9 @@
                 async:false,     
                 success: function(data) {
                     console.log('success ajax');
-                    // console.log(data);
+                    console.log(data);
                     $('.preloader').fadeOut();
-                    // window.location = '<?= base_url('/desa/galeri') ?>';
+                    window.location = '<?= base_url('/desa/galeri') ?>';
                 },
                 error: function(xhr, desc, err) {
                     console.log('fail');
