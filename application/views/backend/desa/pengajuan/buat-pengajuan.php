@@ -23,7 +23,7 @@
                             </div>
                             <!-- end::nik -->
                             <!-- begin::button -->
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Lanjutkan</button>
                             <!-- end::button -->
                         <?= form_close(); ?>
                     </div>

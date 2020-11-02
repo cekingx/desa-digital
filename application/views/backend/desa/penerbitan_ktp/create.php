@@ -20,7 +20,7 @@
                             <label>Surat Pengantar dari Desa/Kelurahan</label>
                             <input class="form-control" type="file" name="surat_pengantar" id="surat_pengantar">
                         </div>
-                        <button id="btn-submit" type="submit" class="btn btn-primary">Submit</button>
+                        <button id="btn-submit" type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                 </div>
             </div>

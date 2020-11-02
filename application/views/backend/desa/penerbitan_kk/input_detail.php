@@ -651,19 +651,19 @@
 	                                        <button type="button"
 	                                            class="btn btn-light-primary font-weight-bold text-uppercase px-9 py-4"
 	                                            data-wizard-type="action-prev">
-	                                            Previous
+	                                            Kembali
 	                                        </button>
 	                                    </div>
 	                                    <div>
 	                                        <button type="button"
 	                                            class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
 	                                            data-wizard-type="action-submit">
-	                                            Submit
+	                                            Simpan
 	                                        </button>
 	                                        <button type="button"
 	                                            class="btn btn-primary font-weight-bold text-uppercase px-9 py-4"
 	                                            data-wizard-type="action-next">
-	                                            Next
+	                                            Selanjutnya
 	                                        </button>
 	                                    </div>
 	                                </div>

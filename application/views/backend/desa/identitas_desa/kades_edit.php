@@ -42,7 +42,7 @@
                         >
                     </div>
                     <!-- end::foto-kades -->
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-primary mr-2">Simpan</button>
                 <?= form_close();  ?>
             </div>
         </div>
