@@ -15,10 +15,6 @@ class Penerbitan_ktp extends CI_Controller
         $data['title']          = 'Penerbitan KTP Baru';
         $data['breadcrumbs']    = array(
             array(
-                'url'       => 'umum',
-                'title'     => 'Umum'
-            ),
-            array(
                 'url'       => 'umum/pengajuan/daftar-pengajuan',
                 'title'     => 'Pengajuan'
             ),

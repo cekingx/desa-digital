@@ -30,7 +30,7 @@ class Dashboard extends CI_Controller
         $data['breadcrumbs'] = array(
             array(
                 'url' => 'desa',
-                'title' => 'Desa'
+                'title' => 'Dashboard'
             ),
         );
 

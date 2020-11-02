@@ -18,6 +18,7 @@
 </div>
 
 <script>
+$('.preloader').fadeOut();
 var KTDatatableRemoteAjaxDemo = function() {
     // Private functions
 

@@ -9,7 +9,7 @@
 						<!--begin::Login Header-->
 						<div class="d-flex flex-center mb-15">
 							<a href="#">
-								<img src="<?php echo base_url('assets/img/logo.png')?>" width="150" alt="" />
+								<img src="<?php echo base_url('storage/logo/logo-gianyar.png')?>" width="150" alt="" />
 							</a>
 						</div>
 						<!--end::Login Header-->
@@ -50,6 +50,7 @@
 <!--end::Entry-->
 <!-- script -->
 <script>
+	$('.preloader').fadeOut();
 
 	$(".username").keyup( function() {
 		if($('.username').val() == ''){
@@ -115,13 +116,13 @@
 							window.location = "<?php echo base_url('/');?>";
 						}
 					}else{
+						$('.preloader').fadeOut();
 						bootbox.alert({
 							message: "Username atau Password salah",
 							backdrop: true,
 							size: 'small'
 						});
 					}
-					$('.preloader').fadeOut();
 				},
 				error: function (xhr, desc, err){
 					console.log(xhr.responseText);

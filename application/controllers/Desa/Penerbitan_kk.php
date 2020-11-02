@@ -38,10 +38,6 @@ class Penerbitan_kk extends CI_Controller
         $data                   = $this->set_partial_data('backend/desa/penerbitan_kk/create');
         $data['breadcrumbs']    = array(
             array(
-                'url'       => 'desa',
-                'title'     => 'Desa'
-            ),
-            array(
                 'url'       => 'desa/pengajuan',
                 'title'     => 'Pengajuan'
             ),

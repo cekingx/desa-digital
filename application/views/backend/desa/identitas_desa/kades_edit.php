@@ -50,6 +50,7 @@
 </div>
 
 <script>
+    $('.preloader').fadeOut();
     // $('#upload').submit(function(e) {
     //     e.preventDefault();
 

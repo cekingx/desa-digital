@@ -16,10 +16,6 @@ class Penerbitan_kk extends CI_Controller
         $data['title']          = 'Penerbitan KK Baru';
         $data['breadcrumbs']    = array(
             array(
-                'url'       => 'umum',
-                'title'     => 'Umum'
-            ),
-            array(
                 'url'       => 'umum/pengajuan/daftar-pengajuan',
                 'title'     => 'Pengajuan'
             ),

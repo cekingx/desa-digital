@@ -32,3 +32,7 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('.preloader').fadeOut();
+</script>

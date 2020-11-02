@@ -131,6 +131,7 @@
 </div>
 
 <script>
+    $('.preloader').fadeOut();
     $('#lokasi').click(function() {
         getLocation();
     });

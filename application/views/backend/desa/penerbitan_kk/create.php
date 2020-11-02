@@ -1,3 +1,4 @@
+
 <title><?= $title ?></title>
 
 <div class="d-flex flex-column-fluid">
@@ -147,6 +148,8 @@
     );
     
     $(document).ready(function() {
+        $('.preloader').fadeOut();
+
         submitButton.click(function(e) {
             e.preventDefault();
 
@@ -165,7 +168,7 @@
                         processData: false,
                         success: function(data) {
                             console.log(data)
-                            bootbox.alert('Data berhasil dibuat', function() {
+                            bootbox.alert('Pengajuan KK berhasil disimpan', function() {
                                 window.location = '<?= base_url('desa/pengajuan') ?>'
                             })
                         },
@@ -181,7 +184,7 @@
     $('#opener').click(function(e) {
         e.preventDefault();
 
-        window.open('<?= base_url('desa/pengajuan/penerbitan-kk-baru/detail-f101') ?>', '_blank');
+        window.open('<?= base_url('desa/pengajuan/penerbitan-kk-baru/detail-f101') ?>');
     })
 
     $('#nik_detail_f101').on('click', '.btn-delete-detail', function() {

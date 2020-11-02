@@ -122,6 +122,7 @@
     const jenis_layanan = <?= $jenis_layanan; ?>;
 
     $(document).ready(function() {
+        $('.preloader').fadeOut();
         render_status_pengajuan(<?= $pengajuan['pengajuan']->pengajuan_status_pengajuan_id; ?>)
         render_jenis_layanan(<?= $pengajuan['pengajuan']->pengajuan_jenis_layanan; ?>)
     })

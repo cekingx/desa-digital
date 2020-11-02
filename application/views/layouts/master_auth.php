@@ -58,14 +58,14 @@
 <body id="kt_body" class="quick-panel-right demo-panel-right offcanvas-right header-fixed page-loading">
     <!--begin::Main-->
     <!--begin::Header Mobile position:absolute;right:0;top:80;z-index:0;width:200px;-->
-    <!-- <div class="preloader">
+    <div class="preloader">
         <div class="loading">
             <img src="<?php echo base_url('assets/img/loader.gif') ?>" width="80">
         </div>
-    </div> -->
+    </div>
     <!--end::Header Mobile-->
     <div class="d-flex flex-column flex-root">
-    <img id="anim" src="<?php echo base_url('assets/img/logo_transparent.png')?>">
+    <!-- <img id="anim" src="<?php echo base_url('assets/img/logo_transparent.png')?>"> -->
         <!--begin::Page-->
         <div class="d-flex flex-row flex-column-fluid page">
             <!--begin::Wrapper-->

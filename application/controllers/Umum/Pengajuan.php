@@ -18,10 +18,6 @@ class Pengajuan extends CI_Controller
         $data['status_pengajuan']   = $this->pengajuan_model->get_all_status_pengajuan();
         $data['breadcrumbs']        = array(
             array(
-                'url'       => 'umum',
-                'title'     => 'Umum'
-            ),
-            array(
                 'url'       => 'umum/pengajuan/daftar-pengajuan',
                 'title'     => 'Pengajuan'
             ),
@@ -38,10 +34,6 @@ class Pengajuan extends CI_Controller
         $data['jenis_layanan']      = json_encode($this->Ref_model->get_jenis_layanan());
         $data['status_pengajuan']   = json_encode($this->Ref_model->get_status_pengajuan());
         $data['breadcrumbs']        = array(
-            array(
-                'url'       => 'umum',
-                'title'     => 'Umum'
-            ),
             array(
                 'url'       => 'umum/pengajuan/daftar-pengajuan',
                 'title'     => 'Pengajuan'
@@ -74,10 +66,6 @@ class Pengajuan extends CI_Controller
         $data['content'] = 'backend/umum/pengajuan/pilih-layanan';
         $data['title'] = 'Pilih layanan';
         $data['breadcrumbs']    = array(
-            array(
-                'url'       => 'umum',
-                'title'     => 'Umum'
-            ),
             array(
                 'url'       => 'umum/pengajuan/daftar-pengajuan',
                 'title'     => 'Pengajuan'

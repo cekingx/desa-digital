@@ -15,10 +15,6 @@ class Admin_capil extends CI_Controller
         $data['content'] = 'backend/super/admin_capil/index';
         $data['breadcrumbs'] = array(
             array(
-                'url' => 'super',
-                'title' => 'Super'
-            ),
-            array(
                 'url' => 'super/admin-capil',
                 'title' => 'Admin Capil'
             ),
@@ -32,10 +28,6 @@ class Admin_capil extends CI_Controller
         $data['title'] = 'Buat Admin Capil';
         $data['content'] = 'backend/super/admin_capil/create';
         $data['breadcrumbs'] = array(
-            array(
-                'url' => 'super',
-                'title' => 'Super'
-            ),
             array(
                 'url' => 'super/admin-capil',
                 'title' => 'Admin Capil'

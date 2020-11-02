@@ -197,6 +197,7 @@ var KTDatatableRemoteAjaxDemo = function() {
 }();
 
 jQuery(document).ready(function() {
+    $('.preloader').fadeOut();
     KTDatatableRemoteAjaxDemo.init();
 });
 

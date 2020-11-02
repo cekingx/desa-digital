@@ -16,10 +16,6 @@ class F101 extends CI_Controller
         $data['title']              = 'F-1.01';
         $data['breadcrumbs']        = array(
             array(
-                'url'       => 'umum',
-                'title'     => 'Umum'
-            ),
-            array(
                 'url'       => 'umum/pengajuan/daftar-pengajuan',
                 'title'     => 'Pengajuan'
             ),

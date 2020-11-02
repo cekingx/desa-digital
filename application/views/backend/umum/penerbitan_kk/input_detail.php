@@ -517,7 +517,7 @@
                                     <!-- begin::Wizard Step 4 -->
 	                                <div class="pb-5" data-wizard-type="step-content">
                                         <h4 class="mb-10 font-weight-bold text-dark">Review</h4>
-                                                <h5>1</h5>
+                                                <h5>Biodata</h5>
                                                 <div class="row">
                                                     <p class="col-6">Nama Lengkap</p>
                                                     <p class="col-6" id="data-nama_lengkap"></p>
@@ -568,7 +568,7 @@
                                                 </div>
                                                 <br>
 
-                                                <h5>2</h5>
+                                                <h5>Dokumen</h5>
                                                 <div class="row">
                                                     <p class="col-6">Nomor Paspor</p>
                                                     <p class="col-6" id="data-nomor_paspor"></p>
@@ -611,7 +611,7 @@
                                                 </div>
                                                 <br>
 
-                                                <h5>3</h5>
+                                                <h5>Hub. Keluarga</h5>
                                                 <div class="row">
                                                     <p class="col-6">Hubungan Keluarga</p>
                                                     <p class="col-6" id="data-hubungan_keluarga"></p>
@@ -806,6 +806,9 @@ var KTWizard1 = function () {
                         validators: {
                             notEmpty: {
                                 message: 'Umur tidak boleh kosong'
+                            },
+                            numeric: {
+                                message: 'Umur harus menggunakan angka'
                             }
                         }
                     },
@@ -995,7 +998,7 @@ var KTBootstrapDatepicker = function () {
         // input group layout
         $('.kt_datepicker').datepicker({
             rtl: KTUtil.isRTL(),
-            format: 'yyyy-mm-dd',
+            format: 'dd-mm-yyyy',
             todayHighlight: true,
             orientation: "bottom left",
             templates: arrows

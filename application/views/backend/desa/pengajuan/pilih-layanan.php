@@ -241,3 +241,6 @@ $data = array(
     </div>
 </div>
 
+<script>
+    $('.preloader').fadeOut();
+</script>

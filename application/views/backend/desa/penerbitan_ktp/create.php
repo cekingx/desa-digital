@@ -59,6 +59,7 @@
     );
 
     $(document).ready(function() {
+        $('.preloader').fadeOut();
         submitButton.click(function(e) {
             e.preventDefault();
 

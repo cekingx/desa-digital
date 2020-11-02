@@ -18,10 +18,6 @@ class Penerbitan_ktp extends CI_Controller
         $data['status_pengajuan'] = $this->penerbitan_ktp_model->get_all_status_pengajuan();
         $data['breadcrumbs'] = array(
             array(
-                'url' => 'capil',
-                'title' => 'Capil'
-            ),
-            array(
                 'url' => 'capil/pengajuan/penerbitan-ktp-baru',
                 'title' => 'Pengajuan'
             ),
@@ -40,10 +36,6 @@ class Penerbitan_ktp extends CI_Controller
         $data['jenis_layanan_json']     = json_encode($data['jenis_layanan']);
         $data['status_pengajuan_json']  = json_encode($data['status_pengajuan']);
         $data['breadcrumbs'] = array(
-            array(
-                'url' => 'capil',
-                'title' => 'Capil'
-            ),
             array(
                 'url' => 'capil/pengajuan/penerbitan-ktp-baru',
                 'title' => 'Pengajuan'

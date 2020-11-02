@@ -34,8 +34,10 @@
 </div>
 
 <script>
+    $('.preloader').fadeOut();
     $('#upload').submit(function(e) {
         e.preventDefault();
+        $('.preloader').fadeIn();
 
         $.ajax({
             url: '<?= base_url('desa/pengajuan/data-masyarakat') ?>',
@@ -44,6 +46,7 @@
             processData: false,
             contentType: false,
             success: function(data) {
+                $('.preloader').fadeOut();
                 bootbox.confirm({
                     title: "Buat pengajuan",
                     message: "Untuk " + data.NAMA_LGKP + " dari desa " + data.NAMA_KEL_EKTP,
@@ -58,6 +61,7 @@
                     },
                     callback: function(result) {
                         if(result) {
+                            $('.preloader').fadeIn();
                             setNik(data.NIK);
                         }
                     }

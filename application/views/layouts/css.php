@@ -20,4 +20,4 @@
 <link href="<?php echo base_url('assets/css/themes/layout/brand/dark.css') ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url('assets/css/themes/layout/aside/dark.css') ?>" rel="stylesheet" type="text/css" />
 
-<link rel="shortcut icon" href="<?php echo base_url('assets/img/logo.png') ?>" />
+<link rel="shortcut icon" href="<?php echo base_url('storage/logo/logo-gianyar.png') ?>" />

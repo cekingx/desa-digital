@@ -16,7 +16,7 @@
 	                            <div class="wizard-step" data-wizard-type="step" data-wizard-state="current">
 	                                <div class="wizard-label">
 	                                    <i class="wizard-icon flaticon-file-1"></i>
-	                                    <h3 class="wizard-title">1</h3>
+	                                    <h3 class="wizard-title">Biodata</h3>
 	                                </div>
 	                                <span class="svg-icon svg-icon-xl wizard-arrow">
 	                                    <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg--><svg
@@ -41,7 +41,7 @@
 	                            <div class="wizard-step" data-wizard-type="step">
 	                                <div class="wizard-label">
 	                                    <i class="wizard-icon flaticon-file-1"></i>
-	                                    <h3 class="wizard-title">2</h3>
+	                                    <h3 class="wizard-title">Dokumen</h3>
 	                                </div>
 	                                <span class="svg-icon svg-icon-xl wizard-arrow">
 	                                    <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg--><svg
@@ -66,7 +66,7 @@
 	                            <div class="wizard-step" data-wizard-type="step">
 	                                <div class="wizard-label">
 	                                    <i class="wizard-icon flaticon-file-1"></i>
-	                                    <h3 class="wizard-title">3</h3>
+	                                    <h3 class="wizard-title">Hub. Keluarga</h3>
 	                                </div>
 	                                <span class="svg-icon svg-icon-xl wizard-arrow">
 	                                    <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg--><svg
@@ -173,7 +173,7 @@
                                             <label for="kelamin">Kelamin</label>
                                             <div class="radio-inline">
                                                 <label class="radio">
-                                                    <input type="radio" name="kelamin" value="1">
+                                                    <input type="radio" checked="checked" name="kelamin" value="1">
                                                     <span></span>
                                                     Laki-laki
                                                 </label>
@@ -255,7 +255,7 @@
                                             <label for="kepemilikan_kelainan">Kelainan</label>
                                             <div class="radio-inline">
                                                 <label class="radio">
-                                                    <input type="radio" name="kepemilikan_kelainan" value="1">
+                                                    <input type="radio" checked="checked" name="kepemilikan_kelainan" value="1">
                                                     <span></span>
                                                     Tidak Ada
                                                 </label>
@@ -315,14 +315,14 @@
                                         <!-- begin::kepemilikan-akta-lahir -->
                                         <div class="form-group">
                                             <label for="kepemilikan_akta_lahir">Kepemilikan Akta Lahir</label>
-                                            <div class="radio-inline">
+                                            <div id="akta_lahir" class="radio-inline">
                                                 <label class="radio">
-                                                    <input type="radio" name="kepemilikan_akta_lahir" value="1">
+                                                    <input type="radio" id="tidak_ada_akta_lahir" checked="checked" name="kepemilikan_akta_lahir" value="1">
                                                     <span></span>
                                                     Tidak Ada
                                                 </label>
                                                 <label class="radio">
-                                                    <input type="radio" name="kepemilikan_akta_lahir" value="2">
+                                                    <input type="radio" id="ada_akta_lahir" name="kepemilikan_akta_lahir" value="2">
                                                     <span></span>
                                                     Ada
                                                 </label>
@@ -337,7 +337,8 @@
                                                 type="text" 
                                                 class="form-control" 
                                                 name="nomor_akta_kelahiran" 
-                                                id="nomor_akta_kelahiran">
+                                                id="nomor_akta_kelahiran"
+                                                disabled>
                                         </div>
                                         <!-- end::nomor-akta-lahiran -->
 
@@ -375,12 +376,12 @@
                                             <label for="kepemilikan_akta_perkawinan">Kepemilikan Akta Perkawinan</label>
                                             <div class="radio-inline">
                                                 <label class="radio">
-                                                    <input type="radio" name="kepemilikan_akta_perkawinan" value="1">
+                                                    <input type="radio" id="tidak_ada_akta_kawin" checked="checked" name="kepemilikan_akta_perkawinan" value="1">
                                                     <span></span>
                                                     Tidak Ada
                                                 </label>
                                                 <label class="radio">
-                                                    <input type="radio" name="kepemilikan_akta_perkawinan" value="2">
+                                                    <input type="radio" id="ada_akta_kawin" name="kepemilikan_akta_perkawinan" value="2">
                                                     <span></span>
                                                     Ada
                                                 </label>
@@ -395,7 +396,8 @@
                                                 type="text" 
                                                 class="form-control" 
                                                 name="nomor_akta_perkawinan" 
-                                                id="nomor_akta_perkawinan">
+                                                id="nomor_akta_perkawinan"
+                                                disabled>
                                         </div>
                                         <!-- end::nomor-akta-perkawinan -->
 
@@ -404,12 +406,12 @@
                                             <label for="kepemilikan_akta_cerai">Kepemilikan Akta Cerai</label>
                                             <div class="radio-inline">
                                                 <label class="radio">
-                                                    <input type="radio" name="kepemilikan_akta_cerai" value="1">
+                                                    <input type="radio" id="tidak_ada_akta_cerai" checked="checked" name="kepemilikan_akta_cerai" value="1">
                                                     <span></span>
                                                     Tidak Ada
                                                 </label>
                                                 <label class="radio">
-                                                    <input type="radio" name="kepemilikan_akta_cerai" value="2">
+                                                    <input type="radio" id="ada_akta_cerai" name="kepemilikan_akta_cerai" value="2">
                                                     <span></span>
                                                     Ada
                                                 </label>
@@ -424,7 +426,8 @@
                                                 type="text" 
                                                 class="form-control" 
                                                 name="nomor_akta_perceraian" 
-                                                id="nomor_akta_perceraian">
+                                                id="nomor_akta_perceraian"
+                                                disabled>
                                         </div>
                                         <!-- end::nomor-akta-perceraian -->
 	                                </div>
@@ -514,7 +517,7 @@
                                     <!-- begin::Wizard Step 4 -->
 	                                <div class="pb-5" data-wizard-type="step-content">
                                         <h4 class="mb-10 font-weight-bold text-dark">Review</h4>
-                                                <h5>1</h5>
+                                                <h5>Biodata</h5>
                                                 <div class="row">
                                                     <p class="col-6">Nama Lengkap</p>
                                                     <p class="col-6" id="data-nama_lengkap"></p>
@@ -565,7 +568,7 @@
                                                 </div>
                                                 <br>
 
-                                                <h5>2</h5>
+                                                <h5>Dokumen</h5>
                                                 <div class="row">
                                                     <p class="col-6">Nomor Paspor</p>
                                                     <p class="col-6" id="data-nomor_paspor"></p>
@@ -608,7 +611,7 @@
                                                 </div>
                                                 <br>
 
-                                                <h5>3</h5>
+                                                <h5>Hub. Keluarga</h5>
                                                 <div class="row">
                                                     <p class="col-6">Hubungan Keluarga</p>
                                                     <p class="col-6" id="data-hubungan_keluarga"></p>
@@ -803,6 +806,9 @@ var KTWizard1 = function () {
                         validators: {
                             notEmpty: {
                                 message: 'Umur tidak boleh kosong'
+                            },
+                            numeric: {
+                                message: 'Umur harus menggunakan angka'
                             }
                         }
                     },
@@ -861,13 +867,6 @@ var KTWizard1 = function () {
                             }
                         }
                     },
-                    nomor_akta_kelahiran: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Nomor Akta Kelahiran tidak boleh kosong'
-                            }
-                        }
-                    },
                     status_kawin: {
                         validators: {
                             notEmpty: {
@@ -882,13 +881,6 @@ var KTWizard1 = function () {
                             }
                         }
                     },
-                    nomor_akta_perkawinan: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Nomor akta perkawinan tidak boleh kosong'
-                            }
-                        }
-                    },
                     tanggal_perkawinan: {
                         validators: {
                             notEmpty: {
@@ -900,13 +892,6 @@ var KTWizard1 = function () {
                         validators: {
                             notEmpty: {
                                 message: 'Kepemilikan akta cerai tidak boleh kosong'
-                            }
-                        }
-                    },
-                    nomor_akta_perceraian: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Nomor akta perceraian tidak boleh kosong'
                             }
                         }
                     },
@@ -1013,7 +998,7 @@ var KTBootstrapDatepicker = function () {
         // input group layout
         $('.kt_datepicker').datepicker({
             rtl: KTUtil.isRTL(),
-            format: 'yyyy-mm-dd',
+            format: 'dd-mm-yyyy',
             todayHighlight: true,
             orientation: "bottom left",
             templates: arrows
@@ -1029,9 +1014,47 @@ var KTBootstrapDatepicker = function () {
 }();
 
 jQuery(document).ready(function () {
+    $('.preloader').fadeOut();
+
 	KTWizard1.init();
     KTBootstrapDatepicker.init();
 });
+
+$('#tidak_ada_akta_lahir').change(function() {
+    if($('#tidak_ada_akta_lahir').is(':checked')) {
+        $('#nomor_akta_kelahiran').val('').prop('disabled', true);
+    }
+});
+
+$('#ada_akta_lahir').change(function() {
+    if($('#ada_akta_lahir').is(':checked')) {
+        $('#nomor_akta_kelahiran').prop('disabled', false)
+    }
+})
+
+$('#tidak_ada_akta_kawin').change(function() {
+    if($('#tidak_ada_akta_kawin').is(':checked')) {
+        $('#nomor_akta_perkawinan').val('').prop('disabled', true);
+    }
+});
+
+$('#ada_akta_kawin').change(function() {
+    if($('#ada_akta_kawin').is(':checked')) {
+        $('#nomor_akta_perkawinan').prop('disabled', false)
+    }
+})
+
+$('#tidak_ada_akta_cerai').change(function() {
+    if($('#tidak_ada_akta_cerai').is(':checked')) {
+        $('#nomor_akta_perceraian').val('').prop('disabled', true);
+    }
+});
+
+$('#ada_akta_cerai').change(function() {
+    if($('#ada_akta_cerai').is(':checked')) {
+        $('#nomor_akta_perceraian').prop('disabled', false)
+    }
+})
 
 function setDataDetail() {
     dataDetail = {
