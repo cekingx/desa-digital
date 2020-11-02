@@ -18,11 +18,13 @@ class Auth extends CI_Controller
 
             $this->load->view('layouts/master_auth', $data);
         } else if($this->session->userdata('user_role_id') == 1) {
-            redirect('/');
+            redirect('/super');
         } else if($this->session->userdata('user_role_id') == 2) {
             redirect('/capil');
         } else if($this->session->userdata('user_role_id') == 3) {
             redirect('/desa');
+        } else if($this->session->userdata('user_role_id') == 4) {
+            redirect('/umum');
         } else {
             redirect('/');
         }

@@ -5,7 +5,7 @@
     <?php $this->load->view('layouts/css.php'); ?>
     <?php $this->load->view('layouts/js.php'); ?>
 </head>
-	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed page-loading">
 
 		<div class="preloader">
 			<div class="loading">
@@ -52,11 +52,10 @@
 		<div class="d-flex flex-column flex-root">
 			<!--begin::Page-->
 			<div class="d-flex flex-row flex-column-fluid page">
-                <?php $this->load->view('layouts/partials/sidebar_umum.php') ?>
 				<!--begin::Wrapper-->
 				<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
 					<!--begin::Header-->
-                        <?php $this->load->view('layouts/partials/header.php') ?>
+                        <?php $this->load->view('layouts/partials/header_no_aside.php') ?>
 					<!--end::Header-->
 					<!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">

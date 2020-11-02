@@ -123,7 +123,7 @@ $route['desa/pengajuan/set-nik-to-session']     = 'Desa/Pengajuan/set_nik_to_ses
 // end::pengajuan
 
 // begin::penerbitan-kk
-$route['desa/pengajuan/penerbitan-kk-baru']                 = 'Desa/Penerbitan_kk/index'; //deprecated
+$route['desa/pengajuan/penerbitan-kk-baru']                 = 'Desa/Penerbitan_kk/index'; /** @deprecated */
 $route['desa/pengajuan/penerbitan-kk-baru/create']          = 'Desa/Penerbitan_kk/penerbitan_kk_baru';
 $route['desa/pengajuan/penerbitan-kk-baru/store']           = 'Desa/Penerbitan_kk/store_penerbitan_kk_baru';
 $route['desa/pengajuan/penerbitan-kk-baru/detail-f101']     = 'Desa/Penerbitan_kk/input_detail_f101';
@@ -142,14 +142,14 @@ $route['desa/pengajuan/penerbitan-ktp-baru/store'] = 'Desa/Penerbitan_ktp/store_
 // end::DESA
 
 // begin::CAPIL
-$route['capil'] = 'Capil/Dashboard/index';
-$route['capil/get_all_wilayah'] = 'Capil/Wilayah/get_all_wilayah';
+$route['capil']                     = 'Capil/Dashboard/index';
+$route['capil/get_all_wilayah']     = 'Capil/Wilayah/get_all_wilayah';
 
 // begin::penerbitan-kk
-$route['capil/pengajuan/penerbitan-kk-baru'] = 'Capil/Penerbitan_kk/index';
-$route['capil/pengajuan/penerbitan-kk-baru/data-pengajuan'] = 'Capil/Penerbitan_kk/get_data_pengajuan';
-$route['capil/pengajuan/penerbitan-kk-baru/set-status-pengajuan'] = 'Capil/Penerbitan_kk/set_status_pengajuan';
-$route['capil/pengajuan/penerbitan-kk-baru/show/(:any)'] = 'Capil/Penerbitan_kk/show/$1';
+$route['capil/pengajuan/penerbitan-kk-baru']                        = 'Capil/Penerbitan_kk/index';
+$route['capil/pengajuan/penerbitan-kk-baru/data-pengajuan']         = 'Capil/Penerbitan_kk/get_data_pengajuan';
+$route['capil/pengajuan/penerbitan-kk-baru/set-status-pengajuan']   = 'Capil/Penerbitan_kk/set_status_pengajuan';
+$route['capil/pengajuan/penerbitan-kk-baru/show/(:any)']            = 'Capil/Penerbitan_kk/show/$1';
 // end::penerbitan-kk
 
 // begin::f101
@@ -157,13 +157,42 @@ $route['capil/pengajuan/f101/(:any)'] = 'Capil/f101/show/$1';
 // end::f101
 
 // begin::penerbitan-ktp
-$route['capil/pengajuan/penerbitan-ktp-baru'] = 'Capil/Penerbitan_ktp/index';
-$route['capil/pengajuan/penerbitan-ktp-baru/data-pengajuan'] = 'Capil/Penerbitan_ktp/get_data_pengajuan';
-$route['capil/pengajuan/penerbitan-ktp-baru/set-status-pengajuan'] = 'Capil/Penerbitan_ktp/set_status_pengajuan';
-$route['capil/pengajuan/penerbitan-ktp-baru/show/(:any)'] = 'Capil/Penerbitan_ktp/show/$1';
+$route['capil/pengajuan/penerbitan-ktp-baru']                       = 'Capil/Penerbitan_ktp/index';
+$route['capil/pengajuan/penerbitan-ktp-baru/data-pengajuan']        = 'Capil/Penerbitan_ktp/get_data_pengajuan';
+$route['capil/pengajuan/penerbitan-ktp-baru/set-status-pengajuan']  = 'Capil/Penerbitan_ktp/set_status_pengajuan';
+$route['capil/pengajuan/penerbitan-ktp-baru/show/(:any)']           = 'Capil/Penerbitan_ktp/show/$1';
 // end::penerbitan-ktp
 // end::CAPIL
 
 // begin::UMUM
 $route['umum'] = 'Umum/Dashboard/index';
+
+// begin::pengajuan
+$route['umum/pengajuan/daftar-pengajuan']   = 'Umum/Pengajuan/index';
+$route['umum/pengajuan/data-pengajuan']     = 'Umum/Pengajuan/get_data_pengajuan';
+$route['umum/pengajuan/pilih-layanan']      = 'Umum/Pengajuan/pilih_layanan';
+$route['umum/pengajuan/show/(:any)']        = 'Umum/Pengajuan/show/$1';
+// end::pengajuan
+
+// begin::penerbitan-kk-baru
+$route['umum/pengajuan/penerbitan-kk-baru/create']          = 'Umum/Penerbitan_kk/penerbitan_kk_baru';
+$route['umum/pengajuan/penerbitan-kk-baru/store']           = 'Umum/Penerbitan_kk/store_penerbitan_kk_baru';
+$route['umum/pengajuan/penerbitan-kk-baru/detail-f101']     = 'Umum/Penerbitan_kk/input_detail_f101';
+// end::penerbitan-kk-baru
+
+// begin::f101
+$route['umum/pengajuan/f101/(:any)'] = 'Umum/f101/show/$1';
+// end::f101
+
+// begin::penerbitan-ktp-baru
+$route['umum/pengajuan/penerbitan-ktp-baru/create']     = 'Umum/Penerbitan_ktp/penerbitan_ktp_baru';
+$route['umum/pengajuan/penerbitan-ktp-baru/store']      = 'Umum/Penerbitan_ktp/store_penerbitan_ktp_baru';
+// end::penerbitan-ktp-baru
+
+// begin::identitas-desa
+$route['umum/identitas-desa'] = 'Umum/Identitas_desa/index';
+$route['umum/identitas-desa/kades'] = 'Umum/Identitas_desa/kades_index';
+$route['umum/identitas-desa/sekdes'] = 'Umum/Identitas_desa/sekdes_index';
+// end::identitas-desa
+
 // end::UMUM

@@ -109,12 +109,14 @@
 							window.location = "<?php echo base_url('/capil');?>";
 						} else if(data.user_role_id == 3) {
 							window.location = "<?php echo base_url('/desa');?>";
+						} else if(data.user_role_id == 4) {
+							window.location = "<?php echo base_url('/umum');?>";
 						} else {
 							window.location = "<?php echo base_url('/');?>";
 						}
 					}else{
 						bootbox.alert({
-							message: "Wrong username or password",
+							message: "Username atau Password salah",
 							backdrop: true,
 							size: 'small'
 						});
