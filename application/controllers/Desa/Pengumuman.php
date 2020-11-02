@@ -81,4 +81,23 @@ class Pengumuman extends CI_Controller
         $this->pengumuman_model->delete($pengumuman_id);
         echo json_encode('success');
     }
+    
+    public function show($pengumuman_id)
+    {
+        $data['identitas_desa'] = $this->identitas_desa_model->get_by_id($this->session->userdata('wilayah_id'));
+        if(!empty($data['identitas_desa']->LOGO)) {
+            $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
+        } else {
+            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
+        }
+
+        $data['pengumuman'] = $this->pengumuman_model->get_by_id($pengumuman_id);
+        if (empty($data['pengumuman'])) {
+            show_404();
+        }
+
+        $data['content'] = 'backend/desa/pengumuman/show';
+        $data['title'] = $data['pengumuman']->pengumuman_judul;
+        $this->load->view('layouts/master_desa', $data);
+    }
 }

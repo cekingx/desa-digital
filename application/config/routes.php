@@ -104,6 +104,7 @@ $route['desa/pengumuman/edit']                  = 'Desa/Pengumuman/edit';
 $route['desa/pengumuman/update']                = 'Desa/Pengumuman/update';
 $route['desa/pengumuman/store']                 = 'Desa/Pengumuman/store';
 $route['desa/pengumuman/data']                  = 'Desa/Pengumuman/pengumuman_data';
+$route['desa/pengumuman/(:any)']                = 'Desa/Pengumuman/show/$1';
 
 //galeri
 $route['desa/galeri']                           = 'Desa/Galeri/index';
