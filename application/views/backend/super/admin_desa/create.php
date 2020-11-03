@@ -80,6 +80,9 @@ $('#admin-desa-form').submit(function(e) {
         processData: false,
         success: function(data) {
             console.log(data);
+            bootbox.alert("Berhasil membuat admin desa", function() {
+                window.location = '<?= base_url('super/admin-desa') ?>'
+            })
         },
         error: function(error) {
             console.log(error);
