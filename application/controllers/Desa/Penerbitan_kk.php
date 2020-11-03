@@ -19,9 +19,7 @@ class Penerbitan_kk extends CI_Controller
         $data['title']          = $data['identitas_desa']->NAMA_KEL;
         if(!empty($data['identitas_desa']->LOGO)) {
             $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
-        } else {
-            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
-        }
+        } 
 
         return $data;
     }

@@ -16,9 +16,7 @@ class Identitas_desa extends CI_Controller
         $data['content'] = 'backend/desa/identitas_desa/index';
         if(!empty($data['identitas_desa']->LOGO)) {
             $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
-        } else {
-            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
-        }
+        } 
 
         $this->load->view('layouts/master_desa', $data);
         // echo json_encode($data['identitas_desa']);
@@ -31,9 +29,7 @@ class Identitas_desa extends CI_Controller
         $data['content'] = 'backend/desa/identitas_desa/edit';
         if(!empty($data['identitas_desa']->LOGO)) {
             $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
-        } else {
-            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
-        }
+        } 
 
         $this->load->view('layouts/master_desa', $data);
     }
@@ -53,9 +49,7 @@ class Identitas_desa extends CI_Controller
         $data['content'] = 'backend/desa/identitas_desa/kades_index';
         if(!empty($data['identitas_desa']->LOGO)) {
             $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
-        } else {
-            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
-        }
+        } 
 
         $this->load->view('layouts/master_desa', $data);
     }
@@ -67,9 +61,7 @@ class Identitas_desa extends CI_Controller
         $data['content'] = 'backend/desa/identitas_desa/kades_edit';
         if(!empty($data['identitas_desa']->LOGO)) {
             $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
-        } else {
-            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
-        }
+        } 
 
         $this->load->view('layouts/master_desa', $data);
     }
@@ -91,9 +83,7 @@ class Identitas_desa extends CI_Controller
         $data['content'] = 'backend/desa/identitas_desa/sekdes_index';
         if(!empty($data['identitas_desa']->LOGO)) {
             $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
-        } else {
-            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
-        }
+        } 
 
         $this->load->view('layouts/master_desa', $data);
     }
@@ -105,9 +95,7 @@ class Identitas_desa extends CI_Controller
         $data['content'] = 'backend/desa/identitas_desa/sekdes_edit';
         if(!empty($data['identitas_desa']->LOGO)) {
             $data['logo'] = base_url('storage/desa/') . $data['identitas_desa']->NAMA_KEL . '/logo' . '/' . $data['identitas_desa']->LOGO; 
-        } else {
-            $data['logo'] = base_url('storage/desa/logo/') . 'default-logo.png';
-        }
+        } 
 
         $this->load->view('layouts/master_desa', $data);
     }

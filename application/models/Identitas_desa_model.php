@@ -80,6 +80,8 @@ class Identitas_desa_model extends CI_Model
 
     private function upload_logo($nama_desa)
     {
+        $path = 'storage/desa/' . $nama_desa . '/logo';
+        $this->check_path($path);
         $file_name = 'logo-' . $nama_desa;
         $config['upload_path'] = './storage/desa/' . $nama_desa . '/logo';
         $config['allowed_types'] = 'gif|jpg|png';
@@ -127,5 +129,12 @@ class Identitas_desa_model extends CI_Model
 
         // die($this->upload->display_errors());
         return 'default-foto.png';
+    }
+
+    private function check_path($path)
+    {
+        if(!is_dir($path)) {
+            mkdir(FCPATH . '/' . $path, 0777, TRUE);
+        }
     }
 }
