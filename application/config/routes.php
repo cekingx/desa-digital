@@ -154,7 +154,8 @@ $route['capil/pengajuan/penerbitan-kk-baru/show/(:any)']            = 'Capil/Pen
 // end::penerbitan-kk
 
 // begin::f101
-$route['capil/pengajuan/f101/(:any)'] = 'Capil/f101/show/$1';
+$route['capil/pengajuan/f101/generate/(:any)']      = 'Capil/f101/generate/$1';
+$route['capil/pengajuan/f101/(:any)']               = 'Capil/f101/show/$1';
 // end::f101
 
 // begin::penerbitan-ktp

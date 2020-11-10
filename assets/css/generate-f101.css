@@ -1,0 +1,56 @@
+body {
+    font-family: sans-serif;
+}
+
+table {
+    table-layout: fixed;
+    width: 3000px;
+}
+
+.container-fluid {
+    width: 3000px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.table-bordered, .table-bordered > tbody > tr > td {
+    border: 1px solid #adb0b3;
+    border-collapse: collapse;
+}
+
+.table-borderless {
+    border: none;
+} 
+
+.table-borderless tr td {
+    border: none;
+    border-collapse: collapse;
+}
+
+.block {
+    background-color: #adb0b3;
+}
+
+.table-secondary {
+    background-color: #d6d8db;
+}
+
+tr.break {
+    height: 5px;
+}
+.middle {
+    vertical-align: middle !important;
+}
+
+.center {
+    text-align: center !important;
+}
+
+.midcen {
+    vertical-align: middle !important;
+    text-align: center;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}

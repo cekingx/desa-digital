@@ -45,4 +45,13 @@ class F101 extends CI_Controller
         // echo $data['f101'];
     }
 
+    public function generate($f101_id)
+    {
+        $f101 = $this->F101_model->get_by_id_with_wilayah($f101_id);
+        $data['data_f101'] = $f101['data_f101'];
+        $data['data_detail_f101'] =  $f101['data_detail_f101'];
+
+        $this->load->view('layouts/generate-pdf/f101', $data);
+    }
+
 }
