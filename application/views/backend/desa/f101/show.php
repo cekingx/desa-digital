@@ -169,6 +169,16 @@
                                 </div>
                             </div>
                             <!-- end::agama -->
+                            <!-- begin::kepercayaan-kepada-tuhan-yme -->
+                            <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label text-right">Kepercayaan Terhadap Tuhan Yang Maha Esa</label>
+                                <div class="col-lg-9 col-xl-6">
+                                    <input id="data-kepercayaan_terhadap_tuhan_yme"
+                                        class="form-control form-control-lg form-control-solid" disabled="disabled"
+                                        type="text" />
+                                </div>
+                            </div>
+                            <!-- end::kepercayaan-kepada-tuhan-yme -->
                             <!-- begin::kepemilikan-kelainan -->
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label text-right">Kepemilikan Kelainan</label>
@@ -270,6 +280,16 @@
                                 </div>
                             </div>
                             <!-- end::nomor-akta-perkawinan -->
+                            <!-- begin::tanggal-perceraian -->
+                            <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label text-right">Tanggal Perceraian</label>
+                                <div class="col-lg-9 col-xl-6">
+                                    <input id="data-tanggal_perceraian"
+                                        class="form-control form-control-lg form-control-solid" disabled="disabled"
+                                        type="text" />
+                                </div>
+                            </div>
+                            <!-- end::tanggal-perceraian -->
                             <!-- begin::kepemilikan-akta-cerai -->
                             <div class="form-group row">
                                 <label class="col-xl-3 col-lg-3 col-form-label text-right">Kepemilikan Akta Cerai</label>
@@ -627,25 +647,25 @@ function renderDetailf101(data_detail)
     $('#data-gelar').val(get_gelar(data_detail.detail_f101_gelar_id));
     $('#data-nomor_penduduk').val(data_detail.detail_f101_nomor_penduduk);
     $('#data-alamat_sebelumnya').val(data_detail.detail_f101_alamat_sebelumnya);
-    $('#data-nomor_paspor').val(data_detail.detail_f101_nomor_paspor);
+    $('#data-nomor_paspor').val(get_value_or_dash(data_detail.detail_f101_nomor_paspor));
     
-    $('#data-tanggal_berakhir_paspor').val(get_long_date(data_detail.detail_f101_tanggal_berakhir_paspor));
+    $('#data-tanggal_berakhir_paspor').val(get_date_or_dash(data_detail.detail_f101_tanggal_berakhir_paspor));
     $('#data-kelamin').val(get_kelamin(data_detail.detail_f101_kelamin_id));
     $('#data-tempat_lahir').val(data_detail.detail_f101_tempat_lahir);
     $('#data-tanggal_lahir').val(get_long_date(data_detail.detail_f101_tanggal_lahir));
     $('#data-umur').val(data_detail.detail_f101_umur);
 
     $('#data-kepemilikan_akta_lahir').val(get_akta_lahir(data_detail.detail_f101_akta_lahir_id));
-    $('#data-nomor_akta_kelahiran').val(data_detail.detail_f101_nomor_akta_kelahiran);
+    $('#data-nomor_akta_kelahiran').val(get_value_or_dash(data_detail.detail_f101_nomor_akta_kelahiran));
     $('#data-golongan_darah').val(get_goldar(data_detail.detail_f101_goldar_id));
     $('#data-agama').val(get_agama(data_detail.detail_f101_agama_id));
     $('#data-status_kawin').val(get_status_kawin(data_detail.detail_f101_kawin_id));
 
-    $('#data-tanggal_perkawinan').val(get_long_date(data_detail.detail_f101_tanggal_perkawinan));
+    $('#data-tanggal_perkawinan').val(get_date_or_dash(data_detail.detail_f101_tanggal_perkawinan));
     $('#data-kepemilikan_akta_perkawinan').val(get_akta_perkawinan(data_detail.detail_f101_akta_perkawinan_id));
-    $('#data-nomor_akta_perkawinan').val(data_detail.detail_f101_nomor_akta_perkawinan);
+    $('#data-nomor_akta_perkawinan').val(get_value_or_dash(data_detail.detail_f101_nomor_akta_perkawinan));
     $('#data-kepemilikan_akta_cerai').val(get_akta_cerai(data_detail.detail_f101_akta_cerai_id));
-    $('#data-nomor_akta_perceraian').val(data_detail.detail_f101_nomor_akta_perceraian);
+    $('#data-nomor_akta_perceraian').val(get_value_or_dash(data_detail.detail_f101_nomor_akta_perceraian));
 
     $('#data-hubungan_keluarga').val(get_hubkel(data_detail.detail_f101_hubkel_id));
     $('#data-kepemilikan_kelainan').val(get_kelainan(data_detail.detail_f101_kelainan_id));
@@ -657,7 +677,28 @@ function renderDetailf101(data_detail)
     $('#data-nama_lengkap_ibu').val(data_detail.detail_f101_nama_lengkap_ibu);
     $('#data-nik_ayah').val(data_detail.detail_f101_nik_ayah);
     $('#data-nama_lengkap_ayah').val(data_detail.detail_f101_nama_lengkap_ayah);
+
+    $('#data-kepercayaan_terhadap_tuhan_yme').val(get_value_or_dash(data_detail.detail_f101_kepercayaan_terhadap_tuhan_yme));
+    $('#data-tanggal_perceraian').val(get_value_or_dash(data_detail.detail_f101_tanggal_perceraian));
     // end::data-detail-f101
 
+}
+
+function get_value_or_dash(value)
+{
+    if(value == null) {
+        return "-";
+    } else {
+        return value;
+    }
+}
+
+function get_date_or_dash(date)
+{
+    if(date == null) {
+        return "-";
+    } else {
+        return get_long_date(date);
+    }
 }
 </script>

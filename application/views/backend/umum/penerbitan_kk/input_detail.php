@@ -250,6 +250,17 @@
                                         </div>
                                         <!-- end::agama -->
 
+                                        <!-- begin::kepercayaan-terhadap-tuhan-yme -->
+                                        <div class="form-group" style="display: none;" id="field_kepercayaan_terhadap_tuhan_yme">
+                                            <label for="kepercayaan_terhadap_tuhan_yme">Kepercayaan Terhadap Tuhan Yang Maha Esa</label>
+                                            <input 
+                                                type="text" 
+                                                class="form-control" 
+                                                name="kepercayaan_terhadap_tuhan_yme" 
+                                                id="kepercayaan_terhadap_tuhan_yme">
+                                        </div>
+                                        <!-- end::kepercayaan-terhadap-tuhan-yme -->
+
                                         <!-- begin::kepemilikan-kelainan -->
                                         <div class="form-group">
                                             <label for="kepemilikan_kelainan">Kelainan</label>
@@ -283,6 +294,23 @@
 
 	                                <!--begin::Wizard Step 2-->
 	                                <div class="pb-5" data-wizard-type="step-content">
+                                        <!-- begin::kepemilikan-paspor -->
+                                        <div class="form-group">
+                                            <label for="kepemilikan_paspor">Kepemilikan Paspor</label>
+                                            <div id="paspor" class="radio-inline">
+                                                <label class="radio">
+                                                    <input type="radio" id="tidak_ada_paspor" checked="checked" name="kepemilikan_paspor" value="1">
+                                                    <span></span>
+                                                    Tidak Ada
+                                                </label>
+                                                <label class="radio">
+                                                    <input type="radio" id="ada_paspor" name="kepemilikan_paspor" value="2">
+                                                    <span></span>
+                                                    Ada
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- end::kepemilikan-paspor -->
                                         <div class="form-group row">
                                             <!-- begin::nomor-paspor -->
                                             <div class="col-7">
@@ -291,7 +319,8 @@
                                                     type="text" 
                                                     class="form-control" 
                                                     name="nomor_paspor" 
-                                                    id="nomor_paspor">
+                                                    id="nomor_paspor"
+                                                    disabled>
                                             </div>
                                             <!-- end::nomor-parpor -->
 
@@ -301,7 +330,7 @@
                                                 <div class="input-group date">
                                                     <input type="text" class="form-control kt_datepicker" readonly
                                                         name="tanggal_berakhir_paspor"
-                                                        placeholder="Select date" id="tanggal_berakhir_paspor"/>
+                                                        placeholder="Disabled" id="tanggal_berakhir_paspor" disabled/>
                                                     <div class="input-group-append">
                                                         <span class="input-group-text">
                                                             <i class="la la-calendar-check-o"></i>
@@ -355,12 +384,12 @@
                                             <!-- end::status-kawin -->
 
                                             <!-- begin::tanggal-perkawinan -->
-                                            <div class="col-6">
+                                            <div class="col-6" style="display: none;" id="field_tanggal_perkawinan">
                                                 <label for="tanggal_perkawinan">Tanggal Perkawinan</label>
                                                 <div class="input-group date">
                                                     <input type="text" class="form-control kt_datepicker" readonly
                                                         name="tanggal_perkawinan"
-                                                        placeholder="Select date" id="tanggal_perkawinan"/>
+                                                        placeholder="Pilih Tanggal" id="tanggal_perkawinan"/>
                                                     <div class="input-group-append">
                                                         <span class="input-group-text">
                                                             <i class="la la-calendar-check-o"></i>
@@ -369,6 +398,22 @@
                                                 </div>
                                             </div>
                                             <!-- end::tanggal-perkawinan -->
+
+                                            <!-- begin::tanggal-perceraian -->
+                                            <div class="col-6" style="display: none;" id="field_tanggal_perceraian">
+                                                <label for="tanggal_perceraian">Tanggal Perceraian</label>
+                                                <div class="input-group date">
+                                                    <input type="text" class="form-control kt_datepicker" readonly
+                                                        name="tanggal_perceraian"
+                                                        placeholder="Pilih Tanggal" id="tanggal_perceraian"/>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">
+                                                            <i class="la la-calendar-check-o"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end::tanggal-perceraian -->
                                         </div>
 
                                         <!-- begin::kepemilikan-akta-perkawinan -->
@@ -559,6 +604,10 @@
                                                     <p class="col-6" id="data-agama"></p>
                                                 </div>
                                                 <div class="row">
+                                                    <p class="col-6">Kepercayaan Terhadap Tuhan Yang Maha Esa</p>
+                                                    <p class="col-6" id="data-kepercayaan_terhadap_tuhan_yme"></p>
+                                                </div>
+                                                <div class="row">
                                                     <p class="col-6">Kepemilikan Kelainan</p>
                                                     <p class="col-6" id="data-kepemilikan_kelainan"></p>
                                                 </div>
@@ -592,6 +641,10 @@
                                                 <div class="row">
                                                     <p class="col-6">Tanggal Perkawinan</p>
                                                     <p class="col-6" id="data-tanggal_perkawinan"></p>
+                                                </div>
+                                                <div class="row">
+                                                    <p class="col-6">Tanggal Perceraian</p>
+                                                    <p class="col-6" id="data-tanggal_perceraian"></p>
                                                 </div>
                                                 <div class="row">
                                                     <p class="col-6">Kepemilikan Akta Perkawinan</p>
@@ -651,19 +704,19 @@
 	                                        <button type="button"
 	                                            class="btn btn-light-primary font-weight-bold text-uppercase px-9 py-4"
 	                                            data-wizard-type="action-prev">
-	                                            Previous
+	                                            Sebelumnya
 	                                        </button>
 	                                    </div>
 	                                    <div>
 	                                        <button type="button"
 	                                            class="btn btn-success font-weight-bold text-uppercase px-9 py-4"
 	                                            data-wizard-type="action-submit">
-	                                            Submit
+	                                            Kirim
 	                                        </button>
 	                                        <button type="button"
 	                                            class="btn btn-primary font-weight-bold text-uppercase px-9 py-4"
 	                                            data-wizard-type="action-next">
-	                                            Next
+	                                            Selanjutnya
 	                                        </button>
 	                                    </div>
 	                                </div>
@@ -684,6 +737,7 @@
     
 <script>
 let dataDetail;
+let dataReview;
 
 // Class definition
 var KTWizard1 = function () {
@@ -713,6 +767,7 @@ var KTWizard1 = function () {
                     // Review data yang telah diinput
                     if(_wizard.isLastStep()) {
                         setDataDetail();
+                        setDataReview();
                         review();
                     }
 
@@ -853,20 +908,6 @@ var KTWizard1 = function () {
 			_formEl,
 			{
 				fields: {
-                    nomor_paspor: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Nomor paspor tidak boleh kosong'
-                            }
-                        }
-                    },
-                    tanggal_berakhir_paspor: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Tanggal berakhir paspor tidak boleh kosong'
-                            }
-                        }
-                    },
                     status_kawin: {
                         validators: {
                             notEmpty: {
@@ -878,13 +919,6 @@ var KTWizard1 = function () {
                         validators: {
                             notEmpty: {
                                 message: 'Kepemilikan akta perkawinan tidak boleh kosong'
-                            }
-                        }
-                    },
-                    tanggal_perkawinan: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Tanggal perkawinan tidak boleh kosong'
                             }
                         }
                     },
@@ -1056,28 +1090,68 @@ $('#ada_akta_cerai').change(function() {
     }
 })
 
+$('#tidak_ada_paspor').change(function() {
+    if($('#tidak_ada_paspor').is(':checked')) {
+        $('#nomor_paspor').prop('disabled', true);
+        clear_tanggal('#tanggal_berakhir_paspor');
+        $('#tanggal_berakhir_paspor').prop('disabled', true);
+        $('#tanggal_berakhir_paspor').prop('placeholder', 'Disabled');
+    }
+})
+
+$('#ada_paspor').change(function() {
+    if($('#ada_paspor').is(':checked')) {
+        $('#nomor_paspor').prop('disabled', false);
+        $('#tanggal_berakhir_paspor').prop('disabled', false);
+        $('#tanggal_berakhir_paspor').prop('placeholder', 'Pilih Tanggal');
+    }
+})
+
+$('#status_kawin').change(function() {
+    if($('#status_kawin option:selected').val() == 1) {
+        disable_tanggal_perceraian();
+        disable_tanggal_perkawinan();
+    } else if ($('#status_kawin option:selected').val() == 2) {
+        disable_tanggal_perceraian();
+        enable_tanggal_perkawinan();
+    } else {
+        disable_tanggal_perkawinan();
+        enable_tanggal_perceraian();
+    }
+    console.log($('#status_kawin option:selected').val());
+})
+
+$('#agama').change(function() {
+    if($('#agama option:selected').val() == 7) {
+        $('#field_kepercayaan_terhadap_tuhan_yme').fadeIn();
+    } else {
+        $('#kepercayaan_terhadap_tuhan_yme').val('');
+        $('#field_kepercayaan_terhadap_tuhan_yme').fadeOut();
+    }
+})
+
 function setDataDetail() {
     dataDetail = {
         nama_lengkap                : $('#nama_lengkap').val(),
         gelar                       : $('#gelar').val(),
         nomor_penduduk              : $('#nomor_penduduk').val(),
         alamat_sebelumnya           : $('#alamat_sebelumnya').val(),
-        nomor_paspor                : $('#nomor_paspor').val(),
-        tanggal_berakhir_paspor     : $('#tanggal_berakhir_paspor').val(),
+        nomor_paspor                : get_value_or_null('#nomor_paspor'),
+        tanggal_berakhir_paspor     : get_date_or_null('#tanggal_berakhir_paspor'),
         kelamin                     : $("input[name='kelamin']:checked").val(),
         tempat_lahir                : $('#tempat_lahir').val(),
-        tanggal_lahir               : $('#tanggal_lahir').val(),
+        tanggal_lahir               : format_date('#tanggal_lahir'),
         umur                        : $('#umur').val(),
         kepemilikan_akta_lahir      : $("input[name='kepemilikan_akta_lahir']:checked").val(),
-        nomor_akta_kelahiran        : $('#nomor_akta_kelahiran').val(),
+        nomor_akta_kelahiran        : get_value_or_null('#nomor_akta_kelahiran'),
         golongan_darah              : $('#golongan_darah').val(),
         agama                       : $('#agama').val(),
         status_kawin                : $('#status_kawin').val(),
-        tanggal_perkawinan          : $('#tanggal_perkawinan').val(),
+        tanggal_perkawinan          : get_date_or_null('#tanggal_perkawinan'),
         kepemilikan_akta_perkawinan : $("input[name='kepemilikan_akta_perkawinan']:checked").val(),
-        nomor_akta_perkawinan       : $('#nomor_akta_perkawinan').val(),
+        nomor_akta_perkawinan       : get_value_or_null('#nomor_akta_perkawinan'),
         kepemilikan_akta_cerai      : $("input[name='kepemilikan_akta_cerai']:checked").val(),
-        nomor_akta_perceraian       : $('#nomor_akta_perceraian').val(),
+        nomor_akta_perceraian       : get_value_or_null('#nomor_akta_perceraian'),
         hubungan_keluarga           : $('#hubungan_keluarga').val(),
         kepemilikan_kelainan        : $("input[name='kepemilikan_kelainan']:checked").val(),
         penyandang_cacat            : $('#penyandang_cacat').val(),
@@ -1087,45 +1161,146 @@ function setDataDetail() {
         nama_lengkap_ibu            : $('#nama_lengkap_ibu').val(),
         nik_ayah                    : $('#nik_ayah').val(),
         nama_lengkap_ayah           : $('#nama_lengkap_ayah').val(),
+        tanggal_perceraian          : get_value_or_null('#tanggal_perceraian'),
+        kepercayaan_terhadap_tuhan_yme  : get_value_or_null('#kepercayaan_terhadap_tuhan_yme'),
     }
 }
 
+function setDataReview() 
+{
+    dataReview = {
+        nama_lengkap                : $('#nama_lengkap').val(),
+        gelar                       : $('#gelar').val(),
+        nomor_penduduk              : $('#nomor_penduduk').val(),
+        alamat_sebelumnya           : $('#alamat_sebelumnya').val(),
+        nomor_paspor                : get_value_or_dash('#nomor_paspor'),
+        tanggal_berakhir_paspor     : get_value_or_dash('#tanggal_berakhir_paspor'),
+        kelamin                     : $("input[name='kelamin']:checked").val(),
+        tempat_lahir                : $('#tempat_lahir').val(),
+        tanggal_lahir               : $('#tanggal_lahir').val(),
+        umur                        : $('#umur').val(),
+        kepemilikan_akta_lahir      : $("input[name='kepemilikan_akta_lahir']:checked").val(),
+        nomor_akta_kelahiran        : get_value_or_dash('#nomor_akta_kelahiran'),
+        golongan_darah              : $('#golongan_darah').val(),
+        agama                       : $('#agama').val(),
+        status_kawin                : $('#status_kawin').val(),
+        tanggal_perkawinan          : get_value_or_dash('#tanggal_perkawinan'),
+        kepemilikan_akta_perkawinan : $("input[name='kepemilikan_akta_perkawinan']:checked").val(),
+        nomor_akta_perkawinan       : get_value_or_dash('#nomor_akta_perkawinan'),
+        kepemilikan_akta_cerai      : $("input[name='kepemilikan_akta_cerai']:checked").val(),
+        nomor_akta_perceraian       : get_value_or_dash('#nomor_akta_perceraian'),
+        hubungan_keluarga           : $('#hubungan_keluarga').val(),
+        kepemilikan_kelainan        : $("input[name='kepemilikan_kelainan']:checked").val(),
+        penyandang_cacat            : $('#penyandang_cacat').val(),
+        pendidikan                  : $('#pendidikan').val(),
+        pekerjaan                   : $('#pekerjaan').val(),
+        nik_ibu                     : $('#nik_ibu').val(),
+        nama_lengkap_ibu            : $('#nama_lengkap_ibu').val(),
+        nik_ayah                    : $('#nik_ayah').val(),
+        nama_lengkap_ayah           : $('#nama_lengkap_ayah').val(),
+        tanggal_perceraian          : get_value_or_dash('#tanggal_perceraian'),
+        kepercayaan_terhadap_tuhan_yme  : get_value_or_dash('#kepercayaan_terhadap_tuhan_yme'),
+    }
+}
+
+function enable_tanggal_perkawinan()
+{
+    $('#field_tanggal_perkawinan').fadeIn();
+}
+
+function disable_tanggal_perkawinan()
+{
+    clear_tanggal('#tanggal_perkawinan');
+    $('#field_tanggal_perkawinan').fadeOut();
+}
+
+function enable_tanggal_perceraian()
+{
+    $('#field_tanggal_perceraian').fadeIn();
+}
+
+function disable_tanggal_perceraian()
+{
+    clear_tanggal('#tanggal_percerainan');
+    $('#field_tanggal_perceraian').fadeOut();
+}
+
 function review() {
-    $('#data-nama_lengkap').text(dataDetail.nama_lengkap);
-    $('#data-gelar').text(get_gelar(dataDetail.gelar));
-    $('#data-nomor_penduduk').text(dataDetail.nomor_penduduk);
-    $('#data-alamat_sebelumnya').text(dataDetail.alamat_sebelumnya);
-    $('#data-nomor_paspor').text(dataDetail.nomor_paspor);
+    $('#data-nama_lengkap').text(dataReview.nama_lengkap);
+    $('#data-gelar').text(get_gelar(dataReview.gelar));
+    $('#data-nomor_penduduk').text(dataReview.nomor_penduduk);
+    $('#data-alamat_sebelumnya').text(dataReview.alamat_sebelumnya);
+    $('#data-nomor_paspor').text(dataReview.nomor_paspor);
     
-    $('#data-tanggal_berakhir_paspor').text(dataDetail.tanggal_berakhir_paspor);
-    $('#data-kelamin').text(get_kelamin(dataDetail.kelamin));
-    $('#data-tempat_lahir').text(dataDetail.tempat_lahir);
-    $('#data-tanggal_lahir').text(dataDetail.tanggal_lahir);
-    $('#data-umur').text(dataDetail.umur);
+    $('#data-tanggal_berakhir_paspor').text(dataReview.tanggal_berakhir_paspor);
+    $('#data-kelamin').text(get_kelamin(dataReview.kelamin));
+    $('#data-tempat_lahir').text(dataReview.tempat_lahir);
+    $('#data-tanggal_lahir').text(dataReview.tanggal_lahir);
+    $('#data-umur').text(dataReview.umur);
 
-    $('#data-kepemilikan_akta_lahir').text(get_ada_tidak_ada(dataDetail.kepemilikan_akta_lahir));
-    $('#data-nomor_akta_kelahiran').text(dataDetail.nomor_akta_kelahiran);
-    $('#data-golongan_darah').text(get_goldar(dataDetail.golongan_darah));
-    $('#data-agama').text(get_agama(dataDetail.agama));
-    $('#data-status_kawin').text(get_kawin(dataDetail.status_kawin));
+    $('#data-kepemilikan_akta_lahir').text(get_ada_tidak_ada(dataReview.kepemilikan_akta_lahir));
+    $('#data-nomor_akta_kelahiran').text(dataReview.nomor_akta_kelahiran);
+    $('#data-golongan_darah').text(get_goldar(dataReview.golongan_darah));
+    $('#data-agama').text(get_agama(dataReview.agama));
+    $('#data-status_kawin').text(get_kawin(dataReview.status_kawin));
 
-    $('#data-tanggal_perkawinan').text(dataDetail.tanggal_perkawinan);
-    $('#data-kepemilikan_akta_perkawinan').text(get_ada_tidak_ada(dataDetail.kepemilikan_akta_perkawinan));
-    $('#data-nomor_akta_perkawinan').text(dataDetail.nomor_akta_perkawinan);
-    $('#data-kepemilikan_akta_cerai').text(get_ada_tidak_ada(dataDetail.kepemilikan_akta_cerai));
-    $('#data-nomor_akta_perceraian').text(dataDetail.nomor_akta_perceraian);
+    $('#data-tanggal_perkawinan').text(dataReview.tanggal_perkawinan);
+    $('#data-kepemilikan_akta_perkawinan').text(get_ada_tidak_ada(dataReview.kepemilikan_akta_perkawinan));
+    $('#data-nomor_akta_perkawinan').text(dataReview.nomor_akta_perkawinan);
+    $('#data-kepemilikan_akta_cerai').text(get_ada_tidak_ada(dataReview.kepemilikan_akta_cerai));
+    $('#data-nomor_akta_perceraian').text(dataReview.nomor_akta_perceraian);
 
-    $('#data-hubungan_keluarga').text(get_hubkel(dataDetail.hubungan_keluarga));
-    $('#data-kepemilikan_kelainan').text(get_kelainan(dataDetail.kepemilikan_kelainan));
-    $('#data-penyandang_cacat').text(get_cacat(dataDetail.penyandang_cacat));
-    $('#data-pendidikan').text(get_pendidikan(dataDetail.pendidikan));
-    $('#data-pekerjaan').text(get_pekerjaan(dataDetail.pekerjaan));
+    $('#data-hubungan_keluarga').text(get_hubkel(dataReview.hubungan_keluarga));
+    $('#data-kepemilikan_kelainan').text(get_kelainan(dataReview.kepemilikan_kelainan));
+    $('#data-penyandang_cacat').text(get_cacat(dataReview.penyandang_cacat));
+    $('#data-pendidikan').text(get_pendidikan(dataReview.pendidikan));
+    $('#data-pekerjaan').text(get_pekerjaan(dataReview.pekerjaan));
 
-    $('#data-nik_ibu').text(dataDetail.nik_ibu);
-    $('#data-nama_lengkap_ibu').text(dataDetail.nama_lengkap_ibu);
-    $('#data-nik_ayah').text(dataDetail.nik_ayah);
-    $('#data-nama_lengkap_ayah').text(dataDetail.nama_lengkap_ayah);
-    console.log(dataDetail);
+    $('#data-nik_ibu').text(dataReview.nik_ibu);
+    $('#data-nama_lengkap_ibu').text(dataReview.nama_lengkap_ibu);
+    $('#data-nik_ayah').text(dataReview.nik_ayah);
+    $('#data-nama_lengkap_ayah').text(dataReview.nama_lengkap_ayah);
+    $('#data-tanggal_perceraian').text(dataReview.tanggal_perceraian);
+    $('#data-kepercayaan_terhadap_tuhan_yme').text(dataReview.kepercayaan_terhadap_tuhan_yme);
+    console.log(dataReview);
+}
+
+function clear_tanggal(id)
+{
+    $(id).datepicker('clearDates');
+}
+
+function get_value_or_null(id)
+{
+    if($(id).val() == "") {
+        return null;
+    } else {
+        return $(id).val();
+    }
+}
+
+function get_value_or_dash(id)
+{
+    if($(id).val() == "") {
+        return "-";
+    } else return $(id).val();
+}
+
+function get_date_or_null(id)
+{
+    if($(id).val() == "") {
+        return null;
+    } else {
+        let date = format_date(id);
+        return date;
+    }
+}
+
+function format_date(id)
+{
+    let date_to_format = dayjs($(id).val());
+    let new_date = date_to_format.format('YYYY-DD-MM');
+    return new_date;
 }
 
 function get_ada_tidak_ada(id)

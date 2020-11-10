@@ -155,6 +155,7 @@
             fv.validate().then(function(status) {
                 console.log(status);
                 console.log(detail_f101);
+                $('.preloader').fadeIn();
                 if(status === 'Valid') {
                     formData = new FormData(f101);
                     formData.append('detail_f101', JSON.stringify(detail_f101));
@@ -167,6 +168,7 @@
                         processData: false,
                         success: function(data) {
                             console.log(data)
+                            $('.preloader').fadeOut();
                             bootbox.alert('Pengajuan KK berhasil disimpan', function() {
                                 window.location = '<?= base_url('umum/pengajuan/daftar-pengajuan') ?>'
                             })

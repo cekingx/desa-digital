@@ -106,7 +106,10 @@ class Penerbitan_kk_model extends CI_Model
                 'detail_f101_nik_ibu'                       => $detail_f101['nik_ibu'],
                 'detail_f101_nama_lengkap_ibu'              => $detail_f101['nama_lengkap_ibu'],
                 'detail_f101_nik_ayah'                      => $detail_f101['nik_ayah'],
-                'detail_f101_nama_lengkap_ayah'             => $detail_f101['nama_lengkap_ayah']
+                'detail_f101_nama_lengkap_ayah'             => $detail_f101['nama_lengkap_ayah'],
+
+                'detail_f101_tanggal_perceraian'            => $detail_f101['tanggal_perceraian'],
+                'detail_f101_kepercayaan_terhadap_tuhan_yme'    => $detail_f101['kepercayaan_terhadap_tuhan_yme']
             );
 
             $this->db->insert('ta_detail_f101', $data_detail_f101);

@@ -72,7 +72,9 @@ class Penerbitan_kk extends CI_Controller
 
     public function input_detail_f101()
     {
-        $data = $this->set_partial_data('backend/desa/penerbitan_kk/input_detail');
+        $data['content']            = 'backend/desa/penerbitan_kk/input_detail';
+        $data['identitas_desa']     = $this->Identitas_desa_model->get_by_id($this->session->userdata('wilayah_id'));
+        $data['title']              = $data['identitas_desa']->NAMA_KEL;
 
         $data['gelar']              = $this->Data_masyarakat_model->get_all_gelar();
         $data['agama']              = $this->Data_masyarakat_model->get_all_agama();
@@ -96,6 +98,6 @@ class Penerbitan_kk extends CI_Controller
         $data['pekerjaan_json']     = json_encode($data['pekerjaan']);
         $data['pendidikan_json']    = json_encode($data['pendidikan']);
 
-        $this->load->view('layouts/master_desa', $data);
+        $this->load->view('layouts/master_no_aside', $data);
     }
 }
