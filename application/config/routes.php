@@ -183,7 +183,8 @@ $route['umum/pengajuan/penerbitan-kk-baru/detail-f101']     = 'Umum/Penerbitan_k
 // end::penerbitan-kk-baru
 
 // begin::f101
-$route['umum/pengajuan/f101/(:any)'] = 'Umum/f101/show/$1';
+$route['umum/pengajuan/f101/generate/(:any)']   = 'Umum/f101/generate/$1';
+$route['umum/pengajuan/f101/(:any)']            = 'Umum/f101/show/$1';
 // end::f101
 
 // begin::penerbitan-ktp-baru

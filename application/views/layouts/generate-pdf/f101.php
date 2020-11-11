@@ -78,7 +78,7 @@ function format_date($date)
 </head>
 
 <body>
-    <input type="button" id="create_pdf" value="Generate PDF">
+    <!-- <input type="button" id="create_pdf" value="Generate PDF"> -->
     <form class="form" style="width: 3000px;">
         <div class="container-fluid py-5">
             <h2 class="center">KOP PEMERINTAH KABUPATEN/KOTA</h2>
@@ -639,43 +639,77 @@ function format_date($date)
 
 </html>
 <script>
-    (function () {
-        var
-         form = $('.form'),
-         cache_width = form.width(),
-        //  a4 = [841.89, 595.28]; // for a4 size paper width and height
-         a3 = [3000, 2121]; // for a4 size paper width and height
+    var
+        form = $('.form'),
+        cache_width = form.width(),
+    //  a4 = [841.89, 595.28]; // for a4 size paper width and height
+        a3 = [3000, 2121]; // for a4 size paper width and height
 
-        $('#create_pdf').on('click', function () {
-            $('body').scrollTop(0);
-            createPDF();
+    //create pdf
+    function createPDF() {
+        getCanvas().then(function (canvas) {
+            var
+                img = canvas.toDataURL("image/png"),
+                doc = new jsPDF({
+                    orientation: 'landscape',
+                    unit: 'px',
+                    format: [1800, 1272.5]
+                });
+            doc.addImage(img, 'JPEG', 20, 20);
+            doc.save('f101.pdf');
+            form.width(cache_width);
         });
-        //create pdf
-        function createPDF() {
-            getCanvas().then(function (canvas) {
-                var
-                 img = canvas.toDataURL("image/png"),
-                 doc = new jsPDF({
-                     orientation: 'landscape',
-                     unit: 'px',
-                     format: [1800, 1272.5]
-                 });
-                doc.addImage(img, 'JPEG', 20, 20);
-                doc.save('f101.pdf');
-                form.width(cache_width);
-            });
-        }
+    }
 
-        // create canvas object
-        function getCanvas() {
-            form.width((a3[0] * 1.33333) - 80).css('max-width', 'none');
-            return html2canvas(form, {
-                imageTimeout: 2000,
-                removeContainer: true
-            });
-        }
+    // create canvas object
+    function getCanvas() {
+        form.width((a3[0] * 1.33333) - 80).css('max-width', 'none');
+        return html2canvas(form, {
+            imageTimeout: 2000,
+            removeContainer: true
+        });
+    }
+    $(document).ready(function() {
+        $('body').scrollTop(0);
+        createPDF();
+    })
+    // (function () {
+    //     var
+    //      form = $('.form'),
+    //      cache_width = form.width(),
+    //     //  a4 = [841.89, 595.28]; // for a4 size paper width and height
+    //      a3 = [3000, 2121]; // for a4 size paper width and height
 
-    }());
+    //     $('#create_pdf').on('click', function () {
+    //         $('body').scrollTop(0);
+    //         createPDF();
+    //     });
+    //     //create pdf
+    //     function createPDF() {
+    //         getCanvas().then(function (canvas) {
+    //             var
+    //              img = canvas.toDataURL("image/png"),
+    //              doc = new jsPDF({
+    //                  orientation: 'landscape',
+    //                  unit: 'px',
+    //                  format: [1800, 1272.5]
+    //              });
+    //             doc.addImage(img, 'JPEG', 20, 20);
+    //             doc.save('f101.pdf');
+    //             form.width(cache_width);
+    //         });
+    //     }
+
+    //     // create canvas object
+    //     function getCanvas() {
+    //         form.width((a3[0] * 1.33333) - 80).css('max-width', 'none');
+    //         return html2canvas(form, {
+    //             imageTimeout: 2000,
+    //             removeContainer: true
+    //         });
+    //     }
+
+    // }());
 </script>
 <script>
     (function ($) {

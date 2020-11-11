@@ -62,6 +62,11 @@
                         <div class="card-title">
                             <h3 class="card-label">Detail F101</h3>
                         </div>
+                        <div class="card-toolbar">
+                            <a id="print-f101" target="_blank" class="btn btn-sm btn-primary font-weight-bold">
+                                <i class="flaticon-technology"></i> Cetak F-1.01
+                            </a>
+                        </div>
                     </div>
                     <!--end::Header-->
 
@@ -412,6 +417,7 @@ const akta_lahir        = <?= $akta_lahir ?>;
 $(document).ready(function() {
     $('.preloader').fadeOut();
     set_initial();
+    $('#print-f101').attr('href', "<?= base_url('umum/pengajuan/f101/generate/') ?>" + data_f101.f101.f101_id);
     console.log(data_f101);
 });
 
