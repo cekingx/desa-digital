@@ -57,7 +57,7 @@
             $('.preloader').fadeIn();
             $.ajax({
                 type: 'POST',
-                url: '<?= base_url('desa/banjar/update') ?>',
+                url: '<?= base_url('desa/identitas-desa/banjar/update') ?>',
                 data: {
                     banjar_id: $('#banjar_id').val(),
                     banjar_wilayah_id: $('#banjar_wilayah_id').val(),
@@ -67,7 +67,7 @@
                 success: function(data) {
                     // console.log(data);
                     $('.preloader').fadeOut();
-                    window.location = '<?= base_url('/desa/banjar') ?>';
+                    window.location = '<?= base_url('/desa/identitas-desa/banjar') ?>';
                 },
                 error: function(xhr, desc, err) {
                     console.log(xhr.responseText);
@@ -77,6 +77,6 @@
     });
 
     $('#btn-cancel').click(function() {
-        window.location = '<?= base_url('desa/banjar') ?>'
+        window.location = '<?= base_url('desa/identitas-desa/banjar') ?>'
     })
 </script>

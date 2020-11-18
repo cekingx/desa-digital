@@ -43,7 +43,7 @@
                     type: 'remote',
                     source: {
                         read: {
-                            url: '<?= base_url('desa/banjar/data') ?>',
+                            url: '<?= base_url('desa/identitas-desa/banjar/data') ?>',
                             map: function(raw) {
                                 var dataset = raw;
                                 if(typeof raw.data !== 'undefined') {
@@ -132,11 +132,11 @@
                             $('.preloader').fadeIn();
                             $.ajax({
                                 type: 'GET',
-                                url: "<?= base_url('desa/banjar/delete/') ?>" + id,
+                                url: "<?= base_url('desa/identitas-desa/banjar/delete/') ?>" + id,
                                 dataType: 'json',
                                 success: function(data) {
                                     $('.preloader').fadeOut();
-                                    window.location.replace('<?= base_url('desa/banjar') ?>')
+                                    window.location.replace('<?= base_url('desa/identitas-desa/banjar') ?>')
                                 },
                                 error: function(xhr, desc, err) {
                                     console.log(xhr.responseText);
@@ -151,7 +151,7 @@
                 let id = $(this).data('id');
                 
                 // console.log("<?= base_url('admin/pengumuman/edit/') ?>" + id)
-                window.location.replace("<?= base_url('desa/banjar/edit/') ?>" + id);
+                window.location.replace("<?= base_url('desa/identitas-desa/banjar/edit/') ?>" + id);
             });
         }
 

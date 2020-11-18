@@ -104,16 +104,16 @@
 									<span class="menu-text">Sekdes</span>
 								</a>
 							</li>
-							<li class="menu-item <?php if ($this->uri->segment(1) == "desa" && $this->uri->segment(2) == "banjar" && $this->uri->segment(3) == "") : ?>menu-item-active<?php endif ?>" aria-haspopup="true">
-								<a href="<?php echo base_url('desa/banjar') ?>" class="menu-link">
+							<li class="menu-item <?php if ($this->uri->segment(1) == "desa" && $this->uri->segment(2) == "identitas-desa" && $this->uri->segment(3) == "banjar") : ?>menu-item-active<?php endif ?>" aria-haspopup="true">
+								<a href="<?php echo base_url('desa/identitas-desa/banjar') ?>" class="menu-link">
 									<i class="menu-bullet menu-bullet-dot">
 										<span></span>
 									</i>
 									<span class="menu-text">Banjar</span>
 								</a>
 							</li>
-							<li class="menu-item <?php if ($this->uri->segment(1) == "desa" && $this->uri->segment(2) == "pengumuman" && $this->uri->segment(3) == "") : ?>menu-item-active<?php endif ?>" aria-haspopup="true">
-								<a href="<?php echo base_url('desa/pengumuman') ?>" class="menu-link">
+							<li class="menu-item <?php if ($this->uri->segment(1) == "desa" && $this->uri->segment(2) == "identitas-desa" && $this->uri->segment(3) == "pengumuman") : ?>menu-item-active<?php endif ?>" aria-haspopup="true">
+								<a href="<?php echo base_url('desa/identitas-desa/pengumuman') ?>" class="menu-link">
 									<i class="menu-bullet menu-bullet-dot">
 										<span></span>
 									</i>

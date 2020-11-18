@@ -3,12 +3,12 @@
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('desa/pengumuman') ?>" class="btn btn-primary font-weight-bold">
+            <a href="<?= base_url('desa/identitas-desa/pengumuman') ?>" class="btn btn-primary font-weight-bold">
                 <i class="flaticon2-left-arrow"></i> Kembali
             </a>
         </div>
         <div class="card-toolbar">
-            <a href="<?= base_url('desa/pengumuman/edit/') . $pengumuman->pengumuman_id ?>" class="btn btn-icon btn-light-warning mr-2">
+            <a href="<?= base_url('desa/identitas-desa/pengumuman/edit/') . $pengumuman->pengumuman_id ?>" class="btn btn-icon btn-light-warning mr-2">
                 <i class="flaticon2-edit"></i>
             </a>
             <a class="btn btn-icon btn-light-danger btn-delete">
@@ -58,11 +58,11 @@
                     $('.preloader').fadeIn();
                     $.ajax({
                         type: 'GET',
-                        url: "<?= base_url('desa/pengumuman/delete/') ?>" + id,
+                        url: "<?= base_url('desa/identitas-desa/pengumuman/delete/') ?>" + id,
                         dataType: 'json',
                         success: function(data) {
                             $('.preloader').fadeOut();
-                            window.location.replace('<?= base_url('desa/pengumuman') ?>')
+                            window.location.replace('<?= base_url('desa/identitas-desa/pengumuman') ?>')
                         },
                         error: function(xhr, desc, err) {
                             console.log(xhr.responseText);

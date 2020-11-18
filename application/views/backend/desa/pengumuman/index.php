@@ -43,7 +43,7 @@
                     type: 'remote',
                     source: {
                         read: {
-                            url: '<?= base_url('desa/pengumuman/data') ?>',
+                            url: '<?= base_url('desa/identitas-desa/pengumuman/data') ?>',
                             map: function(raw) {
                                 var dataset = raw;
                                 if(typeof raw.data !== 'undefined') {
@@ -67,7 +67,7 @@
                         title: 'Judul',
                         sortable: true,
                         template: function(row) {
-                            return '<a href="<?= base_url('desa/pengumuman/') ?>'+row.pengumuman_id+'">'+row.pengumuman_judul+'</a>';
+                            return '<a href="<?= base_url('desa/identitas-desa/pengumuman/') ?>'+row.pengumuman_id+'">'+row.pengumuman_judul+'</a>';
                         }
                     },
                     {
@@ -130,11 +130,11 @@
                             $('.preloader').fadeIn();
                             $.ajax({
                                 type: 'GET',
-                                url: "<?= base_url('desa/pengumuman/delete/') ?>" + id,
+                                url: "<?= base_url('desa/identitas-desa/pengumuman/delete/') ?>" + id,
                                 dataType: 'json',
                                 success: function(data) {
                                     $('.preloader').fadeOut();
-                                    window.location.replace('<?= base_url('desa/pengumuman') ?>')
+                                    window.location.replace('<?= base_url('desa/identitas-desa/pengumuman') ?>')
                                 },
                                 error: function(xhr, desc, err) {
                                     console.log(xhr.responseText);
@@ -148,8 +148,8 @@
             $(document).on("click", ".btnEdit", function() {
                 let id = $(this).data('id');
                 
-                // console.log("<?= base_url('desa/pengumuman/edit/') ?>" + id)
-                window.location.replace("<?= base_url('desa/pengumuman/edit/') ?>" + id);
+                // console.log("<?= base_url('desa/identitas-desa/pengumuman/edit/') ?>" + id)
+                window.location.replace("<?= base_url('desa/identitas-desa/pengumuman/edit/') ?>" + id);
             });
         }
 
@@ -165,6 +165,6 @@
     });
 
     $('.btnNew').click(function() {
-        window.location = '<?= base_url('desa/pengumuman/create') ?>'
+        window.location = '<?= base_url('desa/identitas-desa/pengumuman/create') ?>'
     })
 </script>

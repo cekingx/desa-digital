@@ -53,7 +53,7 @@
             $('.preloader').fadeIn();
             $.ajax({
                 type: 'POST',
-                url: '<?= base_url('desa/banjar/store') ?>',
+                url: '<?= base_url('desa/identitas-desa/banjar/store') ?>',
                 data: {
                     banjar_nama: $('#banjar_nama').val(),
                 },
@@ -61,7 +61,7 @@
                 success: function(data) {
                     // console.log(data);
                     $('.preloader').fadeOut();
-                    window.location = '<?= base_url('/desa/banjar') ?>';
+                    window.location = '<?= base_url('/desa/identitas-desa/banjar') ?>';
                 },
                 error: function(xhr, desc, err) {
                     console.log(xhr.responseText);
@@ -71,6 +71,6 @@
     });
 
     $('#btn-cancel').click(function() {
-        window.location = '<?= base_url('desa/banjar') ?>'
+        window.location = '<?= base_url('desa/identitas-desa/banjar') ?>'
     })
 </script>

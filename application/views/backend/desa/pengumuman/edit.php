@@ -80,7 +80,7 @@
             $('.preloader').fadeIn();
             $.ajax({
                 type: 'POST',
-                url: '<?= base_url('desa/pengumuman/update') ?>',
+                url: '<?= base_url('desa/identitas-desa/pengumuman/update') ?>',
                 data: {
                     pengumuman_id: $('#pengumuman_id').val(),
                     pengumuman_judul: $('#pengumuman_judul').val(), 
@@ -90,7 +90,7 @@
                 success: function(data) {
                     // console.log(data);
                     $('.preloader').fadeOut();
-                    window.location = '<?= base_url('/desa/pengumuman') ?>';
+                    window.location = '<?= base_url('/desa/identitas-desa/pengumuman') ?>';
                 },
                 error: function(xhr, desc, err) {
                     console.log(xhr.responseText);
@@ -100,6 +100,6 @@
     });
 
     $('#btn-cancel').click(function() {
-        window.location = '<?= base_url('desa/pengumuman') ?>'
+        window.location = '<?= base_url('desa/identitas-desa/pengumuman') ?>'
     })
 </script>

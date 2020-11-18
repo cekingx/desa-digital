@@ -90,21 +90,21 @@ $route['desa/identitas-desa/sekdes/edit']       = 'Desa/Identitas_desa/sekdes_ed
 $route['desa/identitas-desa/sekdes/update']     = 'Desa/Identitas_desa/sekdes_update';
 
 //banjar
-$route['desa/banjar']                           = 'Desa/Banjar/index';
-$route['desa/banjar/create']                    = 'Desa/Banjar/create';
-$route['desa/banjar/edit']                      = 'Desa/Banjar/edit';
-$route['desa/banjar/update']                    = 'Desa/Banjar/update';
-$route['desa/banjar/store']                     = 'Desa/Banjar/store';
-$route['desa/banjar/data']                      = 'Desa/Banjar/banjar_data';
+$route['desa/identitas-desa/banjar']                           = 'Desa/Banjar/index';
+$route['desa/identitas-desa/banjar/create']                    = 'Desa/Banjar/create';
+$route['desa/identitas-desa/banjar/edit']                      = 'Desa/Banjar/edit';
+$route['desa/identitas-desa/banjar/update']                    = 'Desa/Banjar/update';
+$route['desa/identitas-desa/banjar/store']                     = 'Desa/Banjar/store';
+$route['desa/identitas-desa/banjar/data']                      = 'Desa/Banjar/banjar_data';
 
 //pengumuman
-$route['desa/pengumuman']                       = 'Desa/Pengumuman/index';
-$route['desa/pengumuman/create']                = 'Desa/Pengumuman/create';
-$route['desa/pengumuman/edit']                  = 'Desa/Pengumuman/edit';
-$route['desa/pengumuman/update']                = 'Desa/Pengumuman/update';
-$route['desa/pengumuman/store']                 = 'Desa/Pengumuman/store';
-$route['desa/pengumuman/data']                  = 'Desa/Pengumuman/pengumuman_data';
-$route['desa/pengumuman/(:any)']                = 'Desa/Pengumuman/show/$1';
+$route['desa/identitas-desa/pengumuman']                       = 'Desa/Pengumuman/index';
+$route['desa/identitas-desa/pengumuman/create']                = 'Desa/Pengumuman/create';
+$route['desa/identitas-desa/pengumuman/edit']                  = 'Desa/Pengumuman/edit';
+$route['desa/identitas-desa/pengumuman/update']                = 'Desa/Pengumuman/update';
+$route['desa/identitas-desa/pengumuman/store']                 = 'Desa/Pengumuman/store';
+$route['desa/identitas-desa/pengumuman/data']                  = 'Desa/Pengumuman/pengumuman_data';
+$route['desa/identitas-desa/pengumuman/(:any)']                = 'Desa/Pengumuman/show/$1';
 
 //galeri
 $route['desa/galeri']                           = 'Desa/Galeri/index';
