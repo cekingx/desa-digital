@@ -16,8 +16,8 @@
 						<!--begin::Login Sign in form-->
 						<div class="login-signin">
 							<div class="mb-20">
-								<h3 class="text-primary">Sign In To Desa Digital</h3>
-								<p class="opacity-60 font-weight-bold text-primary">Enter your details to login to your account</p>
+								<h3 class="text-primary">Masuk ke Sistem Informasi Digital Melayani</h3>
+								<p class="opacity-60 font-weight-bold text-primary">Masukkan detail akun login anda</p>
 							</div>
 							<form class="form" id="kt_login_signin_form">
 								<div class="form-group">
@@ -37,7 +37,7 @@
 									<!-- <a href="javascript:;" id="kt_login_forgot" class="text-white font-weight-bold">Forget Password ?</a> -->
 								</div>
 								<div class="form-group text-center mt-10">
-									<button type="button" id="btnLogin" class="btn btn-pill btn-primary font-weight-bold opacity-90 px-15 py-3">Sign In</button>
+									<button type="button" id="btnLogin" class="btn btn-pill btn-primary font-weight-bold opacity-90 px-15 py-3">Masuk</button>
 								</div>
 							</form>
 						</div>

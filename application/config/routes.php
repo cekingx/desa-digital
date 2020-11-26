@@ -74,6 +74,24 @@ $route['super/admin-capil/create'] = 'Super/Admin_capil/create';
 $route['super/admin-capil/store'] = 'Super/Admin_capil/store';
 $route['super/admin-capil/get-admin-capil'] = 'Super/Admin_capil/get_admin_capil';
 // end::admin-capil
+
+// begin::ubah-password
+$route['super/manajemen-pengguna/ubah-password']        = 'Super/Manajemen_pengguna/ubah_password';
+$route['super/manajemen-pengguna/ubah-password/store']  = 'Super/Manajemen_pengguna/store_ubah_password';
+// end::ubah-password
+
+// begin::reset-password-admin-desa
+$route['super/admin-desa/reset-password/store']     = 'Super/Manajemen_pengguna/store_reset_password_admin_desa';
+$route['super/admin-desa/reset-password/(:any)']    = 'Super/Manajemen_pengguna/reset_password_admin_desa/$1';
+// end::reset-password-admin-desa
+
+// begin::reset-password-admin-capil
+$route['super/admin-capil/reset-password/store']    = 'Super/Manajemen_pengguna/store_reset_password_admin_capil';
+$route['super/admin-capil/reset-password/(:any)']   = 'Super/Manajemen_pengguna/reset_password_admin_capil/$1';
+// end::reset-password-admin-capil
+
+// begin::reset-password-admin-capil
+// end::reset-password-admin-capil
 // end::SUPER
 
 // begin::DESA
@@ -137,9 +155,22 @@ $route['desa/pengajuan/f101/(:any)']            = 'Desa/f101/show/$1';
 // end::f101
 
 // begin::penerbitan-ktp
-$route['desa/pengajuan/penerbitan-ktp-baru/create'] = 'Desa/Penerbitan_ktp/penerbitan_ktp_baru';
-$route['desa/pengajuan/penerbitan-ktp-baru/store'] = 'Desa/Penerbitan_ktp/store_penerbitan_ktp_baru';
+$route['desa/pengajuan/penerbitan-ktp-baru/create']     = 'Desa/Penerbitan_ktp/penerbitan_ktp_baru';
+$route['desa/pengajuan/penerbitan-ktp-baru/store']      = 'Desa/Penerbitan_ktp/store_penerbitan_ktp_baru';
 // end::penerbitan-ktp
+
+// begin::ubah-password
+$route['desa/manajemen-pengguna/ubah-password']         = 'Desa/Manajemen_pengguna/ubah_password';
+$route['desa/manajemen-pengguna/ubah-password/store']   = 'Desa/Manajemen_pengguna/store_ubah_password';
+// end::ubah-password
+
+// begin::reset-password-masyarakat
+$route['desa/manajemen-pengguna/masyarakat']            = 'Desa/Manajemen_pengguna/masyarakat';
+$route['desa/manajemen-pengguna/get-masyarakat']        = 'Desa/Manajemen_pengguna/get_masyarakat';
+$route['desa/manajemen-pengguna/reset-password/store']  = 'Desa/Manajemen_pengguna/store_reset_password_masyarakat';
+$route['desa/manajemen-pengguna/reset-password/(:any)'] = 'Desa/Manajemen_pengguna/reset_password_masyarakat/$1';
+// end::reset-password-masyarakat
+
 // end::DESA
 
 // begin::CAPIL
@@ -164,6 +195,11 @@ $route['capil/pengajuan/penerbitan-ktp-baru/data-pengajuan']        = 'Capil/Pen
 $route['capil/pengajuan/penerbitan-ktp-baru/set-status-pengajuan']  = 'Capil/Penerbitan_ktp/set_status_pengajuan';
 $route['capil/pengajuan/penerbitan-ktp-baru/show/(:any)']           = 'Capil/Penerbitan_ktp/show/$1';
 // end::penerbitan-ktp
+
+// begin::ubah-password
+$route['capil/manajemen-pengguna/ubah-password']        = 'Capil/Manajemen_pengguna/ubah_password';
+$route['capil/manajemen-pengguna/ubah-password/store']  = 'Capil/Manajemen_pengguna/store_ubah_password';
+// end::ubah-password
 // end::CAPIL
 
 // begin::UMUM
@@ -193,9 +229,14 @@ $route['umum/pengajuan/penerbitan-ktp-baru/store']      = 'Umum/Penerbitan_ktp/s
 // end::penerbitan-ktp-baru
 
 // begin::identitas-desa
-$route['umum/identitas-desa'] = 'Umum/Identitas_desa/index';
-$route['umum/identitas-desa/kades'] = 'Umum/Identitas_desa/kades_index';
-$route['umum/identitas-desa/sekdes'] = 'Umum/Identitas_desa/sekdes_index';
+$route['umum/identitas-desa']           = 'Umum/Identitas_desa/index';
+$route['umum/identitas-desa/kades']     = 'Umum/Identitas_desa/kades_index';
+$route['umum/identitas-desa/sekdes']    = 'Umum/Identitas_desa/sekdes_index';
 // end::identitas-desa
+
+// begin::ubah-password
+$route['umum/manajemen-pengguna/ubah-password']         = 'Umum/Manajemen_pengguna/ubah_password';
+$route['umum/manajemen-pengguna/ubah-password/store']   = 'Umum/Manajemen_pengguna/store_ubah_password';
+// end::ubah-password
 
 // end::UMUM

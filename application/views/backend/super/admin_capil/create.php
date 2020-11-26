@@ -32,7 +32,9 @@
 </div>
 
 <script>
+$('.preloader').fadeOut();
 $('#admin-capil-form').submit(function(e) {
+    $('.preloader').fadeIn();
     e.preventDefault();
 
     $.ajax({
@@ -42,6 +44,7 @@ $('#admin-capil-form').submit(function(e) {
         contentType: false,
         processData: false,
         success: function(data) {
+            $('.preloader').fadeOut();
             console.log(data);
             bootbox.alert('Data berhasil dibuat', function() {
                 window.location = '<?= base_url('super/admin-capil'); ?>'

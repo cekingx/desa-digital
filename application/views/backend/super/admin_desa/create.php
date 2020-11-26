@@ -67,9 +67,11 @@ var KTSelect2 = function () {
 // Initialization
 jQuery(document).ready(function () {
     KTSelect2.init();
+    $('.preloader').fadeOut();
 });
 
 $('#admin-desa-form').submit(function(e) {
+    $('.preloader').fadeIn();
     e.preventDefault();
 
     $.ajax({
@@ -79,12 +81,14 @@ $('#admin-desa-form').submit(function(e) {
         contentType: false,
         processData: false,
         success: function(data) {
+            $('.preloader').fadeOut();
             console.log(data);
             bootbox.alert("Berhasil membuat admin desa", function() {
                 window.location = '<?= base_url('super/admin-desa') ?>'
             })
         },
         error: function(error) {
+            $('.preloader').fadeOut();
             console.log(error);
         }
     });
