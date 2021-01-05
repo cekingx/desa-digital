@@ -7,6 +7,8 @@ class Manajemen_pengguna extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Super/Manajemen_pengguna_model', 'manajemen_pengguna_model');
+        $this->load->helper('check_login_helper');
+        check_login($this->session);
     }
 
     public function ubah_password()

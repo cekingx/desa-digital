@@ -10,6 +10,8 @@ class Penerbitan_kk extends CI_Controller
         $this->load->model('Data_masyarakat_model');
         $this->load->model('Pengajuan_model');
         $this->load->model('Penerbitan_kk_model');
+        $this->load->helper('check_login_helper');
+        check_login($this->session);
     }
 
     private function set_partial_data($content)

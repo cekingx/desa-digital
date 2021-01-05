@@ -8,6 +8,8 @@ class F101 extends CI_Controller
         parent::__construct();
         $this->load->model('Data_masyarakat_model');
         $this->load->model('Umum/F101_model', 'f101_model');
+        $this->load->helper('check_login_helper');
+        check_login($this->session);
     }
 
     public function show($f101_id)

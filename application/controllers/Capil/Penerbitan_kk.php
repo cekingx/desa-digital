@@ -8,6 +8,8 @@ class Penerbitan_kk extends CI_Controller
         parent::__construct();
         $this->load->model('Capil/Penerbitan_kk_model', 'penerbitan_kk_model');
         $this->load->model('Ref_model');
+        $this->load->helper('check_login_helper');
+        check_login($this->session);
     }
 
     public function index()

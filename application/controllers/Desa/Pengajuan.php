@@ -11,6 +11,8 @@ class Pengajuan extends CI_Controller
         $this->load->model('Data_masyarakat_model');
         $this->load->model('Identitas_desa_model');
         $this->load->model('Ref_model');
+        $this->load->helper('check_login_helper');
+        check_login($this->session);
     }
 
     private function set_partial_data($content)

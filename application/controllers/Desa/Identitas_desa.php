@@ -7,6 +7,8 @@ class Identitas_desa extends CI_Controller
     {
         parent::__construct(); 
         $this->load->model('identitas_desa_model');
+        $this->load->helper('check_login_helper');
+        check_login($this->session);
     }
 
     public function index()

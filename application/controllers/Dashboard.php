@@ -12,6 +12,8 @@ class Dashboard extends CI_Controller
         $this->load->model('Dashboard_model', 'model');
         $this->load->model('identitas_desa_model');
         $this->load->helper(array('url', 'file'));
+        $this->load->helper('check_login_helper');
+        check_login($this->session);
     }
 
     public function index()

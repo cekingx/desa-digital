@@ -7,6 +7,8 @@ class Penerbitan_ktp extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Umum/Penerbitan_ktp_model', 'penerbitan_ktp_model');
+        $this->load->helper('check_login_helper');
+        check_login($this->session);
     }
 
     public function penerbitan_ktp_baru()

@@ -8,6 +8,8 @@ class Dashboard extends CI_Controller
         parent::__construct();
         $this->load->model('Identitas_desa_model');
         $this->load->helper('authorization_helper');
+        $this->load->helper('check_login_helper');
+        check_login($this->session);
     }
 
     private function set_partial_data($content)
