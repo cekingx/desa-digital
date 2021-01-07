@@ -73,9 +73,7 @@ class Identitas_desa extends CI_Controller
         $wilayah_id = $this->session->userdata('wilayah_id');
         $this->identitas_desa_model->update_kades($wilayah_id);
 
-        echo json_encode(array(
-            'msg' => 'Success'
-        ));
+        redirect('desa/identitas-desa/kades');
     }
 
     public function sekdes_index()
@@ -107,8 +105,6 @@ class Identitas_desa extends CI_Controller
         $wilayah_id = $this->session->userdata('wilayah_id');
         $this->identitas_desa_model->update_sekdes($wilayah_id);
 
-        echo json_encode(array(
-            'msg' => 'Success'
-        ));
+        redirect('desa/identitas-desa/sekdes');
     }
 }
