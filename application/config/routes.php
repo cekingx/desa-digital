@@ -110,7 +110,7 @@ $route['desa/identitas-desa/sekdes/update']     = 'Desa/Identitas_desa/sekdes_up
 //banjar
 $route['desa/identitas-desa/banjar']                           = 'Desa/Banjar/index';
 $route['desa/identitas-desa/banjar/create']                    = 'Desa/Banjar/create';
-$route['desa/identitas-desa/banjar/edit']                      = 'Desa/Banjar/edit';
+$route['desa/identitas-desa/banjar/edit/(:any)']               = 'Desa/Banjar/edit/$1';
 $route['desa/identitas-desa/banjar/update']                    = 'Desa/Banjar/update';
 $route['desa/identitas-desa/banjar/store']                     = 'Desa/Banjar/store';
 $route['desa/identitas-desa/banjar/data']                      = 'Desa/Banjar/banjar_data';
