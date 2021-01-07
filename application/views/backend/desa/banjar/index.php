@@ -167,6 +167,6 @@
     });
 
     $('.btnNew').click(function() {
-        window.location = '<?= base_url('desa/banjar/create') ?>'
+        window.location = '<?= base_url('desa/identitas-desa/banjar/create') ?>'
     })
 </script>
